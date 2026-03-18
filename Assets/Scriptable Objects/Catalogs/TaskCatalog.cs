@@ -11,9 +11,9 @@ namespace Scriptable_Objects.Catalogs
     {
         [SerializeField] private List<TaskDef> allTasks;
         
-        // Access by name
+        // Доступ по названию.
         private Dictionary<string, TaskDef> _tasksByName;
-        // Readonly property
+        // Readonly property.
         public IReadOnlyList<TaskDef> AllTasks => allTasks;
 
         private void OnEnable()
@@ -50,7 +50,7 @@ namespace Scriptable_Objects.Catalogs
                 string path = UnityEditor.AssetDatabase.GUIDToAssetPath(guid);
                 var task = UnityEditor.AssetDatabase.LoadAssetAtPath<TaskDef>(path);
                 
-                if (task != null)
+                if (task)
                     allTasks.Add(task);
             }
             

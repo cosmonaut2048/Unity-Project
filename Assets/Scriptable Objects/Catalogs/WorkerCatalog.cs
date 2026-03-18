@@ -8,13 +8,13 @@ namespace Scriptable_Objects.Catalogs
     [CreateAssetMenu(fileName = "WorkerCatalog", menuName = "Scriptable Objects/Catalogs/WorkerCatalog")]
     public class WorkerCatalog : ScriptableObject
     {
-        [SerializeField] private List<Worker> allWorkers;
+        [SerializeField] private List<WorkerDef> allWorkers;
         
-        // Access by name
-        private Dictionary<string, Worker> _workersByName;
+        // Доступ по имени.
+        private Dictionary<string, WorkerDef> _workersByName;
     
         // Readonly property
-        public IReadOnlyList<Worker> AllWorkers => allWorkers;
+        public IReadOnlyList<WorkerDef> AllWorkers => allWorkers;
         
         private void OnEnable()
         {
@@ -23,7 +23,7 @@ namespace Scriptable_Objects.Catalogs
         
         private void InitializeDictionary()
         {
-            _workersByName = new Dictionary<string, Worker>();
+            _workersByName = new Dictionary<string, WorkerDef>();
             foreach (var worker in allWorkers)
             {
                 if (worker != null)
@@ -31,7 +31,7 @@ namespace Scriptable_Objects.Catalogs
             }
         }
 
-        public Worker GetWorkerByName(string workerName)
+        public WorkerDef GetWorkerByName(string workerName)
         {
             if (_workersByName == null)
                 InitializeDictionary();
@@ -39,13 +39,8 @@ namespace Scriptable_Objects.Catalogs
             return _workersByName.GetValueOrDefault(workerName);
             
         }
-
-        public List<Worker> GetWorkerByTrait(TraitDef trait)
-        {
-            return allWorkers.Where(w => w.personalityTrait == trait).ToList();
-        }
     
-        public Worker GetRandomWorker()
+        public WorkerDef GetRandomWorker()
         {
             if (allWorkers.Count == 0)
             {
@@ -56,9 +51,9 @@ namespace Scriptable_Objects.Catalogs
             return allWorkers[Random.Range(0, allWorkers.Count)];
         }
     
-        private Worker CreateDefaultWorker()
+        private WorkerDef CreateDefaultWorker()
         {
-            return ScriptableObject.CreateInstance<Worker>();
+            return ScriptableObject.CreateInstance<WorkerDef>();
         }
         
         // private void ShuffleList<T>(List<T> list)

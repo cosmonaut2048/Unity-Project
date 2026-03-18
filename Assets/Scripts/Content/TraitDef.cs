@@ -1,3 +1,4 @@
+using Runtime;
 using UnityEngine;
 
 namespace Content
@@ -7,32 +8,37 @@ namespace Content
     {
         public string traitName;
         public string traitDescription;
-        // public string shortInfo;
-        // shortInfo - короткое описание (напр. "+1 к социальным навыкам")
+        public string shortInfo; // Короткое описание (напр. "+1 к социальным навыкам"). Возможно добавить выделение цветом в UI (нужно создать отдельный класс).
         
-        // Skill modifiers
+        // Пассивные модификаторы навыков (не зависят от чего-либо, выполняются всегда).
         public virtual int ModifyPatience(int baseValue) => baseValue;
         public virtual int ModifySocial(int baseValue) => baseValue;
         public virtual int ModifyIntellectual(int baseValue) => baseValue;
         public virtual int ModifyPhysical(int baseValue) => baseValue;
+        
+        // Модификаторы навыков по условию.
+        public virtual int ModifyPatienceConditional(int baseValue, TaskRuntime task) => baseValue;
+        public virtual int ModifySocialConditional(int baseValue, TaskRuntime task) => baseValue;
+        public virtual int ModifyIntellectualConditional(int baseValue, TaskRuntime task) => baseValue;
+        public virtual int ModifyPhysicalConditional(int baseValue, TaskRuntime task) => baseValue;
 
-        // Productivity modifiers
-        public virtual int OnMorningCoffee(int baseProductivity, bool hadCoffee) => baseProductivity;
+        // Модификаторы продуктивности.
+        public virtual int OnMorningCoffeeProductivity(int baseProductivity, bool hadCoffee) => baseProductivity;
         public virtual int OnStartOfDayProductivity(int baseProductivity, bool hadCoffeeToday) => baseProductivity;
         
-        // Loyalty modifiers
-        public virtual int OnNoBreakPenalty(int baseLoyalty, int daysWithoutBreak) => baseLoyalty;
+        // Модификаторы преданности.
+        public virtual int OnNoBreakLoyaltyPenalty(int baseLoyalty, int daysWithoutBreak) => baseLoyalty;
         
-        // Extra
-        public virtual void OnDayStart(Worker worker) { }
-        public virtual void OnDayEnd(Worker worker) { }
-        public virtual void OnBreak(Worker worker) { }
-        public virtual void OnCoffee(Worker worker) { }
-        
-        // Task-related
+        // Выполнение заданий.
         public virtual int OnTaskProductivity(int baseProductivity, int teammatesAmount) => baseProductivity;
         public virtual int OnTaskProductivity(int baseProductivity) => baseProductivity;
         public virtual int OnTaskLoyalty(int baseLoyalty, int teammatesAmount) => baseLoyalty;
         public virtual int OnTaskLoyalty(int baseLoyalty) => baseLoyalty;
+        
+        // Остальное.
+        public virtual void OnDayStart(WorkerDef workerDef) { }
+        public virtual void OnDayEnd(WorkerDef workerDef) { }
+        public virtual void OnBreak(WorkerDef workerDef) { }
+        public virtual void OnCoffee(WorkerDef workerDef) { }
     }
 }

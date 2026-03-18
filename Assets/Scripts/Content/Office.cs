@@ -8,6 +8,6 @@ namespace Content
     public class Office : ScriptableObject
     {
         [CanBeNull] public List<OfficeItem> inventory = new List<OfficeItem>();
-        [CanBeNull]public List<Worker> hiredWorkers = new List<Worker>();
+        [CanBeNull]public List<WorkerDef> hiredWorkers = new List<WorkerDef>();
     }
 }

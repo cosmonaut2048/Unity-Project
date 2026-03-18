@@ -6,8 +6,8 @@ namespace Scriptable_Objects.Trait_Definitions
     [CreateAssetMenu(fileName = "SicklyTraitDef", menuName = "Scriptable Objects/Traits/SicklyTraitDef")]
     public class SicklyTraitDef : TraitDef
     {
-        // Can randomly miss work
-        public override void OnDayStart(Worker worker)
+        // Рандомно может пропустить рабочий день.
+        public override void OnDayStart(WorkerDef workerDef)
         {
             Debug.Log("Trait Not Implemented");   
         }

@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Content
@@ -13,19 +14,16 @@ namespace Content
         public string taskDescription;
 
         [Header("Time and workers needed")]
-        public int duration;
-        public int workerAmountRequired;
+        public int duration; // Длина задания (в днях).
+        public int workerAmountRequired; // Минимум работников.
         
-        [Header("Required skills")]
+        [Header("Required skills")] // Пороги проверки.
         public int patienceRequired;
         public int socialRequired;
         public int intellectualRequired;
         public int physicalRequired;
         
-        [Header("Reward(s)")]
-        [CanBeNull] public OfficeItem[] reward;
-        
-        [Header("Gear")]
-        [CanBeNull] public OfficeItem[] gear; // Gear is chosen by player from inventory
+        [Header("Reward(s)")] // Награда (предметы).
+        [CanBeNull] public List<OfficeItem> reward;
     }
 }

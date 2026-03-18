@@ -7,7 +7,7 @@ namespace Core
     [CreateAssetMenu(fileName = "WorkDayStart", menuName = "Scriptable Objects/Core/WorkDayStart")]
     public class WorkDayStart : ScriptableObject
     {
-        private void CalculateProductivity(List<Worker> workers)
+        private void CalculateProductivity(List<WorkerDef> workers)
         {
             
         }

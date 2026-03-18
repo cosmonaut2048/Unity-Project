@@ -9,9 +9,9 @@ namespace Scriptable_Objects.Catalogs
     {
         [SerializeField] private List<TraitDef> allTraits;
         
-        // Access by name
+        // Доступ по названию.
         private Dictionary<string, TraitDef> _traitsByName;
-        // Readonly property
+        // Readonly property.
         public IReadOnlyList<TraitDef> AllTraits => allTraits;
 
         private void OnEnable()
@@ -56,7 +56,7 @@ namespace Scriptable_Objects.Catalogs
                 string path = UnityEditor.AssetDatabase.GUIDToAssetPath(guid);
                 var trait = UnityEditor.AssetDatabase.LoadAssetAtPath<TraitDef>(path);
                 
-                if (trait != null)
+                if (trait)
                     allTraits.Add(trait);
             }
             

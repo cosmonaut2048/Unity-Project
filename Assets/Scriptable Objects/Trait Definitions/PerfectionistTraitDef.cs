@@ -6,7 +6,7 @@ namespace Scriptable_Objects.Trait_Definitions
     [CreateAssetMenu(fileName = "PerfectionistTraitDef", menuName = "Scriptable Objects/Traits/PerfectionistTraitDef")]
     public class PerfectionistTraitDef : TraitDef
     {
-        // Works better, gets tired faster
+        // Работает лучше, быстрее устаёт.
         private readonly int _perfectionistBonus = 20;
         
         public override int OnStartOfDayProductivity(int baseProductivity, bool hadCoffeeToday)
@@ -14,7 +14,7 @@ namespace Scriptable_Objects.Trait_Definitions
             return _perfectionistBonus + baseProductivity;
         }
         
-        public override int OnNoBreakPenalty(int baseLoyalty, int daysWithoutBreak)
+        public override int OnNoBreakLoyaltyPenalty(int baseLoyalty, int daysWithoutBreak)
         {
             if (daysWithoutBreak > 2)
             {
