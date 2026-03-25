@@ -2,8 +2,8 @@
 
 namespace Content
 {
-    [CreateAssetMenu(fileName = "Item", menuName = "Scriptable Objects/Content/Item")]
-    public class OfficeItem : ScriptableObject
+    [CreateAssetMenu(fileName = "Item", menuName = "Scriptable Objects/Content/ItemDef")]
+    public class ItemDef : ScriptableObject
     {
         [Header("Basic Info")] 
         public string itemName;

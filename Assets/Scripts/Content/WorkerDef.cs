@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 
 namespace Content
 {
-    [CreateAssetMenu(fileName = "Worker", menuName = "Scriptable Objects/Content/Worker")]
+    [CreateAssetMenu(fileName = "Worker", menuName = "Scriptable Objects/Content/WorkerDef")]
     public class WorkerDef : ScriptableObject
     {
         [Header("Basic Info")]

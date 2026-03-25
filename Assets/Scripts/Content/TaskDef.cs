@@ -8,6 +8,7 @@ namespace Content
     public class TaskDef : ScriptableObject
     {
         [SerializeField] private int maxWorkerAmount = 4;
+        public int MaxWorkerAmount => maxWorkerAmount;
         
         [Header("Name and description")]
         public string taskName;
@@ -24,6 +25,6 @@ namespace Content
         public int physicalRequired;
         
         [Header("Reward(s)")] // Награда (предметы).
-        [CanBeNull] public List<OfficeItem> reward;
+        [CanBeNull] public List<ItemDef> reward;
     }
 }

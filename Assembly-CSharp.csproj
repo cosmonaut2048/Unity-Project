@@ -56,6 +56,7 @@
     <Compile Include="Assets\Scripts\Gameflow\Sceneflow.cs" />
     <Compile Include="Assets\Scripts\Runtime\WorkerRuntime.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
+    <Compile Include="Assets\Scripts\Core\QuotaLogic\QuotaCalculator.cs" />
     <Compile Include="Assets\Scripts\Core\WorkerLogic\CalculatedSkills.cs" />
     <Compile Include="Assets\Scripts\UI\EventPopupView.cs" />
     <Compile Include="Assets\Scripts\UI\SettingController.cs" />
@@ -90,14 +91,11 @@
     <Compile Include="Assets\Scripts\UI\WorkerCardView.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
-    <Compile Include="Assets\Scripts\Content\OfficeItem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\Core\DayCycleManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
-    <Compile Include="Assets\Scripts\Util\RngUtil.cs" />
-    <Compile Include="Assets\Scriptable Objects\Trait Definitions\InternTraitDef.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingScreenView.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
@@ -109,6 +107,7 @@
     <Compile Include="Assets\Scripts\UI\HireController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
+    <Compile Include="Assets\Scripts\Content\ItemDef.cs" />
     <Compile Include="Assets\Scripts\Services\SaveService.cs" />
     <Compile Include="Assets\Scripts\Core\WorkDayStart.cs" />
     <Compile Include="Assets\Scripts\Runtime\TaskRuntime.cs" />
@@ -125,12 +124,11 @@
     <Compile Include="Assets\Scripts\Core\TaskLogic\TaskPicker.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\IntrovertTraitDef.cs" />
     <Compile Include="Assets\Scripts\Core\TaskLogic\TaskResolver.cs" />
-    <Compile Include="Assets\Scripts\Util\Clamp.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\PerfectionistTraitDef.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\NeuroticTraitDef.cs" />
-    <Compile Include="Assets\Scriptable Objects\Trait Definitions\ExperiencedTraitDef.cs" />
     <Compile Include="Assets\Scripts\Content\Office.cs" />
+    <Compile Include="Assets\Scripts\Runtime\OfficeRuntime.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Roboto-Bold - License.txt" />

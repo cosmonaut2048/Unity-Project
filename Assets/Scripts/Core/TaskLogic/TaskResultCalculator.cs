@@ -1,8 +1,11 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Content;
 using Core.WorkerLogic;
 using Runtime;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Core.TaskLogic
 {
@@ -124,6 +127,8 @@ namespace Core.TaskLogic
         /// <returns>Пройдена ли проверка одного навыка.</returns>
         private bool IsSkillSuccess(List<int> rolls, int skillRequired)
         {
+            if (skillRequired == 0)
+                return true;
             foreach (var roll in rolls)
             {
                 if (roll >= skillRequired)
@@ -162,14 +167,10 @@ namespace Core.TaskLogic
             int criticalSuccessAmount = 0;
             
             // Фиксируем количество критических успехов.
-            if (IsCriticalSuccess(patienceRolls, task.patienceRequired))
-                criticalSuccessAmount++;
-            if (IsCriticalSuccess(socialRolls, task.socialRequired))
-                criticalSuccessAmount++;
-            if (IsCriticalSuccess(intellectualRolls, task.intellectualRequired))
-                criticalSuccessAmount++;
-            if (IsCriticalSuccess(physicalRolls, task.physicalRequired))
-                criticalSuccessAmount++;
+            criticalSuccessAmount += CriticalSuccessInRollCount(patienceRolls, task.patienceRequired); 
+            criticalSuccessAmount += CriticalSuccessInRollCount(socialRolls, task.socialRequired);
+            criticalSuccessAmount += CriticalSuccessInRollCount(intellectualRolls, task.intellectualRequired);
+            criticalSuccessAmount += CriticalSuccessInRollCount(physicalRolls, task.physicalRequired);
             
             return criticalSuccessAmount;
         }
@@ -189,16 +190,44 @@ namespace Core.TaskLogic
             int criticalFailureAmount = 0;
             
             // Фиксируем количество критических провалов.
-            if (IsCriticalFailure(patienceRolls, task.patienceRequired))
-                criticalFailureAmount++;
-            if (IsCriticalFailure(socialRolls, task.socialRequired))
-                criticalFailureAmount++;
-            if (IsCriticalSuccess(intellectualRolls, task.intellectualRequired))
-                criticalFailureAmount++;
-            if (IsCriticalSuccess(physicalRolls, task.physicalRequired))
-                criticalFailureAmount++;
+            criticalFailureAmount += CriticalFailureInRollCount(patienceRolls, task.patienceRequired); 
+            criticalFailureAmount += CriticalFailureInRollCount(socialRolls, task.socialRequired);
+            criticalFailureAmount += CriticalFailureInRollCount(intellectualRolls, task.intellectualRequired);
+            criticalFailureAmount += CriticalFailureInRollCount(physicalRolls, task.physicalRequired);
             
             return criticalFailureAmount;
+        }
+        
+        /// <summary>
+        /// Считает количество критических успехов на одном броске.
+        /// </summary>
+        /// <param name="rolls">Список результатов бросков кубика.</param>
+        /// <param name="skillRequired">Порог проверки.</param>
+        /// <returns></returns>
+        private int CriticalSuccessInRollCount(List<int> rolls, int skillRequired)
+        {
+            int result = 0;
+            
+            if (skillRequired != 0)
+                result = rolls.Count(x => x.Equals(_criticalSuccess));
+            
+            return result;
+        }
+
+        /// <summary>
+        /// Считает количество критических провалов на одном броске.
+        /// </summary>
+        /// <param name="rolls">Список результатов бросков кубика.</param>
+        /// <param name="skillRequired">Порог проверки.</param>
+        /// <returns></returns>
+        private int CriticalFailureInRollCount(List<int> rolls, int skillRequired)
+        {
+            int result = 0;
+            
+            if (skillRequired != 0)
+                result = rolls.Count(x => x.Equals(_criticalFailure));
+            
+            return result;
         }
         
         /// <summary>
@@ -208,6 +237,7 @@ namespace Core.TaskLogic
         /// <param name="rolls">Список результатов бросков кубика.</param>
         /// <param name="skillRequired">Порог проверки.</param>
         /// <returns>Есть ли критический провал.</returns>
+        [Obsolete("IsCriticalFailure больше не используется -- заменён на CriticalFailureInRollCount.")]
         private bool IsCriticalFailure(List<int> rolls, int skillRequired)
         {
             return rolls.Contains(_criticalFailure) && skillRequired != 0;
@@ -220,6 +250,7 @@ namespace Core.TaskLogic
         /// <param name="rolls">Список результатов бросков кубика.</param>
         /// <param name="skillRequired">Порог проверки.</param>
         /// <returns>Есть ли критический успех.</returns>
+        [Obsolete("IsCriticalSuccess больше не используется -- заменён на CriticalSuccessInRollCount.")]
         private bool IsCriticalSuccess(List<int> rolls, int skillRequired)
         {
             return rolls.Contains(_criticalSuccess) && skillRequired != 0;

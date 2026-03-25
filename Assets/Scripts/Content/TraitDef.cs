@@ -9,6 +9,10 @@ namespace Content
         public string traitName;
         public string traitDescription;
         public string shortInfo; // Короткое описание (напр. "+1 к социальным навыкам"). Возможно добавить выделение цветом в UI (нужно создать отдельный класс).
+
+        [Header("Trait Rules")] 
+        public string traitId;
+        public string exclusiveGroupId;
         
         // Пассивные модификаторы навыков (не зависят от чего-либо, выполняются всегда).
         public virtual int ModifyPatience(int baseValue) => baseValue;
@@ -23,7 +27,7 @@ namespace Content
         public virtual int ModifyPhysicalConditional(int baseValue, TaskRuntime task) => baseValue;
 
         // Модификаторы продуктивности.
-        public virtual int OnMorningCoffeeProductivity(int baseProductivity, bool hadCoffee) => baseProductivity;
+        public virtual int OnCoffeeProductivity(int baseProductivity) => baseProductivity;
         public virtual int OnStartOfDayProductivity(int baseProductivity, bool hadCoffeeToday) => baseProductivity;
         
         // Модификаторы преданности.
@@ -34,11 +38,13 @@ namespace Content
         public virtual int OnTaskProductivity(int baseProductivity) => baseProductivity;
         public virtual int OnTaskLoyalty(int baseLoyalty, int teammatesAmount) => baseLoyalty;
         public virtual int OnTaskLoyalty(int baseLoyalty) => baseLoyalty;
+        public virtual bool OnTaskFreezeProductivity(WorkerRuntime worker) => false;
+        public virtual bool OnTaskFreezeLoyalty(WorkerRuntime worker) => false;
         
         // Остальное.
-        public virtual void OnDayStart(WorkerDef workerDef) { }
-        public virtual void OnDayEnd(WorkerDef workerDef) { }
-        public virtual void OnBreak(WorkerDef workerDef) { }
-        public virtual void OnCoffee(WorkerDef workerDef) { }
+        public virtual void OnDayStart(WorkerRuntime workerRuntime) { }
+        public virtual void OnDayEnd(WorkerRuntime workerRuntime) { }
+        public virtual void OnBreak(WorkerRuntime workerRuntime) { }
+        public virtual void OnCoffee(WorkerRuntime workerRuntime) { }
     }
 }
