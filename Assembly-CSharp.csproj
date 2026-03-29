@@ -47,12 +47,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
+    <Compile Include="Assets\Scripts\Core\DayLogic\TickCalculation\ProductivityTickCalculator.cs" />
     <Compile Include="Assets\Scripts\Core\TaskLogic\TaskResultCalculator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Scripts\Core\GameProcess.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\WorkaholicTraitDef.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\CoffeeAddictTraitDef.cs" />
+    <Compile Include="Assets\Scripts\Core\QuotaLogic\Quota.cs" />
     <Compile Include="Assets\Scripts\Gameflow\Sceneflow.cs" />
     <Compile Include="Assets\Scripts\Runtime\WorkerRuntime.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -60,6 +62,7 @@
     <Compile Include="Assets\Scripts\Core\WorkerLogic\CalculatedSkills.cs" />
     <Compile Include="Assets\Scripts\UI\EventPopupView.cs" />
     <Compile Include="Assets\Scripts\UI\SettingController.cs" />
+    <Compile Include="Assets\Scripts\Core\DayLogic\TickCalculation\LoyaltyTickCalculator.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\AdventurousTraitDef.cs" />
     <Compile Include="Assets\Scripts\UI\StatsController.cs" />
     <Compile Include="Assets\Scripts\Content\TraitDef.cs" />
@@ -68,7 +71,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\Scripts\UI\HiringScreen\WorkerGameObjectScript.cs" />
-    <Compile Include="Assets\Scripts\Runtime\BusyReason.cs" />
     <Compile Include="Assets\Scripts\Core\WorkerLogic\WorkerSkillsCalculator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\HomebodyTraitDef.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\Content\TaskDef.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
+    <Compile Include="Assets\Scripts\Content\BusyReason.cs" />
     <Compile Include="Assets\Scriptable Objects\Catalogs\WorkerCatalog.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
@@ -83,11 +86,13 @@
     <Compile Include="Assets\Scripts\Core\TaskLogic\WorkerTaskResult.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\SlackerTraitDef.cs" />
+    <Compile Include="Assets\Scripts\Generators\WorkerGenerator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\Core\TaskLogic\TotalTaskResult.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\SicklyTraitDef.cs" />
+    <Compile Include="Assets\Scripts\Core\DayLogic\DayEndCalculator.cs" />
     <Compile Include="Assets\Scripts\UI\WorkerCardView.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
@@ -119,9 +124,11 @@
     <Compile Include="Assets\Scripts\Content\WorkerDef.cs" />
     <Compile Include="Assets\Scriptable Objects\Item Definitions\Coffee.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
+    <Compile Include="Assets\Scripts\Content\IncompatableWithAttribute.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Core\TaskLogic\TaskPicker.cs" />
+    <Compile Include="Assets\Scripts\Core\DayLogic\DayStartCalculator.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\IntrovertTraitDef.cs" />
     <Compile Include="Assets\Scripts\Core\TaskLogic\TaskResolver.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />

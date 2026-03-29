@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Scriptable_Objects.Trait_Definitions
 {
     [CreateAssetMenu(fileName = "AdventurousTraitDef", menuName = "Scriptable Objects/Traits/AdventurousTraitDef")]
+    [IncompatibleWith(typeof(HomebodyTraitDef))]  
     public class AdventurousTraitDef : TraitDef
     {
         // Когда на задании:

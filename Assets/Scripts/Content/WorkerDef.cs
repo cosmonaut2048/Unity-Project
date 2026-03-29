@@ -21,5 +21,13 @@ namespace Content
         
         [Header("Personality traits")]
         [CanBeNull] public List<TraitDef> personalityTraits;
+
+        private readonly int _baseNoBreakThreshold = 3;
+        private readonly int _baseLoyaltyTickSize = 5;
+        private readonly int _baseProductivityTickSize = 20;
+        public int BaseNoBreakThreshold => _baseNoBreakThreshold;
+        public int BaseLoyaltyTickSize => _baseLoyaltyTickSize;
+        public int BaseProductivityTickSize => _baseProductivityTickSize;
     }
 }
+

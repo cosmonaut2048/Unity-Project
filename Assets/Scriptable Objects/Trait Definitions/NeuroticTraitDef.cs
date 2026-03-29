@@ -10,7 +10,7 @@ namespace Scriptable_Objects.Trait_Definitions
         private readonly int _productivityRandMin = -5;
         private readonly int _productivityRandMax = 6;
         
-        public override int OnStartOfDayProductivity(int baseProductivity, bool hadCoffeeToday)
+        public override int OnStartOfDayProductivity(int baseProductivity)
         {
             return baseProductivity - Random.Range(_productivityRandMin, _productivityRandMax) * 10;
         }

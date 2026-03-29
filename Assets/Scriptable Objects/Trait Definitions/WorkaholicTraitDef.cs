@@ -1,27 +1,29 @@
 using Content;
+using Runtime;
 using UnityEngine;
 
 namespace Scriptable_Objects.Trait_Definitions
 {
     [CreateAssetMenu(fileName = "WorkaholicTraitDef", menuName = "Scriptable Objects/Traits/WorkaholicTraitDef")]
+    [IncompatibleWith(typeof(SlackerTraitDefinition))]
     public class WorkaholicTraitDef : TraitDef
     {
+        private readonly int _thresholdBonus = 2;
         // -1 к социальным навыкам.
         public override int ModifySocial(int baseValue) => baseValue - 1;
 
-        // Медленнее устаёт без перекуров.
-        public override int OnNoBreakLoyaltyPenalty(int baseLoyalty, int daysWithoutBreak)
+        // Порог перерывов повышен.
+        public override bool IsUniqueLoyaltyTick() => true;
+        public override int LoyaltyTickSize(WorkerRuntime worker)
         {
-            if (daysWithoutBreak > 4)
-            {
-                int smallerPenalty = (daysWithoutBreak - 4) * 2;
-                return baseLoyalty - smallerPenalty;
-            }
-            return baseLoyalty;
+            if (worker.LastBreakDay < worker.BaseNoBreakThreshold + _thresholdBonus)
+                return 0;
+            return worker.BaseLoyaltyTickSize;
         }
 
-        // Медленнее теряет продуктивность (+10 компенсирует базовые потери).
-        public override int OnStartOfDayProductivity(int baseProductivity, bool hadCoffeeToday) => baseProductivity + 10;
+        // Теряет вдвое меньше продуктивности.
+        public override bool IsUniqueProductivityTick() => true;
+        public override int ProductivityTickSize(WorkerRuntime worker) => worker.BaseProductivityTickSize / 2;
     }
 }
 

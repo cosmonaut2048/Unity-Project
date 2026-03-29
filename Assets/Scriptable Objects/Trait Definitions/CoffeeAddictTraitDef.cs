@@ -13,30 +13,30 @@ namespace Scriptable_Objects.Trait_Definitions
         
         // Пока счётчик не достиг 0, обновить состояние нельзя.
 
-        // private int _caffeineRushCounter;
-        // private readonly int _caffeineRushCounterFresh = 3;
+        private int _caffeineRushCountdown;
+        private readonly int _caffeineRushCountdownFresh = 3;
         
-        // private readonly int _caffeineRushProductivity = 200;
-        // private readonly int _noCaffeineRushProductivity = 200;
+        private readonly int _caffeineRushProductivity = 200;
+        private readonly int _noCaffeineRushProductivity = 50;
         
-        // public override void OnCoffee(WorkerRuntime workerRuntime)
-        // {
-        //     if (_caffeineRushCounter == 0)
-        //         _caffeineRushCounter = _caffeineRushCounterFresh;
-        // }
+        public override void OnCoffee(WorkerRuntime workerRuntime)
+        {
+            if (_caffeineRushCountdown == 0)
+                _caffeineRushCountdown = _caffeineRushCountdownFresh;
+        }
 
-        // public override void OnDayStart(WorkerRuntime workerRuntime)
-        // {
-        //     if (_caffeineRushCounter > 0)
-        //         _caffeineRushCounter--;
-        // }
+        public override void OnStartOfDay(WorkerRuntime workerRuntime)
+        {
+            if (_caffeineRushCountdown > 0)
+                _caffeineRushCountdown--;
+        }
 
-        // public override int OnCoffeeProductivity(int baseProductivity)
-        // {
-        //     if (_caffeineRushCounter != 0)
-        //         return _caffeineRushProductivity;
-        //     
-        //     return _noCaffeineRushProductivity;
-        // }
+        public override int OnCoffeeProductivity(int baseProductivity)
+        {
+            if (_caffeineRushCountdown > 0)
+                return _caffeineRushProductivity;
+            
+            return _noCaffeineRushProductivity;
+        }
     }
 }

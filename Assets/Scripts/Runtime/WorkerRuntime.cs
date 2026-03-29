@@ -8,6 +8,7 @@ namespace Runtime
     public class WorkerRuntime : WorkerDef
     {
         // Worker State.
+        private bool _isEmployed;
         private int _productivity = 100;
         private int _loyalty = 100;
         private int _daysWithoutBreak;
@@ -27,7 +28,17 @@ namespace Runtime
         // Свойства.
         public bool IsEmployed { get; set; }
 
-        public bool HadCoffeeToday { get; set; }
+        public int Productivity
+        {
+            get => _productivity;
+            set => _productivity = Mathf.Clamp(_isProductivityFrozen ? _productivity : value, _productivityMinValue, _productivityMaxValue);
+        }
+
+        public int Loyalty
+        {
+            get => _loyalty;
+            set => _loyalty = Mathf.Clamp(_isLoyaltyFrozen ? _loyalty : value, _loyaltyMinValue, _loyaltyMaxValue);
+        }
 
         public int DaysWithoutBreak
         {
@@ -53,23 +64,25 @@ namespace Runtime
         // Методы.
         public bool IsBusy => _busyReason != BusyReason.None;
         
+        // Больше не используется:
+        
+        [Obsolete("ChangeProductivity больше не используется -- используется свойство Productivity.")]
         public void ChangeProductivity(int delta)
         {
             if (_isProductivityFrozen)
                 return;
-
+        
             _productivity = Mathf.Clamp(_productivity + delta, _productivityMinValue, _productivityMaxValue);
         }
 
+        [Obsolete("ChangeLoyalty больше не используется -- используется свойство Loyalty.")]
         public void ChangeLoyalty(int delta)
         {
             if (_isLoyaltyFrozen)
                 return;
-
+        
             _loyalty = Mathf.Clamp(_loyalty + delta, _loyaltyMinValue, _loyaltyMaxValue);
         }
-        
-        // Больше не используется:
         
         // private int _freezeProductivityDays;
         // private int _freezeLoyaltyDays;

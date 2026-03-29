@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Scriptable_Objects.Trait_Definitions
 {
     [CreateAssetMenu(fileName = "IntrovertTraitDef", menuName = "Scriptable Objects/Traits/IntrovertTraitDef")]
+    [IncompatibleWith(typeof(ExtrovertTraitDef))]
     public class IntrovertTraitDef : TraitDef
     {
         // Если на задании один -- +1 ко всем навыкам кроме социального.

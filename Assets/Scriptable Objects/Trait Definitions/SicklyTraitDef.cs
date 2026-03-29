@@ -9,7 +9,7 @@ namespace Scriptable_Objects.Trait_Definitions
     {
         // Случайно может пропустить рабочий день по болезни, если не находится на задании.
         private readonly int _sickRate = 5;
-        public override void OnDayStart(WorkerRuntime workerDef)
+        public override void OnStartOfDay(WorkerRuntime workerDef)
         {
             if (workerDef.BusyReason == BusyReason.OnTask) return;
             

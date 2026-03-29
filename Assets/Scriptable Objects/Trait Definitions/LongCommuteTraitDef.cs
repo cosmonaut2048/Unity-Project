@@ -9,7 +9,7 @@ namespace Scriptable_Objects.Trait_Definitions
         // Долго добирается до работы: из-за этого продуктивность хуже (в пределах случайности).
         private int _commuteLength;
         
-        public override int OnStartOfDayProductivity(int baseProductivity, bool hadCoffeeToday)
+        public override int OnStartOfDayProductivity(int baseProductivity)
         {
             _commuteLength = Random.Range(1, 6);
             return baseProductivity - _commuteLength * 10;
