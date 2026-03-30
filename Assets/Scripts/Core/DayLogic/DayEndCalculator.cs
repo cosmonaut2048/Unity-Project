@@ -11,7 +11,7 @@ namespace Core.DayLogic
                     trait.OnEndOfDay(worker);
         }
 
-        public void DayEndLoyalty(WorkerRuntime worker, LoyaltyTickCalculator calculator)
+        public void DayEndWorkerLoyalty(WorkerRuntime worker, LoyaltyTickCalculator calculator)
         {
             // Loyalty Tick.
             calculator.LoyaltyTick(worker); // Уникальная логика для черт учитывается.

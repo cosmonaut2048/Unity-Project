@@ -9,5 +9,12 @@ namespace Core.QuotaLogic
         public string quotaName;
         public string quotaDescription;
         public int quotaSize;
+
+        public Quota(string quotaName, string quotaDescription, int quotaSize)
+        {
+            this.quotaName = quotaName;
+            this.quotaDescription = quotaDescription;
+            this.quotaSize = quotaSize;
+        }
     }
 }

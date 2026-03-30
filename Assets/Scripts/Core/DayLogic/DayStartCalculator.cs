@@ -1,4 +1,5 @@
-﻿using Runtime;
+﻿using System.Collections.Generic;
+using Runtime;
 using Random = UnityEngine.Random;
 
 namespace Core.DayLogic
@@ -17,7 +18,7 @@ namespace Core.DayLogic
                     trait.OnStartOfDay(worker);
         }
         
-        public void DayStartProductivity(WorkerRuntime worker, ProductivityTickCalculator calculator)
+        public void DayStartWorkerProductivity(WorkerRuntime worker, ProductivityTickCalculator calculator)
         {
             // Productivity Tick.
             calculator.ProductivityTick(worker); // Уникальная логика для черт учитывается.

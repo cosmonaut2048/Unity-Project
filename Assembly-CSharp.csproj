@@ -120,6 +120,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\Scriptable Objects\Catalogs\TaskCatalog.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\LongCommuteTraitDef.cs" />
+    <Compile Include="Assets\Scripts\Core\QuotaLogic\QuotaResult.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\ExtrovertTraitDef.cs" />
     <Compile Include="Assets\Scripts\Content\WorkerDef.cs" />
     <Compile Include="Assets\Scriptable Objects\Item Definitions\Coffee.cs" />
@@ -134,6 +135,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\PerfectionistTraitDef.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\NeuroticTraitDef.cs" />
+    <Compile Include="Assets\Scripts\Core\QuotaLogic\QuotaGenerator.cs" />
     <Compile Include="Assets\Scripts\Content\Office.cs" />
     <Compile Include="Assets\Scripts\Runtime\OfficeRuntime.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
