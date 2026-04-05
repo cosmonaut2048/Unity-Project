@@ -13,8 +13,8 @@ namespace Core.DayLogic
         
         public void DayStartWorker(WorkerRuntime worker)
         {
-            if (worker.personalityTraits != null)
-                foreach (var trait in worker.personalityTraits)
+            if (worker.PersonalityTraits != null)
+                foreach (var trait in worker.PersonalityTraits)
                     trait.OnStartOfDay(worker);
         }
         
@@ -24,8 +24,8 @@ namespace Core.DayLogic
             calculator.ProductivityTick(worker); // Уникальная логика для черт учитывается.
             
             // Productivity Mod.
-            if (worker.personalityTraits != null)
-                foreach (var trait in worker.personalityTraits)
+            if (worker.PersonalityTraits != null)
+                foreach (var trait in worker.PersonalityTraits)
                     worker.Productivity = trait.OnStartOfDayProductivity(worker.Productivity);
         }
     }

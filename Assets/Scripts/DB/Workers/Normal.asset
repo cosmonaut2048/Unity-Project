@@ -12,18 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeff991e31b102c48b40ac0e24e39124, type: 3}
   m_Name: Normal
   m_EditorClassIdentifier: Assembly-CSharp::Content.Worker
-  workerName: Normal
-  portraitSprite: {fileID: 1977547213100517089, guid: ef634395e6935a04d84659535e3d1dcc, type: 3}
-  fullBodySprite: {fileID: 1977547213100517089, guid: ef634395e6935a04d84659535e3d1dcc, type: 3}
+  appearance: {fileID: 11400000, guid: 5c9fd8a07a3b92c4f8c2c7e936b701db, type: 2}
   basePatience: 3
   baseSocial: 3
   baseIntellectual: 3
-  basePhysical: 2
-  personalityTrait: {fileID: 11400000, guid: 9efe85c93413c764081de289ffd8022a, type: 2}
-  productivity: 100
-  loyalty: 100
-  isEmployed: 0
-  isBusy: 0
-  hadCoffeeToday: 0
-  daysWithoutBreak: 0
-  lastBreakDay: 0
+  basePhysical: 3
+  personalityTraits:
+  - {fileID: 11400000, guid: 9efe85c93413c764081de289ffd8022a, type: 2}
+  - {fileID: 11400000, guid: d6ef4ba152219b6429f0c8e66ce0b150, type: 2}

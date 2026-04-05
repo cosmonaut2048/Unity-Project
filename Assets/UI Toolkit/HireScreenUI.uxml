@@ -1,0 +1,78 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/HireScreenStyles.uss?fileID=7433441132597879392&amp;guid=109f1bd979df9534f9d2fd2971f0bbf4&amp;type=3#HireScreenStyles" />
+    <ui:VisualElement name="Fullscreen" style="flex-grow: 1; width: 100%; height: 100%; align-self: stretch; align-items: center; justify-content: flex-end;">
+        <ui:VisualElement name="Hire_Screen_Container" style="flex-grow: 0; width: 1920px; height: 1080px; justify-content: flex-end; align-items: stretch; right: auto; left: auto; position: absolute;">
+            <ui:VisualElement name="Worker_Portrait_Container" style="flex-grow: 0; position: absolute; width: 38%; height: 95%; padding-bottom: 30px; left: 56%; background-image: none;">
+                <ui:VisualElement name="worker_portrait" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/Portraits/Worker.png?fileID=1977547213100517089&amp;guid=ef634395e6935a04d84659535e3d1dcc&amp;type=3#Worker_0&quot;); -unity-background-scale-mode: scale-to-fit; -unity-background-image-tint-color: rgb(255, 255, 255); background-position-x: center; background-position-y: center; -unity-slice-type: sliced;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Worker_Card_Container" style="flex-grow: 0; width: 30%; height: 95%; position: absolute; margin-bottom: 0; padding-bottom: 30px; left: 25%; background-color: rgba(0, 0, 0, 0);">
+                <ui:VisualElement name="Worker_Card" style="flex-grow: 0; width: 100%; height: 100%; -unity-background-image-tint-color: rgba(0, 0, 0, 0); background-color: rgb(224, 216, 170); padding-right: 5%; padding-left: 5%; padding-top: 3%;">
+                    <ui:Label text="Label" name="worker_card_name" style="height: 8%; font-size: 50px;" />
+                    <ui:VisualElement name="Skill_Paience_Container" class="worker--info--container">
+                        <ui:Label text="Patience" name="label_patience" style="width: 37%; font-size: 32px; white-space: normal;" />
+                        <ui:VisualElement name="Skill_Patience_Cells_Container" style="flex-grow: 0; background-size: 100% 100%; height: 100%; width: 60%; flex-direction: row; align-items: center; justify-content: space-between; padding-left: 2%;">
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Skill_Social_Container" class="worker--info--container">
+                        <ui:Label text="Social&#10;" name="label_social" style="width: 37%; font-size: 32px; white-space: normal; background-color: rgba(0, 0, 0, 0);" />
+                        <ui:VisualElement name="Skill_Social_Cells_Container" style="flex-grow: 0; background-size: 100% 100%; height: 100%; width: 60%; flex-direction: row; align-items: center; justify-content: space-between; padding-left: 2%;">
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Skill_Intellectual_Container" class="worker--info--container">
+                        <ui:Label text="Intellectual" name="label_intellectual" style="width: 37%; font-size: 32px; white-space: normal;" />
+                        <ui:VisualElement name="Skill_Intellectual_Cells_Container" style="flex-grow: 0; background-size: 100% 100%; height: 100%; width: 60%; flex-direction: row; align-items: center; justify-content: space-between; padding-left: 2%;">
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Skill_Physical_Container" class="worker--info--container">
+                        <ui:Label text="Physical&#10;" name="label_physical" style="width: 37%; font-size: 32px; white-space: normal;" />
+                        <ui:VisualElement name="Skill_Physical_Cells_Container" style="flex-grow: 0; background-size: 100% 100%; height: 100%; width: 60%; flex-direction: row; align-items: center; justify-content: space-between; padding-left: 2%;">
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                            <ui:VisualElement name="skill_cell" class="skill--cell--empty" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Trait_1_Container" class="worker--info--container">
+                        <ui:Label text="Personality Trait 2&#10;" name="trait_name" style="width: auto; font-size: 32px; white-space: normal;" />
+                        <ui:Button text="?" name="trait_info_button" style="width: 50px; height: 50px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 30px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Trait_2_Container" class="worker--info--container">
+                        <ui:Label text="Personality Trait 2&#10;" name="trait_name" style="width: auto; font-size: 32px; white-space: normal;" />
+                        <ui:Button text="?" name="trait_info_button" style="width: 50px; height: 50px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 30px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Hire_Stamps_Container" class="worker--info--container" style="flex-grow: 0; background-color: rgba(98, 118, 154, 0); height: 7%; flex-direction: row; align-items: center; justify-content: space-between; padding-right: 2%; padding-left: 2%;">
+                        <ui:Button text="ACCEPT" name="accept_button" style="width: 245px; height: 50px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 35px; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-left-color: rgb(120, 180, 88); border-right-color: rgb(120, 180, 88); border-top-color: rgb(120, 180, 88); border-bottom-color: rgb(120, 180, 88); background-color: rgba(188, 188, 188, 0); color: rgb(120, 180, 88);" />
+                        <ui:Button text="DENY" name="deny_button" style="width: 245px; height: 50px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 35px; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-left-color: rgb(204, 58, 32); border-right-color: rgb(204, 58, 32); border-top-color: rgb(204, 58, 32); border-bottom-color: rgb(204, 58, 32); background-color: rgba(188, 188, 188, 0); color: rgb(204, 58, 32);" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Dialogue_Container" style="flex-grow: 0; height: 45%; justify-content: flex-end; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 100px; margin-bottom: 30px; margin-left: 100px; align-self: stretch; width: auto;">
+                <ui:VisualElement name="Name_Panel" style="flex-grow: 0; position: absolute; width: 20%; height: 100%; background-color: rgb(195, 195, 195); bottom: auto; top: auto; left: auto; right: auto; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; padding-top: 1.5%; padding-right: 1%; padding-left: 1%; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-left-radius: 20px;">
+                    <ui:Label text="Worker Name" name="name_text" style="font-size: 40px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="Dialogue_Panel" style="flex-grow: 0; background-color: rgb(233, 233, 233); width: 100%; height: 80%; justify-content: flex-start; margin-top: 0; padding-top: 2%; padding-right: 3%; padding-bottom: 2%; padding-left: 3%; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px;">
+                    <ui:VisualElement name="Dialogue_Container" style="flex-grow: 0; width: 100%; height: 80%;">
+                        <ui:Label text="Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus ex sapien vitae. Ex sapien vitae pellentesque sem placerat in id. Placerat in id cursus mi pretium tellus duis. Pretium tellus duis convallis tempus leo eu aenean." name="dialogue_text" style="justify-content: flex-start; white-space: normal; font-size: 40px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; width: 100%; height: 100%; text-overflow: clip;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:Button text="--&gt;" name="next_dialogue_button" style="position: absolute; right: 0; bottom: 0; width: 10%; height: 20%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-bottom-right-radius: 20px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

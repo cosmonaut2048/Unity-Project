@@ -6,8 +6,8 @@ namespace Core.DayLogic
     {
         public void DayEndWorker(WorkerRuntime worker)
         {
-            if (worker.personalityTraits != null)
-                foreach (var trait in worker.personalityTraits)
+            if (worker.PersonalityTraits != null)
+                foreach (var trait in worker.PersonalityTraits)
                     trait.OnEndOfDay(worker);
         }
 
@@ -17,8 +17,8 @@ namespace Core.DayLogic
             calculator.LoyaltyTick(worker); // Уникальная логика для черт учитывается.
             
             // Loyalty Mod.
-            if (worker.personalityTraits != null)
-                foreach (var trait in worker.personalityTraits)
+            if (worker.PersonalityTraits != null)
+                foreach (var trait in worker.PersonalityTraits)
                     worker.Loyalty = trait.OnEndOfDayLoyalty(worker.Loyalty);
         }
     }

@@ -11,7 +11,6 @@ namespace Runtime
         private bool _isEmployed;
         private int _productivity = 100;
         private int _loyalty = 100;
-        private int _daysWithoutBreak;
         private int _lastBreakDay;
         
         private BusyReason _busyReason = BusyReason.None;
@@ -22,7 +21,7 @@ namespace Runtime
         // Пограничные значения Productivity и Loyalty.
         private readonly int _productivityMinValue = 0;
         private readonly int _productivityMaxValue = 200;
-        private readonly int _loyaltyMinValue = 100;
+        private readonly int _loyaltyMinValue = 0;
         private readonly int _loyaltyMaxValue = 100;
         
         // Свойства.
@@ -40,12 +39,6 @@ namespace Runtime
             set => _loyalty = Mathf.Clamp(_isLoyaltyFrozen ? _loyalty : value, _loyaltyMinValue, _loyaltyMaxValue);
         }
 
-        public int DaysWithoutBreak
-        {
-            get => _daysWithoutBreak;
-            set => _daysWithoutBreak = Mathf.Max(0, value);
-        }
-
         public int LastBreakDay
         {
             get => _lastBreakDay;
@@ -60,7 +53,7 @@ namespace Runtime
         
         public bool IsProductivityFrozen { get; set; }
         public bool IsLoyaltyFrozen { get; set; }
-
+        
         // Методы.
         public bool IsBusy => _busyReason != BusyReason.None;
         

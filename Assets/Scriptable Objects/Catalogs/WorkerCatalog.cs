@@ -26,18 +26,9 @@ namespace Scriptable_Objects.Catalogs
             _workersByName = new Dictionary<string, WorkerDef>();
             foreach (var worker in allWorkers)
             {
-                if (worker != null)
-                    _workersByName.TryAdd(worker.workerName, worker);
+                if (worker)
+                    _workersByName.TryAdd(worker.Appearance.WorkerName, worker);
             }
-        }
-
-        public WorkerDef GetWorkerByName(string workerName)
-        {
-            if (_workersByName == null)
-                InitializeDictionary();
-            
-            return _workersByName.GetValueOrDefault(workerName);
-            
         }
     
         public WorkerDef GetRandomWorker()
@@ -50,20 +41,6 @@ namespace Scriptable_Objects.Catalogs
         
             return allWorkers[Random.Range(0, allWorkers.Count)];
         }
-    
-        private WorkerDef CreateDefaultWorker()
-        {
-            return ScriptableObject.CreateInstance<WorkerDef>();
-        }
-        
-        // private void ShuffleList<T>(List<T> list)
-        // {
-        //     for (int i = 0; i < list.Count; i++)
-        //     {
-        //         int randomIndex = Random.Range(i, list.Count);
-        //         (list[randomIndex], list[i]) = (list[i], list[randomIndex]);
-        //     }
-        // }
         
     }
 }

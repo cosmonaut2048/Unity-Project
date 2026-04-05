@@ -9,9 +9,9 @@ namespace Core.DayLogic
         // иначе делаем базовое списание.
         public void ProductivityTick(WorkerRuntime worker)
         {
-            if (worker.personalityTraits != null) 
+            if (worker.PersonalityTraits != null) 
             {
-                foreach (var trait in worker.personalityTraits)
+                foreach (var trait in worker.PersonalityTraits)
                 {
                     if (trait.IsUniqueProductivityTick())
                     {

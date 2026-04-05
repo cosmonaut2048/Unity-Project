@@ -15,14 +15,14 @@ namespace Core.WorkerLogic
             CalculatedSkills skills = new CalculatedSkills();
             SkillClamp skillClamp = new SkillClamp();
             
-            int tempPatience = worker.basePatience;
-            int tempSocial = worker.baseSocial;
-            int tempIntellectual = worker.baseIntellectual;
-            int tempPhysical =  worker.basePhysical;
+            int tempPatience = worker.BasePatience;
+            int tempSocial = worker.BaseSocial;
+            int tempIntellectual = worker.BaseIntellectual;
+            int tempPhysical =  worker.BasePhysical;
 
-            if (worker.personalityTraits != null)
+            if (worker.PersonalityTraits != null)
             {
-                foreach (var trait in worker.personalityTraits)
+                foreach (var trait in worker.PersonalityTraits)
                 {
                     tempPatience = trait?.ModifyPatience(tempPatience) ?? tempPatience;
                     tempSocial = trait?.ModifySocial(tempSocial) ?? tempSocial;
@@ -56,9 +56,9 @@ namespace Core.WorkerLogic
             int tempIntellectual = calculatedSkills.SkillIntellectual;
             int tempPhysical = calculatedSkills.SkillPhysical;
 
-            if (worker.personalityTraits != null)
+            if (worker.PersonalityTraits != null)
             {
-                foreach (var trait in worker.personalityTraits)
+                foreach (var trait in worker.PersonalityTraits)
                 {
                     tempPatience = trait?.ModifyPatienceConditional(tempPatience, task) ?? tempPatience;
                     tempSocial = trait?.ModifySocialConditional(tempSocial, task) ?? tempSocial;
