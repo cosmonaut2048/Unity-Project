@@ -900,7 +900,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771a86ed818cf4e41bd81aeb17729fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.HiringScreen.HireController
-  worker: {fileID: 11400000, guid: 03a27c76cbf4a9141bc2fc0f053d81f7, type: 2}
+  candidates:
+  - {fileID: 11400000, guid: b9e43641dfd6acf42877a39211057e9e, type: 2}
+  - {fileID: 11400000, guid: 03a27c76cbf4a9141bc2fc0f053d81f7, type: 2}
+  - {fileID: 11400000, guid: 25400ca7818781947b27117a2ce38606, type: 2}
+  - {fileID: 11400000, guid: 98531543d0276104481edd151d190934, type: 2}
+  - {fileID: 11400000, guid: 124cf846cfc9a6d4dbd118d773d3b21a, type: 2}
+  - {fileID: 11400000, guid: 1fadfd9c292459949828a7bbf3e6391f, type: 2}
 --- !u!1 &748980002
 GameObject:
   m_ObjectHideFlags: 0

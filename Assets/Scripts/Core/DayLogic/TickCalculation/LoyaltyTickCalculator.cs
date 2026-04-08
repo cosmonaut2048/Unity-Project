@@ -14,12 +14,12 @@ namespace Core.DayLogic
                 {
                     if (trait.IsUniqueLoyaltyTick())
                     {
-                        worker.Loyalty -= trait.LoyaltyTickSize(worker);
+                        worker.SetLoyalty = worker.Loyalty - trait.LoyaltyTickSize(worker);
                         return;
                     }
                 }
             }
-            worker.Loyalty -= worker.BaseLoyaltyTickSize;
+            worker.SetLoyalty = worker.Loyalty - worker.BaseLoyaltyTickSize;
         }
     }
 }

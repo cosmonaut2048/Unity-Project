@@ -26,7 +26,7 @@ namespace Core.DayLogic
             // Productivity Mod.
             if (worker.PersonalityTraits != null)
                 foreach (var trait in worker.PersonalityTraits)
-                    worker.Productivity = trait.OnStartOfDayProductivity(worker.Productivity);
+                    worker.SetProductivity = trait.OnStartOfDayProductivity(worker.Productivity);
         }
     }
 }

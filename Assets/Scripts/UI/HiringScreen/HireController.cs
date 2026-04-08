@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Content;
+using Runtime;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,8 +9,10 @@ namespace UI.HiringScreen
 {
     public class HireController : MonoBehaviour
     {
-        [SerializeField] private WorkerDef worker;
+        [SerializeField] private List<WorkerDef> candidates;
+        private List<WorkerRuntime> _hiredWorkers;
         private WorkerDef _worker;
+        private int _currentCandidateIndex;
         
         public WorkerDef Worker
         {
@@ -23,6 +26,8 @@ namespace UI.HiringScreen
                 }
             }
         }
+        
+        public List<WorkerRuntime> HiredWorkers => _hiredWorkers;
         
         // Спрайт портрета и имя работника.
         private VisualElement _workerPortrait;
@@ -50,9 +55,15 @@ namespace UI.HiringScreen
         private List<VisualElement> _socialCells;
         private List<VisualElement> _intellectualCells;
         private List<VisualElement> _physicalCells;
+        
+        // Кнопки.
+        private Button _acceptButton;
+        private Button _denyButton;
 
         void Start()
         {
+            _hiredWorkers = new List<WorkerRuntime>();
+            
             var root = GetComponent<UIDocument>().rootVisualElement;
             
             // Queue:
@@ -74,23 +85,88 @@ namespace UI.HiringScreen
             _trait2InfoCell = root.Q<VisualElement>("trait_2_info_cell");
             _trait2InfoHover =  root.Q<VisualElement>("trait_2_info_hover");
             _trait2Description = root.Q<Label>("trait_2_description");
+            // Кнопки.
+            _acceptButton = root.Q<Button>("accept_button");
+            _denyButton = root.Q<Button>("deny_button");
             
             // Кэшируем ячейки навыков.
             CacheSkillCells();
             
-            // Инициализируем из сериализованного поля.
-            _worker = worker;
-            OnWorkerChanged();
+            // Показываем первого кандидата.
+            if (candidates is { Count: > 0 })
+            {
+                _currentCandidateIndex = 0;
+                _worker = candidates[_currentCandidateIndex];
+                OnWorkerChanged();
+            }
             
             // Скрываем элементы.
             _trait1InfoHover.style.display = DisplayStyle.None;
             _trait2InfoHover.style.display = DisplayStyle.None;
             
-            _trait1InfoCell.RegisterCallback<MouseEnterEvent>(evt => OnInfoCellEnter(_trait1InfoHover));
-            _trait1InfoHover.RegisterCallback<MouseOutEvent>(evt => OnInfoLeave(_trait1InfoHover));
+            // Подписываемся на события.
+            _trait1InfoCell.RegisterCallback<MouseEnterEvent>(_ => OnInfoCellEnter(_trait1InfoHover));
+            _trait1InfoHover.RegisterCallback<MouseOutEvent>(_ => OnInfoLeave(_trait1InfoHover));
     
-            _trait2InfoCell.RegisterCallback<MouseEnterEvent>(evt => OnInfoCellEnter(_trait2InfoHover));
-            _trait2InfoHover.RegisterCallback<MouseOutEvent>(evt => OnInfoLeave(_trait2InfoHover));
+            _trait2InfoCell.RegisterCallback<MouseEnterEvent>(_ => OnInfoCellEnter(_trait2InfoHover));
+            _trait2InfoHover.RegisterCallback<MouseOutEvent>(_ => OnInfoLeave(_trait2InfoHover));
+            
+            _acceptButton.RegisterCallback<ClickEvent>(OnWorkerHired);
+            _denyButton.RegisterCallback<ClickEvent>(OnWorkerDenied);
+        }
+
+        private void OnWorkerHired(ClickEvent evt)
+        {
+            if (!_worker) return;
+    
+            // Создаём WorkerRuntime на основе текущего кандидата.
+            WorkerRuntime hiredWorker = ScriptableObject.CreateInstance<WorkerRuntime>();
+            hiredWorker.InitializeWorkerRuntime(_worker);
+    
+            // Добавляем в список нанятых.
+            _hiredWorkers.Add(hiredWorker);
+    
+            Debug.Log($"Worker hired: {_worker.name}");
+    
+            // Переходим к следующему кандидату.
+            ShowNextCandidate();
+        }
+
+        private void OnWorkerDenied(ClickEvent evt)
+        {
+            if (!_worker) return;
+    
+            Debug.Log($"Worker denied: {_worker.name}");
+    
+            // Переходим к следующему кандидату
+            ShowNextCandidate();
+        }
+        
+        private void ShowNextCandidate()
+        {
+            _currentCandidateIndex++;
+            
+            if (_currentCandidateIndex < candidates.Count)
+            {
+                Worker = candidates[_currentCandidateIndex];
+            }
+            else
+            {
+                Debug.Log("Out of candidates.");
+                OnAllCandidatesReviewed();
+            }
+        }
+        
+        private void OnAllCandidatesReviewed()
+        {
+            _worker = null;
+            OnWorkerChanged();
+            
+            _acceptButton.SetEnabled(false);
+            _denyButton.SetEnabled(false);
+            
+            _workerName.text = "No more candidates.";
+            _workerPortrait.style.backgroundImage = null;
         }
 
         private void OnInfoCellEnter(VisualElement targetHover)
@@ -110,9 +186,16 @@ namespace UI.HiringScreen
         /// </summary>
         private void OnValidate()
         {
-            if (Application.isPlaying && worker != _worker)
+            if (Application.isPlaying && candidates is { Count: > 0 })
             {
-                Worker = worker;
+                // Проверяем, что текущий индекс валидный.
+                if (_currentCandidateIndex >= 0 && _currentCandidateIndex < candidates.Count)
+                {
+                    if (candidates[_currentCandidateIndex] != _worker)
+                    {
+                        Worker = candidates[_currentCandidateIndex];
+                    }
+                }
             }
         }
         
@@ -140,8 +223,13 @@ namespace UI.HiringScreen
             }
             else
             {
-                // Если worker == null, очищаем ячейки.
+                // Если worker == null, очищаем информацию.
                 ClearAllSkillCells();
+                ClearAllSkillCells();
+                _trait1Name.text = "";
+                _trait1Description.text = "";
+                _trait2Name.text = "";
+                _trait2Description.text = "";
             }
         }
         

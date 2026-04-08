@@ -36,7 +36,7 @@ namespace Content
         public List<TraitDef> PersonalityTraits => personalityTraits;
         
         // Метод инициализации.
-        public void InitializeWorker(WorkerAppearance newAppearance, int patience, int social, int intellectual, int physical, params TraitDef[] traits)
+        public void InitializeWorkerDef(WorkerAppearance newAppearance, int patience, int social, int intellectual, int physical, List<TraitDef> traits)
         {
             appearance = newAppearance;
             basePatience = patience;

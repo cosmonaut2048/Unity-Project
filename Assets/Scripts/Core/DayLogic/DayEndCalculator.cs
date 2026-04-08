@@ -19,7 +19,7 @@ namespace Core.DayLogic
             // Loyalty Mod.
             if (worker.PersonalityTraits != null)
                 foreach (var trait in worker.PersonalityTraits)
-                    worker.Loyalty = trait.OnEndOfDayLoyalty(worker.Loyalty);
+                    worker.SetLoyalty = trait.OnEndOfDayLoyalty(worker.Loyalty);
         }
     }
 }

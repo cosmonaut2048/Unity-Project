@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Content;
 
@@ -8,14 +9,14 @@ namespace Runtime
     public class WorkerRuntime : WorkerDef
     {
         // Worker State.
-        private bool _isEmployed;
-        private int _productivity = 100;
-        private int _loyalty = 100;
-        private int _lastBreakDay;
+        [SerializeField] private bool isEmployed = true;
+        [SerializeField] private int productivity = 100;
+        [SerializeField] private int loyalty = 100;
+        [SerializeField] private int lastBreakDay;
         
-        private BusyReason _busyReason = BusyReason.None;
-        private bool _isProductivityFrozen;
-        private bool _isLoyaltyFrozen;
+        [SerializeField] private BusyReason busyReason = BusyReason.None;
+        [SerializeField] private bool isProductivityFrozen;
+        [SerializeField] private bool isLoyaltyFrozen;
         
         
         // Пограничные значения Productivity и Loyalty.
@@ -27,54 +28,75 @@ namespace Runtime
         // Свойства.
         public bool IsEmployed { get; set; }
 
-        public int Productivity
-        {
-            get => _productivity;
-            set => _productivity = Mathf.Clamp(_isProductivityFrozen ? _productivity : value, _productivityMinValue, _productivityMaxValue);
+        public int Productivity => productivity;
+        public int SetProductivity
+        { 
+            set => productivity = Mathf.Clamp(isProductivityFrozen ? productivity : value, _productivityMinValue, _productivityMaxValue);
         }
 
-        public int Loyalty
+        public int Loyalty => loyalty;
+        public int SetLoyalty
         {
-            get => _loyalty;
-            set => _loyalty = Mathf.Clamp(_isLoyaltyFrozen ? _loyalty : value, _loyaltyMinValue, _loyaltyMaxValue);
+            set => loyalty = Mathf.Clamp(isLoyaltyFrozen ? loyalty : value, _loyaltyMinValue, _loyaltyMaxValue);
         }
 
-        public int LastBreakDay
+        public int LastBreakDay => lastBreakDay;
+        public int SetLastBreakDay
         {
-            get => _lastBreakDay;
-            set => _lastBreakDay = Mathf.Max(0, value);
+            set => lastBreakDay = Mathf.Max(0, value);
         }
         
-        public BusyReason BusyReason
+        public BusyReason BusyReason => busyReason;
+        public BusyReason SetBusyReason
         {
-            get => _busyReason;
-            set => _busyReason = value;
+            set => busyReason = value;
         }
         
-        public bool IsProductivityFrozen { get; set; }
-        public bool IsLoyaltyFrozen { get; set; }
+        public bool IsProductivityFrozen => isProductivityFrozen;
+        public bool SetIsProductivityFrozen { set => isProductivityFrozen = value; }
+        public bool IsLoyaltyFrozen => isLoyaltyFrozen;
+        public bool SetIsLoyaltyFrozen { set => isLoyaltyFrozen = value; }
         
         // Методы.
-        public bool IsBusy => _busyReason != BusyReason.None;
+        public bool IsBusy => busyReason != BusyReason.None;
+        
+        // Инициализация из WorkerDef.
+        public void InitializeWorkerRuntime(
+            WorkerAppearance newAppearance, 
+            int patience, 
+            int social, 
+            int intellectual, 
+            int physical, 
+            List<TraitDef> traits)
+        {
+            // Вызываем метод базового класса.
+            InitializeWorkerDef(newAppearance, patience, social, intellectual, physical, traits);
+        }
+        
+        public void InitializeWorkerRuntime(WorkerDef worker)
+        {
+            // Вызываем метод базового класса.
+            InitializeWorkerDef(worker.Appearance, worker.BasePatience, worker.BaseSocial, worker.BaseIntellectual, worker.BasePhysical, worker.PersonalityTraits);
+        }
         
         // Больше не используется:
         
         [Obsolete("ChangeProductivity больше не используется -- используется свойство Productivity.")]
         public void ChangeProductivity(int delta)
         {
-            if (_isProductivityFrozen)
+            if (isProductivityFrozen)
                 return;
         
-            _productivity = Mathf.Clamp(_productivity + delta, _productivityMinValue, _productivityMaxValue);
+            productivity = Mathf.Clamp(productivity + delta, _productivityMinValue, _productivityMaxValue);
         }
 
         [Obsolete("ChangeLoyalty больше не используется -- используется свойство Loyalty.")]
         public void ChangeLoyalty(int delta)
         {
-            if (_isLoyaltyFrozen)
+            if (isLoyaltyFrozen)
                 return;
         
-            _loyalty = Mathf.Clamp(_loyalty + delta, _loyaltyMinValue, _loyaltyMaxValue);
+            loyalty = Mathf.Clamp(loyalty + delta, _loyaltyMinValue, _loyaltyMaxValue);
         }
         
         // private int _freezeProductivityDays;

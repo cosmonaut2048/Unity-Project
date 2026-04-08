@@ -39,9 +39,10 @@ namespace Generators
             int randomPatience = Random.Range(_skillMin, _skillMax);
             int randomSocial = Random.Range(_skillMin, _skillMax);
             int randomIntellectual = Random.Range(_skillMin, _skillMax);
-            int basePhysical = Random.Range(_skillMin, _skillMax);
+            int randomPhysical = Random.Range(_skillMin, _skillMax);
+            List<TraitDef> randomTraits = new List<TraitDef>();
             
-            randomWorker.InitializeWorker(randomAppearance, randomPatience, randomSocial, randomIntellectual, basePhysical, randomTrait1, randomTrait2);
+            randomWorker.InitializeWorkerDef(randomAppearance, randomPatience, randomSocial, randomIntellectual, randomPhysical, randomTraits);
             
             return randomWorker;
         }

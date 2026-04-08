@@ -13,10 +13,10 @@ namespace Scriptable_Objects.Trait_Definitions
         {
             if (workerDef.BusyReason == BusyReason.OnTask) return;
             
-            workerDef.BusyReason = BusyReason.None;
+            workerDef.SetBusyReason = BusyReason.None;
                 
             if (Random.Range(1, _sickRate + 1) == _sickRate)
-                workerDef.BusyReason = BusyReason.Sick;
+                workerDef.SetBusyReason = BusyReason.Sick;
         }
     }
 }

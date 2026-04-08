@@ -15,13 +15,13 @@ namespace Core.DayLogic
                 {
                     if (trait.IsUniqueProductivityTick())
                     {
-                        worker.Productivity -= trait.ProductivityTickSize(worker);
+                        worker.SetProductivity = worker.Productivity - trait.ProductivityTickSize(worker);
                         return;
                     }
                 }
                 
             }
-            worker.Productivity -= worker.BaseProductivityTickSize;
+            worker.SetProductivity = worker.Productivity - worker.BaseProductivityTickSize;
         }
     }
 }
