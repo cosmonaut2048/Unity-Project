@@ -49,3 +49,110 @@
     border-top-color: rgb(0, 0, 0);
     border-bottom-color: rgb(0, 0, 0);
 }
+
+.info--cell {
+    width: 50px;
+    height: 50px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    font-size: 30px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    background-image: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2346436936791262179&guid=1a886a0f1330bfc4abe790ae7feef01d&type=3#console.infoicon");
+}
+
+.info--cell--hover {
+    width: 400px;
+    height: 200px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 2px;
+    padding-right: 2%;
+    padding-bottom: 2%;
+    padding-left: 2%;
+    font-size: 26px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    translate: 340px -10px;
+    transform-origin: center;
+    white-space: normal;
+    -unity-text-align: middle-left;
+    background-color: rgb(188, 188, 188);
+    border-top-right-radius: 5%;
+    border-bottom-right-radius: 5%;
+    border-top-left-radius: 5%;
+    opacity: 1;
+}
+
+.accept--button {
+    width: 245px;
+    height: 50px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    font-size: 35px;
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-left-color: rgb(120, 180, 88);
+    border-right-color: rgb(120, 180, 88);
+    border-top-color: rgb(120, 180, 88);
+    border-bottom-color: rgb(120, 180, 88);
+    background-color: rgba(188, 188, 188, 0);
+    color: rgb(120, 180, 88);
+}
+
+.deny--button {
+    width: 245px;
+    height: 50px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    font-size: 35px;
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-left-color: rgb(204, 58, 32);
+    border-right-color: rgb(204, 58, 32);
+    border-top-color: rgb(204, 58, 32);
+    border-bottom-color: rgb(204, 58, 32);
+    background-color: rgba(188, 188, 188, 0);
+    color: rgb(204, 58, 32);
+}
+
+.accept--button:hover {
+    background-color: rgba(120, 180, 88, 0.69);
+    color: rgb(255, 255, 255);
+}
+
+.deny--button:hover {
+    background-color: rgba(204, 58, 32, 0.69);
+    color: rgb(255, 255, 255);
+}

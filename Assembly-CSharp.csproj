@@ -129,6 +129,7 @@
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\NeuroticTraitDef.cs" />
     <Compile Include="Assets\Scripts\Content\WorkerAppearance.cs" />
     <Compile Include="Assets\Scripts\Core\QuotaLogic\QuotaGenerator.cs" />
+    <Compile Include="Assets\Scriptable Objects\Trait Definitions\NullTraitDef.cs" />
     <Compile Include="Assets\Scripts\Content\Office.cs" />
     <Compile Include="Assets\Scripts\Runtime\OfficeRuntime.cs" />
     <None Include="Assets\UI Toolkit\StyleSheets\HireScreenStyles.uss" />
@@ -136,6 +137,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Roboto-Bold - License.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
+    <None Include="Assets\Backups\HireScreenUI 3.uxml" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Unity - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
@@ -157,6 +159,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\UI Toolkit\HireScreenUI.uxml" />
+    <None Include="Assets\Backups\HireScreenUI 2.uxml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
