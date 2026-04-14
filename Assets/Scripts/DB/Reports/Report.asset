@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc21a1dad0ca4f4091881470c463ff14, type: 3}
+  m_Name: Report
+  m_EditorClassIdentifier: Assembly-CSharp::Content.DailyReport
+  workers:
+  - {fileID: 11400000, guid: d1cae8b296f95354eb226f5d7b0fa045, type: 2}
+  - {fileID: 11400000, guid: b9e43641dfd6acf42877a39211057e9e, type: 2}
+  - {fileID: 11400000, guid: c0cd2f7eecfa590478e5957f2c76ab36, type: 2}
+  quotaProgressOld: 80
+  quotaProgressNew: 750
+  quotaSize: 1000
+  coffeeConsumed: 3
+  coffeeObtained: 5
+  coffeeLeft: 2
+  breaksTaken: 1
+  breaksLeft: 6
+  daysLeft: 2

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeff991e31b102c48b40ac0e24e39124, type: 3}
+  m_Name: RoundGlasses
+  m_EditorClassIdentifier: Assembly-CSharp::Content.WorkerDef
+  appearance: {fileID: 11400000, guid: 9d2d6a32810da7e43b7fc86ef4617245, type: 2}
+  basePatience: 4
+  baseSocial: 2
+  baseIntellectual: 5
+  basePhysical: 2
+  personalityTraits:
+  - {fileID: 0}
+  - {fileID: 0}
