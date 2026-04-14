@@ -8,8 +8,15 @@ namespace Runtime
     [CreateAssetMenu(fileName = "OfficeRuntime", menuName = "Scripts/Runtime/OfficeRuntime")]
     public class OfficeRuntime : Office
     {
-        [CanBeNull] public List<ItemDef> inventory = new List<ItemDef>();
-        [CanBeNull]public List<WorkerDef> hiredWorkers = new List<WorkerDef>();
+        [CanBeNull] [SerializeField] private List<ItemDef> inventory = new List<ItemDef>();
+        [CanBeNull] [SerializeField] private List<WorkerDef> hiredWorkers = new List<WorkerDef>();
+        [SerializeField] private int coffee;
+        [SerializeField] private int breakVouchers;
+        
+        public List<ItemDef> Inventory => inventory;
+        public List<WorkerDef> HiredWorkers => hiredWorkers;
+        public int Coffee => coffee;
+        public int BreakVouchers => breakVouchers;
 
         public void ClearRuntimeData()
         {

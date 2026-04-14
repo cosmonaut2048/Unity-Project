@@ -26,7 +26,7 @@ namespace Runtime
         private readonly int _loyaltyMaxValue = 100;
         
         // Свойства.
-        public bool IsEmployed { get; set; }
+        public bool IsEmployed => isEmployed;
 
         public int Productivity => productivity;
         public int SetProductivity
