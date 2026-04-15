@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d40b3dae32904fceae9d33ab81c0ccc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.StatsScreen.StatsController
-  report: {fileID: 11400000, guid: 848d5e3326f38cf4aa26cbe1453dde98, type: 2}
+  report: {fileID: 11400000, guid: fe89977f0fb24774faa7f3447586184a, type: 2}
 --- !u!1 &1141459031
 GameObject:
   m_ObjectHideFlags: 0

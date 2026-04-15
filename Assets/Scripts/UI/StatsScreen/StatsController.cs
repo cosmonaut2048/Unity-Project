@@ -109,52 +109,72 @@ namespace UI.StatsScreen
 
         private void SetCoffee()
         {
-            for (int i = 0; i < report.CoffeeConsumed; i++)
+            if (report.CoffeeConsumed == 0)
             {
-                VisualElement coffeeEmpty = new VisualElement { style = { flexGrow = 0 } };
-                coffeeEmpty.AddToClassList("coffee--empty");
-                
-                _coffeeConsumedContainer.Add(coffeeEmpty);
+                AddNone(_coffeeConsumedContainer);
+            }
+            else
+            {
+                for (int i = 0; i < report.CoffeeConsumed; i++)
+                {
+                    AddObjectWithStyle(_coffeeConsumedContainer, "coffee--empty");
+                }
             }
 
-            for (int i = 0; i < report.CoffeeObtained; i++)
+            if (report.CoffeeObtained == 0)
             {
-                VisualElement coffeeFull = new VisualElement { style = { flexGrow = 0 } };
-                coffeeFull.AddToClassList("coffee--full");
-                
-                _coffeeObtainedContainer.Add(coffeeFull);
+                AddNone(_coffeeObtainedContainer);
+            }
+            else
+            {
+                for (int i = 0; i < report.CoffeeObtained; i++)
+                {
+                    AddObjectWithStyle(_coffeeObtainedContainer, "coffee--full");
+                }   
             }
         }
 
         private void SetBreaks()
         {
-            for (int i = 0; i < report.BreaksTaken; i++)
+            if (report.BreaksTaken == 0)
             {
-                VisualElement breakVoucher = new VisualElement { style = { flexGrow = 0 } };
-                breakVoucher.AddToClassList("voucher");
-                
-                _breaksTakenContainer.Add(breakVoucher);
+                AddNone(_breaksTakenContainer);
+            }
+            else
+            {
+                for (int i = 0; i < report.BreaksTaken; i++)
+                {
+                    AddObjectWithStyle(_breaksTakenContainer, "voucher");
+                }
             }
         }
 
         private void SetLeft()
         {
-            for (int i = 0; i < report.CoffeeLeft; i++)
+            if (report.CoffeeLeft == 0)
             {
-                VisualElement coffeeFull = new VisualElement { style = { flexGrow = 0 } };
-                coffeeFull.AddToClassList("coffee--full");
-                
-                _coffeeLeftContainer.Add(coffeeFull);
+                AddNone(_coffeeLeftContainer);
+            }
+            else
+            {
+                for (int i = 0; i < report.CoffeeLeft; i++)
+                {
+                    AddObjectWithStyle(_coffeeLeftContainer, "coffee--full");
+                }
             }
 
-            for (int i = 0; i < report.BreaksLeft; i++)
+            if (report.BreaksLeft == 0)
             {
-                VisualElement breakVoucher = new VisualElement { style = { flexGrow = 0 } };
-                breakVoucher.AddToClassList("voucher");
-                
-                _breaksLeftContainer.Add(breakVoucher);
+                AddNone(_breaksLeftContainer);
             }
-            
+            else
+            {
+                for (int i = 0; i < report.BreaksLeft; i++)
+                {
+                    AddObjectWithStyle(_breaksLeftContainer, "voucher");
+                }
+            }
+
             _daysLeft.text = $"{report.DaysLeft} DAYS LEFT.";
         }
 
@@ -186,6 +206,22 @@ namespace UI.StatsScreen
                 if (element != null)
                     container?.Remove(element);
             }
+        }
+
+        private void AddObjectWithStyle(VisualElement container, string style)
+        {
+            VisualElement element = new VisualElement { style = { flexGrow = 0 } };
+            element.AddToClassList(style);
+                
+            container.Add(element);
+        }
+
+        private void AddNone(VisualElement container)
+        {
+            VisualElement none = new VisualElement { style = { flexGrow = 0 } };
+            none.AddToClassList("none");
+                
+            container.Add(none);
         }
     }
 }
