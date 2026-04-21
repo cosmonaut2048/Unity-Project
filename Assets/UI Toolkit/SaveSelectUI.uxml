@@ -1,0 +1,15 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/HireScreenStyles.uss?fileID=7433441132597879392&amp;guid=109f1bd979df9534f9d2fd2971f0bbf4&amp;type=3#HireScreenStyles" />
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/MenuStyles.uss?fileID=7433441132597879392&amp;guid=cd8f30ec996057a4198ea652894f330f&amp;type=3#MenuStyles" />
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/SaveSelectStyles.uss?fileID=7433441132597879392&amp;guid=61a258317e34d3648968b6a19896e2c4&amp;type=3#SaveSelectStyles" />
+    <ui:VisualElement name="Fullscreen" style="flex-grow: 1; width: 100%; height: 100%; align-self: stretch; align-items: center; justify-content: flex-end; display: flex;">
+        <ui:VisualElement name="Save_Select_Container" style="flex-grow: 0; width: 1920px; height: 1080px; justify-content: center; align-items: flex-start; right: auto; left: auto; position: absolute; padding-bottom: 5%; padding-top: 5%; padding-right: 10%; padding-left: 10%;">
+            <ui:VisualElement name="Title_Container" style="flex-grow: 0; width: 100%; height: 130px; align-self: auto; align-items: flex-start; justify-content: flex-start;">
+                <ui:Label text="select a save" name="game_title" class="title--text" />
+            </ui:VisualElement>
+            <ui:Button text="SAVE 1" name="save_select_button" class="save--select--button" />
+            <ui:Button text="SAVE 2" name="save_select_button" class="save--select--button" />
+            <ui:Button text="SAVE 3" name="save_select_button" class="save--select--button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

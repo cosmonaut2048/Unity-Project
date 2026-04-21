@@ -9,12 +9,12 @@ namespace Runtime
     public class OfficeRuntime : Office
     {
         [CanBeNull] [SerializeField] private List<ItemDef> inventory = new List<ItemDef>();
-        [CanBeNull] [SerializeField] private List<WorkerDef> hiredWorkers = new List<WorkerDef>();
+        [CanBeNull] [SerializeField] private List<WorkerRuntime> hiredWorkers = new List<WorkerRuntime>();
         [SerializeField] private int coffee;
         [SerializeField] private int breakVouchers;
         
         public List<ItemDef> Inventory => inventory;
-        public List<WorkerDef> HiredWorkers => hiredWorkers;
+        public List<WorkerRuntime> HiredWorkers => hiredWorkers;
         public int Coffee => coffee;
         public int BreakVouchers => breakVouchers;
 

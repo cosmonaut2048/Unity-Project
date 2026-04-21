@@ -1,0 +1,93 @@
+:root {
+}
+
+.task--info--container {
+    flex-grow: 0;
+    background-color: rgba(255, 0, 222, 0);
+    height: 15%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 2%;
+    padding-left: 2%;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+    -unity-text-align: middle-left;
+    align-self: auto;
+    align-content: flex-start;
+    align-items: center;
+}
+
+.task--skill--cell--empty {
+    flex-grow: 0;
+    height: 30px;
+    width: 30px;
+    background-color: rgba(161, 161, 161, 0.65);
+    display: flex;
+    justify-content: flex-start;
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.task--skill--cell--full {
+    flex-grow: 0;
+    height: 30px;
+    width: 30px;
+    background-color: rgb(79, 109, 188);
+    display: flex;
+    justify-content: flex-start;
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.task--cell--container {
+    flex-grow: 0;
+    flex-direction: row;
+    width: 50%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    white-space: normal;
+    flex-wrap: nowrap;
+}
+
+.poster {
+    flex-grow: 0;
+    background-color: rgb(210, 225, 226);
+    width: 35%;
+    height: 70%;
+    position: absolute;
+    top: 84px;
+    left: 71px;
+    padding-top: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+    padding-left: 2%;
+}
+
+.poster--title {
+    font-size: 40px;
+    -unity-font-style: bold;
+    white-space: normal;
+}
+
+.poster--paragraph {
+    white-space: normal;
+    font-size: 24px;
+}
+
+.poster--info {
+    font-size: 20px;
+    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=1a886a0f1330bfc4abe790ae7feef01d&type=3#NotInter-Regular");
+    -unity-font-style: normal;
+}

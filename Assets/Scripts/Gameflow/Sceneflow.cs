@@ -1,7 +1,10 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Sceneflow", menuName = "Scriptable Objects/Gameflow/Sceneflow")]
-public class Sceneflow : ScriptableObject
+namespace Gameflow
 {
-    
+    [CreateAssetMenu(fileName = "Sceneflow", menuName = "Scriptable Objects/Gameflow/Sceneflow")]
+    public class Sceneflow : ScriptableObject
+    {
+        
+    }
 }

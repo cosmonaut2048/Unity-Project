@@ -1,0 +1,100 @@
+:root {
+}
+
+.worker--portrait--container {
+    flex-grow: 0;
+    width: 25%;
+    height: 25%;
+    background-color: rgba(143, 180, 209, 0);
+    margin-top: 0%;
+    margin-right: 0%;
+    margin-left: 0%;
+    margin-bottom: 0%;
+    padding-top: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    background-image: none;
+}
+
+.divider {
+    flex-grow: 0;
+    width: 100%;
+    height: 0.5%;
+    background-color: rgb(255, 255, 255);
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.coffee--empty {
+    flex-grow: 0;
+    background-image: url("project://database/Assets/Art/UI/coffee_empty.png?fileID=2800000&guid=d6a722ff5fac70d41b1c326fe20b9f60&type=3#coffee_empty");
+    -unity-background-scale-mode: scale-to-fit;
+    background-position-x: center;
+    background-position-y: center;
+    width: 10%;
+    height: 100%;
+}
+
+.none {
+    flex-grow: 0;
+    background-image: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=8300712400058098730&guid=1a886a0f1330bfc4abe790ae7feef01d&type=3#check-dash");
+    -unity-background-scale-mode: scale-to-fit;
+    background-position-x: center;
+    background-position-y: center;
+    width: 10%;
+    height: 100%;
+    -unity-background-image-tint-color: rgb(0, 0, 0);
+}
+
+.coffee--full {
+    flex-grow: 0;
+    background-image: url("project://database/Assets/Art/UI/coffee_full.png?fileID=2800000&guid=a852f7ae78ab47c4d93881a6f4479686&type=3#coffee_full");
+    -unity-background-scale-mode: scale-to-fit;
+    background-position-x: center;
+    background-position-y: center;
+    width: 10%;
+    height: 100%;
+}
+
+.voucher {
+    flex-grow: 0;
+    background-image: url("project://database/Assets/Art/UI/voucher.png?fileID=2800000&guid=a2b588783c8d1e547b79330cbddf383c&type=3#voucher");
+    -unity-background-scale-mode: scale-to-fit;
+    background-position-x: center;
+    background-position-y: center;
+    width: 10%;
+    height: 100%;
+}
+
+.worker--portrait {
+    flex-grow: 1;
+    background-color: rgb(112, 127, 142);
+    background-image: url("project://database/Assets/Art/Portraits/Normal/Worker_cell.png?fileID=-4731735297950285047&guid=0984e7b793fcea24c9df6a1339f52541&type=3#Worker_cell_0");
+    background-position-y: center;
+    background-position-x: center;
+    -unity-background-scale-mode: scale-and-crop;
+    background-size: cover;
+    flex-direction: column;
+    align-items: stretch;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.fired--overlay {
+    flex-grow: 1;
+    background-color: rgba(112, 127, 142, 0);
+    background-image: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=5866165431930342980&guid=1a886a0f1330bfc4abe790ae7feef01d&type=3#Remove@2x");
+    background-position-y: center;
+    background-position-x: center;
+    -unity-background-scale-mode: scale-and-crop;
+    background-size: 50% 50%;
+    flex-direction: column;
+    align-items: stretch;
+    display: flex;
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}

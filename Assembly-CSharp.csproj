@@ -164,8 +164,10 @@
     <None Include="Assets\UI Toolkit\StatsScreenUI.uxml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\UI Toolkit\StyleSheets\BulletinBoardStyles.uss" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\UI Toolkit\HireScreenUI.uxml" />
+    <None Include="Assets\UI Toolkit\BulletinBoardUI.uxml" />
     <None Include="Assets\Backups\HireScreenUI 2.uxml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\UI Toolkit\StyleSheets\MenuStyles.uss" />

@@ -1,0 +1,14 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/HireScreenStyles.uss?fileID=7433441132597879392&amp;guid=109f1bd979df9534f9d2fd2971f0bbf4&amp;type=3#HireScreenStyles" />
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/MenuStyles.uss?fileID=7433441132597879392&amp;guid=cd8f30ec996057a4198ea652894f330f&amp;type=3#MenuStyles" />
+    <ui:VisualElement name="Fullscreen" style="flex-grow: 1; width: 100%; height: 100%; align-self: stretch; align-items: center; justify-content: flex-end; display: flex;">
+        <ui:VisualElement name="Main_Menu_Container" style="flex-grow: 0; width: 1920px; height: 1080px; justify-content: center; align-items: center; right: auto; left: auto; position: absolute; padding-bottom: 5%; padding-top: 5%; padding-right: 10%; padding-left: 10%;">
+            <ui:VisualElement name="Title_Container" style="flex-grow: 0; width: auto; height: 130px; align-self: auto; align-items: center;">
+                <ui:Label text="MAIN MENU" name="game_title" class="title--text" />
+            </ui:VisualElement>
+            <ui:Button text="Start Game" name="start_game_button" class="menu--button" />
+            <ui:Button text="Options" name="options_button" class="menu--button" />
+            <ui:Button text="Quit Game" name="quit_game_button" class="menu--button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
