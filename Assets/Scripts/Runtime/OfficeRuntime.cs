@@ -23,5 +23,20 @@ namespace Runtime
             if (inventory != null) inventory.Clear();
             if (hiredWorkers != null) hiredWorkers.Clear();
         }
+        
+        public void SetCoffee(int coffeeAmount) { coffee = coffeeAmount; }
+        public void SetBreakVouchers(int voucherAmount) { breakVouchers = voucherAmount; }
+
+        public void TickCoffee()
+        {
+            if (coffee > 0)
+                coffee--;
+        }
+
+        public void TickBreakVouchers()
+        {
+            if (breakVouchers > 0)
+                breakVouchers--;
+        }
     }
 }

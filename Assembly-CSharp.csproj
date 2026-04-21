@@ -56,11 +56,11 @@
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\WorkaholicTraitDef.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\CoffeeAddictTraitDef.cs" />
     <Compile Include="Assets\Scripts\Core\QuotaLogic\Quota.cs" />
-    <Compile Include="Assets\Scripts\Gameflow\Sceneflow.cs" />
     <Compile Include="Assets\Scripts\Runtime\WorkerRuntime.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Scripts\Core\QuotaLogic\QuotaCalculator.cs" />
     <Compile Include="Assets\Scripts\Core\WorkerLogic\CalculatedSkills.cs" />
+    <Compile Include="Assets\Scripts\Gameflow\SceneController.cs" />
     <Compile Include="Assets\Scripts\Core\DayLogic\TickCalculation\LoyaltyTickCalculator.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\AdventurousTraitDef.cs" />
     <Compile Include="Assets\Scripts\Content\TraitDef.cs" />
@@ -75,6 +75,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\Content\TaskDef.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
+    <Compile Include="Assets\Scripts\UI\Menus\MainMenuScreen.cs" />
     <Compile Include="Assets\Scripts\Content\BusyReason.cs" />
     <Compile Include="Assets\Scriptable Objects\Catalogs\WorkerCatalog.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\Scripts\Content\ItemDef.cs" />
     <Compile Include="Assets\Scripts\Content\DailyReport.cs" />
+    <Compile Include="Assets\Scripts\Gameflow\Bootstrapper.cs" />
     <Compile Include="Assets\Scripts\Services\SaveService.cs" />
     <Compile Include="Assets\Scripts\Core\WorkDayStart.cs" />
     <Compile Include="Assets\Scripts\Runtime\TaskRuntime.cs" />
@@ -170,6 +172,7 @@
     <None Include="Assets\UI Toolkit\BulletinBoardUI.uxml" />
     <None Include="Assets\Backups\HireScreenUI 2.uxml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\UI Toolkit\LoadingScreenUI.uxml" />
     <None Include="Assets\UI Toolkit\StyleSheets\MenuStyles.uss" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
