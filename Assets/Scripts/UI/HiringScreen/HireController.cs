@@ -109,7 +109,7 @@ namespace UI.HiringScreen
             _trait1InfoCell.RegisterCallback<MouseEnterEvent>(_ => OnInfoCellEnter(_trait1InfoHover));
             _trait1InfoHover.RegisterCallback<MouseOutEvent>(_ => OnInfoLeave(_trait1InfoHover));
     
-            _trait2InfoCell.RegisterCallback<MouseEnterEvent>(_ =>Debug.Log($"Transferred workers to office:{_hiredWorkers.Count}")); OnInfoCellEnter(_trait2InfoHover);
+            _trait2InfoCell.RegisterCallback<MouseEnterEvent>(_ => OnInfoCellEnter(_trait2InfoHover));
             _trait2InfoHover.RegisterCallback<MouseOutEvent>(_ => OnInfoLeave(_trait2InfoHover));
             
             _acceptButton.RegisterCallback<ClickEvent>(OnWorkerHired);

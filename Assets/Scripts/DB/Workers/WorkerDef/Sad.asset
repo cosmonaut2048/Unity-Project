@@ -18,5 +18,5 @@ MonoBehaviour:
   baseIntellectual: 3
   basePhysical: 1
   personalityTraits:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 05d05b882ac1a054e85f53d2b46db691, type: 2}
+  - {fileID: 11400000, guid: d6ef4ba152219b6429f0c8e66ce0b150, type: 2}
