@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Content
 {
-    public class Office : ScriptableObject
+    public class Office : MonoBehaviour
     {
         
     }

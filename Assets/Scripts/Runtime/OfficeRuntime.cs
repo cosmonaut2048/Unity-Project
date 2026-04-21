@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using Content;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Runtime
 {
-    [CreateAssetMenu(fileName = "OfficeRuntime", menuName = "Scripts/Runtime/OfficeRuntime")]
     public class OfficeRuntime : Office
     {
-        [CanBeNull] [SerializeField] private List<ItemDef> inventory = new List<ItemDef>();
-        [CanBeNull] [SerializeField] private List<WorkerRuntime> hiredWorkers = new List<WorkerRuntime>();
+        public static OfficeRuntime Instance { get; private set; }
+        
+        [SerializeField] private List<ItemDef> inventory =  new List<ItemDef>();
+        [SerializeField] private List<WorkerRuntime> hiredWorkers = new List<WorkerRuntime>();
         [SerializeField] private int coffee;
         [SerializeField] private int breakVouchers;
         
@@ -20,13 +20,26 @@ namespace Runtime
 
         public void ClearRuntimeData()
         {
-            if (inventory != null) inventory.Clear();
-            if (hiredWorkers != null) hiredWorkers.Clear();
+            inventory?.Clear();
+            hiredWorkers?.Clear();
         }
         
         public void SetCoffee(int coffeeAmount) { coffee = coffeeAmount; }
         public void SetBreakVouchers(int voucherAmount) { breakVouchers = voucherAmount; }
 
+        private void Awake()
+        {
+            if (!Instance)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+        
         public void TickCoffee()
         {
             if (coffee > 0)
@@ -37,6 +50,18 @@ namespace Runtime
         {
             if (breakVouchers > 0)
                 breakVouchers--;
+        }
+        
+        public void AddWorkers(List<WorkerRuntime> workers)
+        {
+            foreach (WorkerRuntime worker in workers)
+                hiredWorkers?.Add(worker);
+        }
+
+        public void FireWorkers(List<WorkerRuntime> workers)
+        {
+            foreach (WorkerRuntime worker in workers)
+                hiredWorkers?.Remove(worker);
         }
     }
 }

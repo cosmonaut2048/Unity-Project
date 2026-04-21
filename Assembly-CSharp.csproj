@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\Core\QuotaLogic\QuotaCalculator.cs" />
     <Compile Include="Assets\Scripts\Core\WorkerLogic\CalculatedSkills.cs" />
     <Compile Include="Assets\Scripts\Gameflow\SceneController.cs" />
+    <Compile Include="Assets\Scripts\Gameflow\DontDestroyOnLoadObject.cs" />
     <Compile Include="Assets\Scripts\Core\DayLogic\TickCalculation\LoyaltyTickCalculator.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\AdventurousTraitDef.cs" />
     <Compile Include="Assets\Scripts\Content\TraitDef.cs" />
