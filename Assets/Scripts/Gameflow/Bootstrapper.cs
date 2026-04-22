@@ -5,11 +5,6 @@ namespace Gameflow
 {
     public class Bootstrapper : MonoBehaviour
     {
-        private enum Scenes
-        {
-            CoreScene
-        }
-    
         private void Awake()
         {
             SceneManager.LoadScene(nameof(Scenes.CoreScene), LoadSceneMode.Additive);

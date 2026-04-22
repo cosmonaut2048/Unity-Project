@@ -35,10 +35,10 @@ namespace Generators
             while (randomTrait1 == randomTrait2 || !AreTraitsCompatible(randomTrait1, randomTrait2))
                 randomTrait2 = traits[Random.Range(0, traits.Count)];
             
-            int randomPatience = Random.Range(_skillMin, _skillMax);
-            int randomSocial = Random.Range(_skillMin, _skillMax);
-            int randomIntellectual = Random.Range(_skillMin, _skillMax);
-            int randomPhysical = Random.Range(_skillMin, _skillMax);
+            int randomPatience = Random.Range(_skillMin, _skillMax + 1);
+            int randomSocial = Random.Range(_skillMin, _skillMax + 1);
+            int randomIntellectual = Random.Range(_skillMin, _skillMax + 1);
+            int randomPhysical = Random.Range(_skillMin, _skillMax + 1);
             List<TraitDef> randomTraits = new List<TraitDef>
             {
                 randomTrait1,

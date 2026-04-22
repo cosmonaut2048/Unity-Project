@@ -102,8 +102,8 @@ namespace UI.StatsScreen
 
         private void SetProgressBar()
         {
-            _progressOld.style.width = Length.Percent(report.QuotaProgressOld / report.QuotaSize * 100);
-            _progressNew.style.width = Length.Percent(report.QuotaProgressNew / report.QuotaSize * 100);
+            _progressOld.style.width = report.QuotaSize != 0 ? Length.Percent(report.QuotaProgressOld / report.QuotaSize * 100) : 0;
+            _progressNew.style.width = report.QuotaSize != 0 ? Length.Percent(report.QuotaProgressNew / report.QuotaSize * 100) : 0;
             _progressBarText.text = $"{report.QuotaProgressNew}/{report.QuotaSize}";
         }
 

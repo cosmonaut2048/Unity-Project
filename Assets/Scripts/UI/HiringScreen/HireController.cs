@@ -30,6 +30,10 @@ namespace UI.HiringScreen
         
         public List<WorkerRuntime> HiredWorkers => _hiredWorkers;
         
+        // Основные контейнеры.
+        private VisualElement _hireScreenContainer;
+        private VisualElement _hireOverContainer;
+        
         // Спрайт портрета и имя работника.
         private VisualElement _workerPortrait;
         private Label _workerName;
@@ -60,6 +64,7 @@ namespace UI.HiringScreen
         // Кнопки.
         private Button _acceptButton;
         private Button _denyButton;
+        private Button _nextSceneButton;
 
         void Start()
         {
@@ -68,6 +73,9 @@ namespace UI.HiringScreen
             var root = GetComponent<UIDocument>().rootVisualElement;
             
             // Queue:
+            // Основные контейнеры.
+            _hireScreenContainer = root.Q<VisualElement>("Hire_Screen_Container");
+            _hireOverContainer = root.Q<VisualElement>("Hire_Over_Container");
             // Спрайт портрета и имя работника.
             _workerPortrait = root.Q<VisualElement>("worker_portrait");
             _workerName = root.Q<Label>("worker_card_name");
@@ -89,9 +97,14 @@ namespace UI.HiringScreen
             // Кнопки.
             _acceptButton = root.Q<Button>("accept_button");
             _denyButton = root.Q<Button>("deny_button");
+            _nextSceneButton = root.Q<Button>("next_scene_button");
             
             // Кэшируем ячейки навыков.
             CacheSkillCells();
+            
+            // Показываем и скрываем нужные контейнеры.
+            _hireScreenContainer.style.display = DisplayStyle.Flex;
+            _hireOverContainer.style.display = DisplayStyle.None;
             
             // Показываем первого кандидата.
             if (candidates is { Count: > 0 })
@@ -114,6 +127,8 @@ namespace UI.HiringScreen
             
             _acceptButton.RegisterCallback<ClickEvent>(OnWorkerHired);
             _denyButton.RegisterCallback<ClickEvent>(OnWorkerDenied);
+            
+            _nextSceneButton.RegisterCallback<ClickEvent>(_ => SceneController.Instance.LoadScene(nameof(Scenes.StatsScene)));
         }
 
         private void OnWorkerHired(ClickEvent evt)
@@ -180,18 +195,22 @@ namespace UI.HiringScreen
                 if (_hiredWorkers.Count > 0)
                 {
                     foreach (var worker in _hiredWorkers)
-                        debugMessage += " " + worker.Appearance.WorkerName;
+                        debugMessage += " " + worker.Appearance.WorkerName + ",";
                 }
                 else
                 {
                     debugMessage += " None";
                 }
-                Debug.Log(debugMessage);
+                Debug.Log(debugMessage + ".");
             }
             else
             {
                 Debug.LogError("App not found!");
             }
+            
+            // Скрываем элементы найма, показываем кнопку перехода на следующую сцену.
+            _hireScreenContainer.style.display = DisplayStyle.None;
+            _hireOverContainer.style.display = DisplayStyle.Flex;
         }
 
         private void OnInfoCellEnter(VisualElement targetHover)

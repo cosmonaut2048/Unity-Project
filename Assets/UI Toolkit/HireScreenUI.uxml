@@ -1,7 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/HireScreenStyles.uss?fileID=7433441132597879392&amp;guid=109f1bd979df9534f9d2fd2971f0bbf4&amp;type=3#HireScreenStyles" />
     <ui:VisualElement name="Fullscreen" style="flex-grow: 1; width: 100%; height: 100%; align-self: stretch; align-items: center; justify-content: flex-end;">
-        <ui:VisualElement name="Hire_Screen_Container" style="flex-grow: 0; width: 1920px; height: 1080px; justify-content: flex-end; align-items: stretch; right: auto; left: auto; position: absolute;">
+        <ui:VisualElement name="Hire_Screen_Container" style="flex-grow: 0; width: 1920px; height: 1080px; justify-content: flex-end; align-items: stretch; right: auto; left: auto; position: absolute; display: flex;">
             <ui:VisualElement name="Worker_Portrait_Container" style="flex-grow: 0; position: absolute; width: 38%; height: 95%; padding-bottom: 30px; left: 56%; background-image: none;">
                 <ui:VisualElement name="worker_portrait" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/Portraits/Worker.png?fileID=1977547213100517089&amp;guid=ef634395e6935a04d84659535e3d1dcc&amp;type=3#Worker_0&quot;); -unity-background-scale-mode: scale-to-fit; -unity-background-image-tint-color: rgb(255, 255, 255); background-position-x: center; background-position-y: center; -unity-slice-type: sliced;" />
             </ui:VisualElement>
@@ -87,6 +87,12 @@
                     <ui:Label text="Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus ex sapien vitae. Ex sapien vitae pellentesque sem placerat in id. Placerat in id cursus mi pretium tellus duis. Pretium tellus duis convallis tempus leo eu aenean." name="dialogue_text" style="justify-content: flex-start; white-space: normal; font-size: 40px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; width: 100%; height: 100%; text-overflow: clip;" />
                 </ui:VisualElement>
                 <ui:Button text="--&gt;" name="next_dialogue_button" style="position: absolute; right: 0; bottom: 0; width: 170px; height: 120px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-bottom-right-radius: 20px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Hire_Over_Container" style="flex-grow: 0; width: 1920px; height: 1080px; justify-content: space-around; align-items: center; right: auto; left: auto; position: absolute; display: none;">
+            <ui:VisualElement style="flex-grow: 0; height: 30%; width: 50%; background-color: rgb(190, 190, 190); align-items: center; justify-content: center;">
+                <ui:Label text="HIRING SEGMENT IS OVER" style="font-size: 40px; -unity-font-style: bold;" />
+                <ui:Button text="Proceed to the next scene" name="next_scene_button" style="font-size: 40px; width: 60%; height: 30%; background-color: rgb(120, 120, 120);" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Gameflow
 {
@@ -6,11 +7,6 @@ namespace Gameflow
     {
         [SerializeField] private GameObject loadingScreen;
         public static SceneController Instance { get; private set; }
-
-        private enum Scenes
-        {
-            MainMenuScene
-        }
 
         private void Awake()
         {
@@ -38,12 +34,32 @@ namespace Gameflow
             StartCoroutine(LoadSceneAsync(sceneName));
         }
         
+        // private System.Collections.IEnumerator LoadSceneAsync(string sceneName)
+        // {
+        //     if (loadingScreen)
+        //         loadingScreen.SetActive(true);
+        //
+        //     var currentScene = SceneManager.GetActiveScene();
+        //
+        //     yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        //     
+        //     var newScene = SceneManager.GetSceneByName(sceneName);
+        //     SceneManager.SetActiveScene(newScene);
+        //     
+        //     yield return SceneManager.UnloadSceneAsync(currentScene);
+        //
+        //     yield return null;
+        //
+        //     if (loadingScreen)
+        //         loadingScreen.SetActive(false);
+        // }
+        
         private System.Collections.IEnumerator LoadSceneAsync(string sceneName)
         {
             if (loadingScreen)
                 loadingScreen.SetActive(true);
             
-            yield return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
+            yield return SceneManager.LoadSceneAsync(sceneName);
             
             yield return null;
             

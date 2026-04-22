@@ -11,12 +11,6 @@ namespace UI.Menus
         private Button _optionsButton;
         private Button _quitGameButton;
 
-        private enum Scenes
-        {
-            HiringScene,
-            OptionsScene
-        }
-
         void Start()
         {
             var root = GetComponent<UIDocument>().rootVisualElement;
