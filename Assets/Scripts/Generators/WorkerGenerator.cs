@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Generators
 {
-    public class WorkerGenerator : ScriptableObject
+    public class WorkerGenerator : MonoBehaviour
     {
         // Можно создавать генераторы для разных пулов внешностей и черт.
         [SerializeField] private List<WorkerAppearance> appearances;
@@ -25,7 +25,7 @@ namespace Generators
 
         private WorkerDef GenerateRandomWorker()
         {
-            WorkerDef randomWorker = CreateInstance<WorkerDef>();
+            WorkerDef randomWorker = ScriptableObject.CreateInstance<WorkerDef>();
             
             WorkerAppearance randomAppearance = appearances[Random.Range(0, appearances.Count)];
             TraitDef randomTrait1= traits[Random.Range(0, traits.Count)];

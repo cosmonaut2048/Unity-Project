@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Content;
 using Gameflow;
+using Generators;
 using Runtime;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -10,6 +11,7 @@ namespace UI.HiringScreen
 {
     public class HireController : MonoBehaviour
     {
+        [SerializeField] private WorkerGenerator workerGenerator;
         [SerializeField] private List<WorkerDef> candidates;
         private List<WorkerRuntime> _hiredWorkers;
         private WorkerDef _worker;
@@ -68,6 +70,7 @@ namespace UI.HiringScreen
 
         void Start()
         {
+            candidates = workerGenerator.GenerateRandomCandidates(Random.Range(3, 10)); // Пока что, для тестирования -- случайное число кандидатов.
             _hiredWorkers = new List<WorkerRuntime>();
             
             var root = GetComponent<UIDocument>().rootVisualElement;
@@ -142,7 +145,7 @@ namespace UI.HiringScreen
             // Добавляем в список нанятых.
             _hiredWorkers.Add(hiredWorker);
     
-            Debug.Log($"Worker hired: {_worker.name}");
+            Debug.Log($"Worker hired: {_worker.Appearance.name}");
     
             // Переходим к следующему кандидату.
             ShowNextCandidate();
@@ -152,7 +155,7 @@ namespace UI.HiringScreen
         {
             if (!_worker) return;
     
-            Debug.Log($"Worker denied: {_worker.name}");
+            Debug.Log($"Worker denied: {_worker.Appearance.name}");
     
             // Переходим к следующему кандидату
             ShowNextCandidate();
@@ -250,7 +253,7 @@ namespace UI.HiringScreen
             if (_worker && _worker.Appearance)
             {
                 _workerPortrait.style.backgroundImage = new StyleBackground(_worker.Appearance.PortraitSprite);
-                _workerName.text = _worker.name;
+                _workerName.text = _worker.Appearance.name;
                 
                 // Обновляем ячейки навыков.
                 UpdateSkillCells(_patienceCells, _worker.BasePatience);
