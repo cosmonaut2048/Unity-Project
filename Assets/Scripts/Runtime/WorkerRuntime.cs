@@ -6,8 +6,9 @@ using Content;
 namespace Runtime
 {
     [CreateAssetMenu(fileName = "Worker", menuName = "Scriptable Objects/Runtime/Worker")]
-    public class WorkerRuntime : WorkerDef
+    public class WorkerRuntime : ScriptableObject
     {
+        [SerializeField] private WorkerDef worker;
         // Worker State.
         [SerializeField] private bool isEmployed = true;
         [SerializeField] private int productivity = 100;
@@ -26,6 +27,7 @@ namespace Runtime
         private readonly int _loyaltyMaxValue = 100;
         
         // Свойства.
+        public WorkerDef Worker => worker;
         public bool IsEmployed => isEmployed;
 
         public int Productivity => productivity;
@@ -69,14 +71,13 @@ namespace Runtime
             int physical, 
             List<TraitDef> traits)
         {
-            // Вызываем метод базового класса.
-            InitializeWorkerDef(newAppearance, patience, social, intellectual, physical, traits);
+            worker.InitializeWorkerDef(newAppearance, patience, social, intellectual, physical, traits);
         }
         
-        public void InitializeWorkerRuntime(WorkerDef worker)
+        public void InitializeWorkerRuntime(WorkerDef workerDef)
         {
             // Вызываем метод базового класса.
-            InitializeWorkerDef(worker.Appearance, worker.BasePatience, worker.BaseSocial, worker.BaseIntellectual, worker.BasePhysical, worker.PersonalityTraits);
+            worker =  workerDef;
         }
         
         // Больше не используется:

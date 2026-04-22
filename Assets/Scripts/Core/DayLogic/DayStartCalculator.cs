@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using Core.DayLogic.TickCalculation;
 using Runtime;
 using Random = UnityEngine.Random;
 
@@ -11,22 +11,22 @@ namespace Core.DayLogic
             return worker.Loyalty < Random.Range(1, 100);
         }
         
-        public void DayStartWorker(WorkerRuntime worker)
+        public void DayStartWorker(WorkerRuntime workerRuntime)
         {
-            if (worker.PersonalityTraits != null)
-                foreach (var trait in worker.PersonalityTraits)
-                    trait.OnStartOfDay(worker);
+            if (workerRuntime.Worker.PersonalityTraits != null)
+                foreach (var trait in workerRuntime.Worker.PersonalityTraits)
+                    trait.OnStartOfDay(workerRuntime);
         }
         
-        public void DayStartWorkerProductivity(WorkerRuntime worker, ProductivityTickCalculator calculator)
+        public void DayStartWorkerProductivity(WorkerRuntime workerRuntime, ProductivityTickCalculator calculator)
         {
             // Productivity Tick.
-            calculator.ProductivityTick(worker); // Уникальная логика для черт учитывается.
+            calculator.ProductivityTick(workerRuntime); // Уникальная логика для черт учитывается.
             
             // Productivity Mod.
-            if (worker.PersonalityTraits != null)
-                foreach (var trait in worker.PersonalityTraits)
-                    worker.SetProductivity = trait.OnStartOfDayProductivity(worker.Productivity);
+            if (workerRuntime.Worker.PersonalityTraits != null)
+                foreach (var trait in workerRuntime.Worker.PersonalityTraits)
+                    workerRuntime.SetProductivity = trait.OnStartOfDayProductivity(workerRuntime.Productivity);
         }
     }
 }

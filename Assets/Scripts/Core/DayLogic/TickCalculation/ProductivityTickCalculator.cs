@@ -1,27 +1,26 @@
 ﻿using Runtime;
-using Scriptable_Objects.Catalogs;
 
-namespace Core.DayLogic
+namespace Core.DayLogic.TickCalculation
 {
     public class ProductivityTickCalculator
     {
         // Если переопределена логика тика продуктивности -- используем её,
         // иначе делаем базовое списание.
-        public void ProductivityTick(WorkerRuntime worker)
+        public void ProductivityTick(WorkerRuntime workerRuntime)
         {
-            if (worker.PersonalityTraits != null) 
+            if (workerRuntime.Worker.PersonalityTraits != null) 
             {
-                foreach (var trait in worker.PersonalityTraits)
+                foreach (var trait in workerRuntime.Worker.PersonalityTraits)
                 {
                     if (trait.IsUniqueProductivityTick())
                     {
-                        worker.SetProductivity = worker.Productivity - trait.ProductivityTickSize(worker);
+                        workerRuntime.SetProductivity = workerRuntime.Productivity - trait.ProductivityTickSize(workerRuntime);
                         return;
                     }
                 }
                 
             }
-            worker.SetProductivity = worker.Productivity - worker.BaseProductivityTickSize;
+            workerRuntime.SetProductivity = workerRuntime.Productivity - workerRuntime.Worker.BaseProductivityTickSize;
         }
     }
 }

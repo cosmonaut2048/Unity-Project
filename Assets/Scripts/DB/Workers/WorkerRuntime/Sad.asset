@@ -12,12 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9899c53324c47278b73d9531ad6fe83, type: 3}
   m_Name: Sad
   m_EditorClassIdentifier: Assembly-CSharp::Runtime.WorkerRuntime
-  appearance: {fileID: 11400000, guid: da17596bca79d34459abe6f7d9887253, type: 2}
-  basePatience: 0
-  baseSocial: 0
-  baseIntellectual: 0
-  basePhysical: 0
-  personalityTraits: []
+  worker: {fileID: 11400000, guid: 124cf846cfc9a6d4dbd118d773d3b21a, type: 2}
   isEmployed: 0
   productivity: 100
   loyalty: 100

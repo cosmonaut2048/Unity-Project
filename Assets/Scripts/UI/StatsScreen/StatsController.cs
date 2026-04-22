@@ -77,8 +77,8 @@ namespace UI.StatsScreen
                 portraitContainer.AddToClassList("worker--portrait--container");
 
                 var portraitImage = worker.IsEmployed ? 
-                    new StyleBackground(worker.Appearance.IconSprite) : 
-                    new StyleBackground(worker.Appearance.FiredIconSprite);
+                    new StyleBackground(worker.Worker.Appearance.IconSprite) : 
+                    new StyleBackground(worker.Worker.Appearance.FiredIconSprite);
                 
                 VisualElement portrait = new VisualElement { style = { flexGrow = 0, backgroundImage = portraitImage } };
                 

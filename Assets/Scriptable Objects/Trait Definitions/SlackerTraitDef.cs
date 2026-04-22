@@ -13,14 +13,14 @@ namespace Scriptable_Objects.Trait_Definitions
 
         // Сильнее устаёт без перерывов.
         public override bool IsUniqueLoyaltyTick() => true;
-        public override int LoyaltyTickSize(WorkerRuntime worker) => worker.BaseLoyaltyTickSize * 2;
+        public override int LoyaltyTickSize(WorkerRuntime worker) => worker.Worker.BaseLoyaltyTickSize * 2;
 
         // Теряет продуктивность пропорционально количеству дней после порога без перерывов.
         public override bool IsUniqueProductivityTick() => true; 
 
         public override int ProductivityTickSize(WorkerRuntime worker)
         {
-            return (worker.LastBreakDay - worker.BaseNoBreakThreshold) * worker.BaseProductivityTickSize;;
+            return (worker.LastBreakDay - worker.Worker.BaseNoBreakThreshold) * worker.Worker.BaseProductivityTickSize;;
         }
         
         // Перерыв восполняет продуктивность до 100, если она была ниже.

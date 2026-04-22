@@ -14,8 +14,8 @@ namespace Content
         /* ------------------------------ Модификаторы тиков ------------------------------ */
         public virtual bool IsUniqueProductivityTick() => false;
         public virtual bool IsUniqueLoyaltyTick() => false;
-        public virtual int ProductivityTickSize(WorkerRuntime worker) => worker.BaseProductivityTickSize;
-        public virtual int LoyaltyTickSize(WorkerRuntime worker) => worker.BaseLoyaltyTickSize;
+        public virtual int ProductivityTickSize(WorkerRuntime workerRuntime) => workerRuntime.Worker.BaseProductivityTickSize;
+        public virtual int LoyaltyTickSize(WorkerRuntime workerRuntime) => workerRuntime.Worker.BaseLoyaltyTickSize;
 
         /* ------------------------------ Модификаторы в начале дня ------------------------------ */
         public virtual int OnStartOfDayProductivity(int baseProductivity) => baseProductivity;

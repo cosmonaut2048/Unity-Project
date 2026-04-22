@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9899c53324c47278b73d9531ad6fe83, type: 3}
   m_Name: Comedian
   m_EditorClassIdentifier: Assembly-CSharp::Runtime.WorkerRuntime
-  appearance: {fileID: 11400000, guid: b865810850b17d64b87b5c0411cb1643, type: 2}
-  basePatience: 2
-  baseSocial: 5
-  baseIntellectual: 3
-  basePhysical: 1
-  personalityTraits:
-  - {fileID: 11400000, guid: a13336c65d52d3848b0ff30ca27b6fc1, type: 2}
-  - {fileID: 0}
+  worker: {fileID: 11400000, guid: 3992409017985a440bec3da428e82745, type: 2}
+  isEmployed: 1
+  productivity: 100
+  loyalty: 100
+  lastBreakDay: 0
+  busyReason: 0
+  isProductivityFrozen: 0
+  isLoyaltyFrozen: 0

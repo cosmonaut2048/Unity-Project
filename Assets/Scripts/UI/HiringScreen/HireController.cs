@@ -195,7 +195,7 @@ namespace UI.HiringScreen
                 if (_hiredWorkers.Count > 0)
                 {
                     foreach (var worker in _hiredWorkers)
-                        debugMessage += " " + worker.Appearance.WorkerName + ",";
+                        debugMessage += " " + worker.Worker.Appearance.WorkerName + ",";
                 }
                 else
                 {

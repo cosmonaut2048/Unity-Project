@@ -1,25 +1,26 @@
-﻿using Runtime;
+﻿using Core.DayLogic.TickCalculation;
+using Runtime;
 
 namespace Core.DayLogic
 {
     public class DayEndCalculator
     {
-        public void DayEndWorker(WorkerRuntime worker)
+        public void DayEndWorker(WorkerRuntime workerRuntime)
         {
-            if (worker.PersonalityTraits != null)
-                foreach (var trait in worker.PersonalityTraits)
-                    trait.OnEndOfDay(worker);
+            if (workerRuntime.Worker.PersonalityTraits != null)
+                foreach (var trait in workerRuntime.Worker.PersonalityTraits)
+                    trait.OnEndOfDay(workerRuntime);
         }
 
-        public void DayEndWorkerLoyalty(WorkerRuntime worker, LoyaltyTickCalculator calculator)
+        public void DayEndWorkerLoyalty(WorkerRuntime workerRuntime, LoyaltyTickCalculator calculator)
         {
             // Loyalty Tick.
-            calculator.LoyaltyTick(worker); // Уникальная логика для черт учитывается.
+            calculator.LoyaltyTick(workerRuntime); // Уникальная логика для черт учитывается.
             
             // Loyalty Mod.
-            if (worker.PersonalityTraits != null)
-                foreach (var trait in worker.PersonalityTraits)
-                    worker.SetLoyalty = trait.OnEndOfDayLoyalty(worker.Loyalty);
+            if (workerRuntime.Worker.PersonalityTraits != null)
+                foreach (var trait in workerRuntime.Worker.PersonalityTraits)
+                    workerRuntime.SetLoyalty = trait.OnEndOfDayLoyalty(workerRuntime.Loyalty);
         }
     }
 }

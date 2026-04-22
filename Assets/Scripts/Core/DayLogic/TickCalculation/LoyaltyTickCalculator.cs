@@ -1,25 +1,25 @@
 ﻿using Runtime;
 
-namespace Core.DayLogic
+namespace Core.DayLogic.TickCalculation
 {
     public class LoyaltyTickCalculator
     {
         // Если переопределена логика тика преданности -- используем её,
         // иначе делаем базовое списание.
-        public void LoyaltyTick(WorkerRuntime worker)
+        public void LoyaltyTick(WorkerRuntime workerRuntime)
         {
-            if (worker.PersonalityTraits != null)
+            if (workerRuntime.Worker.PersonalityTraits != null)
             {
-                foreach (var trait in worker.PersonalityTraits)
+                foreach (var trait in workerRuntime.Worker.PersonalityTraits)
                 {
                     if (trait.IsUniqueLoyaltyTick())
                     {
-                        worker.SetLoyalty = worker.Loyalty - trait.LoyaltyTickSize(worker);
+                        workerRuntime.SetLoyalty = workerRuntime.Loyalty - trait.LoyaltyTickSize(workerRuntime);
                         return;
                     }
                 }
             }
-            worker.SetLoyalty = worker.Loyalty - worker.BaseLoyaltyTickSize;
+            workerRuntime.SetLoyalty = workerRuntime.Loyalty - workerRuntime.Worker.BaseLoyaltyTickSize;
         }
     }
 }
