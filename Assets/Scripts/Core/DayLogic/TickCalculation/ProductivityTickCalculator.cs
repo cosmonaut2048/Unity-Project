@@ -1,4 +1,5 @@
 ﻿using Runtime;
+using UnityEngine;
 
 namespace Core.DayLogic.TickCalculation
 {

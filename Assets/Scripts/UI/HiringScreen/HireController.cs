@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Content;
+using Core.DayLogic;
 using Gameflow;
 using Generators;
 using Runtime;
@@ -131,7 +132,32 @@ namespace UI.HiringScreen
             _acceptButton.RegisterCallback<ClickEvent>(OnWorkerHired);
             _denyButton.RegisterCallback<ClickEvent>(OnWorkerDenied);
             
-            _nextSceneButton.RegisterCallback<ClickEvent>(_ => SceneController.Instance.LoadScene(nameof(Scenes.StatsScene)));
+            _nextSceneButton.RegisterCallback<ClickEvent>(_ => MoveToNextScene());
+        }
+
+        private void MoveToNextScene()
+        {
+            SceneController.Instance.LoadScene(nameof(Scenes.HallsScene));
+            DayCycleManager.Instance.OnDayStart();
+
+        }
+        
+        /// <summary>
+        /// Для отслеживания изменений в инспекторе.
+        /// </summary>
+        private void OnValidate()
+        {
+            if (Application.isPlaying && candidates is { Count: > 0 })
+            {
+                // Проверяем, что текущий индекс валидный.
+                if (_currentCandidateIndex >= 0 && _currentCandidateIndex < candidates.Count)
+                {
+                    if (candidates[_currentCandidateIndex] != _worker)
+                    {
+                        Worker = candidates[_currentCandidateIndex];
+                    }
+                }
+            }
         }
 
         private void OnWorkerHired(ClickEvent evt)
@@ -198,7 +224,7 @@ namespace UI.HiringScreen
                 if (_hiredWorkers.Count > 0)
                 {
                     foreach (var worker in _hiredWorkers)
-                        debugMessage += " " + worker.Worker.Appearance.WorkerName + ",";
+                        debugMessage += " " + worker.Worker.Appearance.WorkerName;
                 }
                 else
                 {
@@ -226,24 +252,6 @@ namespace UI.HiringScreen
         {
             targetHover.style.display = DisplayStyle.None;
             Debug.Log("OnInfoLeave");
-        }
-        
-        /// <summary>
-        /// Для отслеживания изменений в инспекторе.
-        /// </summary>
-        private void OnValidate()
-        {
-            if (Application.isPlaying && candidates is { Count: > 0 })
-            {
-                // Проверяем, что текущий индекс валидный.
-                if (_currentCandidateIndex >= 0 && _currentCandidateIndex < candidates.Count)
-                {
-                    if (candidates[_currentCandidateIndex] != _worker)
-                    {
-                        Worker = candidates[_currentCandidateIndex];
-                    }
-                }
-            }
         }
         
         private void OnWorkerChanged()

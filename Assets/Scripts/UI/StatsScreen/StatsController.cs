@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Content;
+using Runtime;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,7 +9,7 @@ namespace UI.StatsScreen
 {
     public class StatsController : MonoBehaviour
     {
-        [SerializeField] private DailyReport report;
+        private DailyReport _report;
         
         // Контейнер портретов.
         private VisualElement _workersContainer;
@@ -38,6 +39,7 @@ namespace UI.StatsScreen
 
         void Start()
         {
+            _report = OfficeRuntime.Instance.DailyReport;
             var root = GetComponent<UIDocument>().rootVisualElement;
             
             // Queue:
@@ -71,7 +73,7 @@ namespace UI.StatsScreen
 
         private void SetPortraits()
         {
-            foreach (var worker in report.Workers)
+            foreach (var worker in _report.Workers)
             {
                 VisualElement portraitContainer = new VisualElement { style = { flexGrow = 0 } };
                 portraitContainer.AddToClassList("worker--portrait--container");
@@ -102,32 +104,32 @@ namespace UI.StatsScreen
 
         private void SetProgressBar()
         {
-            _progressOld.style.width = report.QuotaSize != 0 ? Length.Percent(report.QuotaProgressOld / report.QuotaSize * 100) : 0;
-            _progressNew.style.width = report.QuotaSize != 0 ? Length.Percent(report.QuotaProgressNew / report.QuotaSize * 100) : 0;
-            _progressBarText.text = $"{report.QuotaProgressNew}/{report.QuotaSize}";
+            _progressOld.style.width = _report.QuotaSize != 0 ? Length.Percent((float)_report.QuotaProgressOld / _report.QuotaSize * 100) : Length.Percent(0);
+            _progressNew.style.width = _report.QuotaSize != 0 ? Length.Percent((float)_report.QuotaProgressNew / _report.QuotaSize * 100) : Length.Percent(0);
+            _progressBarText.text = $"{_report.QuotaProgressNew}/{_report.QuotaSize}";
         }
 
         private void SetCoffee()
         {
-            if (report.CoffeeConsumed == 0)
+            if (_report.CoffeeConsumed == 0)
             {
                 AddNone(_coffeeConsumedContainer);
             }
             else
             {
-                for (int i = 0; i < report.CoffeeConsumed; i++)
+                for (int i = 0; i < _report.CoffeeConsumed; i++)
                 {
                     AddObjectWithStyle(_coffeeConsumedContainer, "coffee--empty");
                 }
             }
 
-            if (report.CoffeeObtained == 0)
+            if (_report.CoffeeObtained == 0)
             {
                 AddNone(_coffeeObtainedContainer);
             }
             else
             {
-                for (int i = 0; i < report.CoffeeObtained; i++)
+                for (int i = 0; i < _report.CoffeeObtained; i++)
                 {
                     AddObjectWithStyle(_coffeeObtainedContainer, "coffee--full");
                 }   
@@ -136,13 +138,13 @@ namespace UI.StatsScreen
 
         private void SetBreaks()
         {
-            if (report.BreaksTaken == 0)
+            if (_report.BreaksTaken == 0)
             {
                 AddNone(_breaksTakenContainer);
             }
             else
             {
-                for (int i = 0; i < report.BreaksTaken; i++)
+                for (int i = 0; i < _report.BreaksTaken; i++)
                 {
                     AddObjectWithStyle(_breaksTakenContainer, "voucher");
                 }
@@ -151,31 +153,31 @@ namespace UI.StatsScreen
 
         private void SetLeft()
         {
-            if (report.CoffeeLeft == 0)
+            if (_report.CoffeeLeft == 0)
             {
                 AddNone(_coffeeLeftContainer);
             }
             else
             {
-                for (int i = 0; i < report.CoffeeLeft; i++)
+                for (int i = 0; i < _report.CoffeeLeft; i++)
                 {
                     AddObjectWithStyle(_coffeeLeftContainer, "coffee--full");
                 }
             }
 
-            if (report.BreaksLeft == 0)
+            if (_report.BreaksLeft == 0)
             {
                 AddNone(_breaksLeftContainer);
             }
             else
             {
-                for (int i = 0; i < report.BreaksLeft; i++)
+                for (int i = 0; i < _report.BreaksLeft; i++)
                 {
                     AddObjectWithStyle(_breaksLeftContainer, "voucher");
                 }
             }
 
-            _daysLeft.text = $"{report.DaysLeft} DAYS LEFT.";
+            _daysLeft.text = $"{_report.DaysLeft} DAYS LEFT.";
         }
 
         private void ClearStats()

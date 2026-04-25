@@ -18,7 +18,7 @@ namespace Content
         [SerializeField] private int basePhysical;
         
         [Header("Personality traits")]
-        [SerializeField] [CanBeNull] private List<TraitDef> personalityTraits;
+        [SerializeField] private List<TraitDef> personalityTraits;
 
         private readonly int _baseNoBreakThreshold = 3;
         private readonly int _baseLoyaltyTickSize = 5;

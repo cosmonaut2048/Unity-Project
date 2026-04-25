@@ -7,6 +7,7 @@ namespace Generators
     public class WorkerGenerator : MonoBehaviour
     {
         // Можно создавать генераторы для разных пулов внешностей и черт.
+        [Header("Generator Settings")]
         [SerializeField] private List<WorkerAppearance> appearances;
         [SerializeField] private List<TraitDef> traits;
         

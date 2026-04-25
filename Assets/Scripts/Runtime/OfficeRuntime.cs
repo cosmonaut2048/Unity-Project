@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Content;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Runtime
@@ -9,14 +10,38 @@ namespace Runtime
         public static OfficeRuntime Instance { get; private set; }
         
         [SerializeField] private List<ItemDef> inventory =  new List<ItemDef>();
+        [SerializeField] private int dayOfTheWeek;
+        // Работники.
         [SerializeField] private List<WorkerRuntime> hiredWorkers = new List<WorkerRuntime>();
+        [SerializeField] private List<WorkerRuntime> firedWorkersToday =  new List<WorkerRuntime>();
+        // Квота.
+        [SerializeField] private QuotaRuntime currentQuota;
+        // Задание.
+        [SerializeField] private TaskDef availableTask;
+        [CanBeNull] [SerializeField] private TaskRuntime currentTask;
+        // Кофе.
         [SerializeField] private int coffee;
+        [SerializeField] private int coffeeConsumedToday;
+        [SerializeField] private int coffeeObtainedToday;
+        // Перерывы.
         [SerializeField] private int breakVouchers;
+        [SerializeField] private int breakVouchersUsedToday;
+        // Отчёт.
+        [SerializeField] private DailyReport dailyReport;
         
         public List<ItemDef> Inventory => inventory;
+        public int DayOfTheWeek => dayOfTheWeek;
         public List<WorkerRuntime> HiredWorkers => hiredWorkers;
+        public List<WorkerRuntime> FiredWorkersToday => firedWorkersToday;
         public int Coffee => coffee;
+        public int CoffeeConsumedToday => coffeeConsumedToday;
+        public int CoffeeObtainedToday => coffeeObtainedToday;
         public int BreakVouchers => breakVouchers;
+        public int BreakVouchersUsedToday => breakVouchersUsedToday;
+        public QuotaRuntime CurrentQuota => currentQuota;
+        public TaskDef AvailableTask => availableTask;
+        public TaskRuntime CurrentTask => currentTask;
+        public DailyReport DailyReport => dailyReport;
 
         public void ClearRuntimeData()
         {
@@ -62,6 +87,47 @@ namespace Runtime
         {
             foreach (WorkerRuntime worker in workers)
                 hiredWorkers?.Remove(worker);
+        }
+
+        public List<WorkerRuntime> WorkersInOffice()
+        {
+            List<WorkerRuntime> workersInOffice = new List<WorkerRuntime>();
+
+            foreach (WorkerRuntime worker in hiredWorkers)
+            {
+                if (worker.BusyReason == BusyReason.None)
+                    workersInOffice.Add(worker);
+            }
+            
+            return workersInOffice;
+        }
+
+        public List<WorkerRuntime> BusyWorkers()
+        {
+            List<WorkerRuntime> busyWorkers = new List<WorkerRuntime>();
+
+            foreach (WorkerRuntime worker in hiredWorkers)
+            {
+                if (worker.BusyReason != BusyReason.None)
+                    busyWorkers.Add(worker);
+            }
+            
+            return busyWorkers;
+        }
+
+        public void SetAvailableTask(TaskDef newTask)
+        {
+            availableTask = newTask;
+        }
+
+        public void SetCurrentTask(TaskRuntime newTask)
+        {
+            currentTask = newTask;
+        }
+
+        public void SetDailyReport(DailyReport newReport)
+        {
+            dailyReport = newReport;
         }
     }
 }

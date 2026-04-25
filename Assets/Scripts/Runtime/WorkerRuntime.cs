@@ -60,8 +60,14 @@ namespace Runtime
         public bool SetIsLoyaltyFrozen { set => isLoyaltyFrozen = value; }
         
         // Методы.
-        public bool IsBusy => busyReason != BusyReason.None;
-        
+        public bool IsBusy() => busyReason != BusyReason.None;
+
+        public void FireWorker()
+        {
+            Debug.Log($"{worker.Appearance.WorkerName} is fired.");
+            isEmployed = false;
+        }
+
         // Инициализация из WorkerDef.
         public void InitializeWorkerRuntime(
             WorkerAppearance newAppearance, 

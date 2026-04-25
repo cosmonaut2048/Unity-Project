@@ -2,10 +2,22 @@
 {
     public enum Scenes
     {
+        // Game Flow:
+        BootScene,
         CoreScene,
+        // Menus:
         MainMenuScene,
-        OptionsScene,
+        SettingsScene,
+        SaveSelectScene,
+        // Pre-Work:
         HiringScene,
+        // Work Day:
+        HallsScene,
+        BulletinBoardScene,
+        KitchenScene,
+        MainRoomScene,
+        SecondRoomScene,
+        // After-Work:
         StatsScene
     }
 }

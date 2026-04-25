@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6498919470078033227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5108594292297892110}
+  - component: {fileID: 7064745155538819558}
+  m_Layer: 0
+  m_Name: TaskGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5108594292297892110
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6498919470078033227}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7064745155538819558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6498919470078033227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ca519abbafd014a9031b9e75da80a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Generators.TaskGenerator
+  tasks:
+  - {fileID: 11400000, guid: ea547c7aa4647794d8697504590ad467, type: 2}
+  - {fileID: 11400000, guid: b752856fe17e48e4397478c04dfe3d18, type: 2}
+  - {fileID: 11400000, guid: 7b7f2e7f4b6f40d4cbb614566bb1c4bf, type: 2}
+  - {fileID: 11400000, guid: fac08559b533a3a45a8efcec659a807e, type: 2}
+  - {fileID: 11400000, guid: a0018a184b24f984a9bffb9ccfedc161, type: 2}
+  - {fileID: 11400000, guid: 19e2bb5e8526586479624aaf7c63b7a1, type: 2}
+  - {fileID: 11400000, guid: dc663bd46cfdae84fa11e024bb88f283, type: 2}
+  - {fileID: 11400000, guid: 88097bd8ae5c4a043a6d92782f313180, type: 2}
+  - {fileID: 11400000, guid: 0b96fee508ee3ac4496c79d83dcf3abb, type: 2}

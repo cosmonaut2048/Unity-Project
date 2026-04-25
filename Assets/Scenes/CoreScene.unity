@@ -235,8 +235,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Runtime.OfficeRuntime
   inventory: []
   hiredWorkers: []
-  coffee: 0
-  breakVouchers: 0
+  coffee: 4
+  breakVouchers: 2
+  currentQuota: {fileID: 11400000, guid: 5177c5c5c81767748927235ad9ef2eea, type: 2}
 --- !u!1 &1002263422
 GameObject:
   m_ObjectHideFlags: 0

@@ -91,3 +91,124 @@
     -unity-font-definition: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=1a886a0f1330bfc4abe790ae7feef01d&type=3#NotInter-Regular");
     -unity-font-style: normal;
 }
+
+.coffee--full {
+    flex-grow: 0;
+    background-image: url("project://database/Assets/Art/UI/coffee_full.png?fileID=2800000&guid=a852f7ae78ab47c4d93881a6f4479686&type=3#coffee_full");
+    -unity-background-scale-mode: scale-to-fit;
+    background-position-x: center;
+    background-position-y: center;
+    width: 22%;
+    height: 25%;
+}
+
+.voucher {
+    flex-grow: 0;
+    background-image: url("project://database/Assets/Art/UI/voucher.png?fileID=2800000&guid=a2b588783c8d1e547b79330cbddf383c&type=3#voucher");
+    -unity-background-scale-mode: scale-to-fit;
+    background-position-x: center;
+    background-position-y: center;
+    width: 25%;
+    height: 25%;
+}
+
+.sticker--coffee {
+    flex-grow: 0;
+    position: absolute;
+    width: 20%;
+    height: 30%;
+    top: 355px;
+    left: 617px;
+    background-color: rgb(238, 221, 183);
+    padding-top: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.sticker--workers {
+    flex-grow: 0;
+    position: absolute;
+    width: 20%;
+    height: 30%;
+    top: 83px;
+    left: 566px;
+    background-color: rgb(224, 238, 236);
+    padding-top: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.sticker--vouchers {
+    flex-grow: 0;
+    position: absolute;
+    width: 20%;
+    height: 30%;
+    top: 355px;
+    left: 617px;
+    background-color: rgb(219, 241, 185);
+    padding-top: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.worker--pawn {
+    flex-grow: 0;
+    background-image: url("project://database/Assets/Art/UI/worker_pawn.png?fileID=2800000&guid=99e2349cc186f1748975244cb7ee16d8&type=3#worker_pawn");
+    -unity-background-scale-mode: scale-to-fit;
+    background-position-x: center;
+    background-position-y: center;
+    width: 20%;
+    height: 32%;
+}
+
+.sticker--quota {
+    flex-grow: 0;
+    position: absolute;
+    width: 35%;
+    height: 22%;
+    top: 83px;
+    left: 566px;
+    background-color: rgb(224, 238, 236);
+    padding-top: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+.sticker--note {
+    flex-grow: 0;
+    position: absolute;
+    width: 20%;
+    height: 30%;
+    top: 355px;
+    left: 617px;
+    background-color: rgb(241, 238, 185);
+    padding-top: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.none {
+    flex-grow: 0;
+    background-image: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=8300712400058098730&guid=1a886a0f1330bfc4abe790ae7feef01d&type=3#check-dash");
+    -unity-background-scale-mode: scale-to-fit;
+    background-position-x: center;
+    background-position-y: center;
+    width: 22%;
+    height: 25%;
+    -unity-background-image-tint-color: rgb(0, 0, 0);
+}

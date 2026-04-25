@@ -6,15 +6,19 @@ namespace Core.QuotaLogic
     public class Quota : ScriptableObject
     {
         [Header("Basic info")]
-        public string quotaName;
-        public string quotaDescription;
-        public int quotaSize;
+        [SerializeField] private string quotaName;
+        [SerializeField] private string quotaDescription;
+        [SerializeField] private int quotaSize;
+        
+        public string QuotaName => quotaName;
+        public string QuotaDescription => quotaDescription;
+        public int QuotaSize => quotaSize;
 
-        public Quota(string quotaName, string quotaDescription, int quotaSize)
+        public void InitializeQuota(string newQuotaName, string newQuotaDescription, int newQuotaSize)
         {
-            this.quotaName = quotaName;
-            this.quotaDescription = quotaDescription;
-            this.quotaSize = quotaSize;
+            quotaName = newQuotaName;
+            quotaDescription = newQuotaDescription;
+            quotaSize = newQuotaSize;
         }
     }
 }
