@@ -85,6 +85,10 @@ namespace UI.WorkDayScreen
             // Кэшируем ячейки навыков.
             CacheSkillCells();
             
+            // Очищаем данные с доски.
+            ClearAllSkillCells();
+            ClearAllStickers();
+            
             // Отображаем данные на доску.
             OnTaskChanged();
             SetQuotaSticker();
@@ -107,6 +111,7 @@ namespace UI.WorkDayScreen
 
         private void SetNoteSticker()
         {
+            string noteMessage = "";
             List<string> busyReasonNotes = new List<string>();
 
             foreach (WorkerRuntime worker in OfficeRuntime.Instance.BusyWorkers())
@@ -124,8 +129,10 @@ namespace UI.WorkDayScreen
 
             foreach (string note in busyReasonNotes)
             {
-                _noteText.text += $"{note}\n"; 
+                noteMessage += $"{note}\n"; 
             }
+            
+            _noteText.text = noteMessage;
         }
 
         private void SetQuotaSticker()
@@ -264,6 +271,28 @@ namespace UI.WorkDayScreen
             ClearSkillCells(_socialCells);
             ClearSkillCells(_intellectualCells);
             ClearSkillCells(_physicalCells);
+        }
+
+        private void ClearAllStickers()
+        {
+            ClearSticker(_coffeeContainer);
+            ClearSticker(_vouchersContainer);
+            ClearSticker(_workersContainer);
+        }
+
+        private void ClearSticker(VisualElement container)
+        {
+            List<VisualElement> elements = container?.Children().ToList();
+            
+            if (elements == null) return;
+            
+            foreach (var element in elements)
+            {
+                if (element != null)
+                {
+                    container.Remove(element);
+                }
+            }
         }
         
         private void ClearSkillCells(List<VisualElement> cells)
