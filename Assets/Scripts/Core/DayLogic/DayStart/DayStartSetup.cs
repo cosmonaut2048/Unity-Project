@@ -32,6 +32,10 @@ namespace Core.DayLogic.DayStart
             
             // Обновляем состояние заданий.
             OfficeRuntime.Instance.SetAvailableTask(taskGenerator.GetRandomTask());
+            
+            // Расставляем работников по комнатам в офисе.
+            OfficeWorkerPlacement.Instance.ClearAllRooms();
+            OfficeWorkerPlacement.Instance.SetWorkersInRooms(OfficeRuntime.Instance.WorkersInOffice());
         }
     }
 }

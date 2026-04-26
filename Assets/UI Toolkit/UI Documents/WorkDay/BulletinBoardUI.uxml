@@ -1,16 +1,20 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/BulletinBoardStyles.uss?fileID=7433441132597879392&amp;guid=3a9d881aba3506447a39742f37ed22db&amp;type=3#BulletinBoardStyles" />
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/MultiSceneStyles.uss?fileID=7433441132597879392&amp;guid=18f79c210c7c6714e8c72818cbf88016&amp;type=3#MultiSceneStyles" />
     <ui:VisualElement name="Fullscreen" style="flex-grow: 1; width: 100%; height: 100%; align-self: stretch; align-items: center; justify-content: flex-end; display: flex; background-image: url(&quot;project://database/Assets/Art/Backgrounds/white_wall_1920x1080.png?fileID=2800000&amp;guid=644c7f27e13d7da4a9f9d0f4438dc4fe&amp;type=3#white_wall_1920x1080&quot;); -unity-background-scale-mode: scale-and-crop;">
         <ui:VisualElement name="Bulletin_Board_Container" style="flex-grow: 0; width: 1920px; height: 1080px; justify-content: space-around; align-items: center; right: auto; left: auto; position: absolute; background-image: none; -unity-background-scale-mode: scale-and-crop; background-position-x: center; background-position-y: center;">
-            <ui:VisualElement name="Bulletin_Board" style="flex-grow: 0; background-color: rgb(195, 164, 102); width: 75%; height: 85%; align-items: center; justify-content: space-around;">
-                <ui:VisualElement name="Bulletin_Board" style="flex-grow: 0; background-color: rgb(219, 196, 150); width: 95%; height: 90%;">
-                    <ui:VisualElement name="Sticker_Workers" class="sticker--workers" style="top: 38px; left: 552px;">
+            <ui:VisualElement name="Bulletin_Board" style="flex-grow: 0; background-color: rgba(195, 164, 102, 0); width: 75%; height: 85%; align-items: center; justify-content: space-around;">
+                <ui:VisualElement picking-mode="Ignore" style="flex-grow: 0; position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Art/UI/bulletin_board.png?fileID=4512853220407445548&amp;guid=748412ce9fb7824498c31877c233e039&amp;type=3#bulletin_board_0&quot;); translate: 0 -50px; -unity-slice-type: tiled; -unity-slice-left: 600; -unity-slice-top: 600; -unity-slice-right: 600; -unity-slice-bottom: 600; -unity-slice-scale: 1px;" />
+                <ui:VisualElement name="Bulletin_Board" style="flex-grow: 0; background-color: rgba(219, 196, 150, 0); width: 95%; height: 90%;">
+                    <ui:VisualElement name="Sticker_Workers" class="sticker--workers" style="top: 38px; left: 565px; background-color: rgba(224, 238, 236, 0);">
+                        <ui:VisualElement picking-mode="Ignore" style="flex-grow: 0; position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Art/UI/stickers.png?fileID=7988843990719953864&amp;guid=5204fc0d3f621154293bc831abdd25da&amp;type=3#stickers_0&quot;); scale: 1.05 1.2; translate: -20px -20px;" />
                         <ui:Label text="Workers today:" style="font-size: 24px; white-space: normal;" />
                         <ui:VisualElement name="Workers_Container" style="flex-grow: 0; width: 100%; height: 70%; flex-direction: row; align-items: flex-start; justify-content: flex-start; flex-wrap: wrap;">
                             <ui:VisualElement class="worker--pawn" style="flex-grow: 0;" />
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement name="Sticker_Coffee" class="sticker--coffee" style="top: 322px; left: 584px;">
+                    <ui:VisualElement name="Sticker_Coffee" class="sticker--coffee" style="top: 340px; left: 579px; background-color: rgba(238, 221, 183, 0);">
+                        <ui:VisualElement picking-mode="Ignore" style="flex-grow: 0; position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Art/UI/stickers.png?fileID=-3326453065361091851&amp;guid=5204fc0d3f621154293bc831abdd25da&amp;type=3#stickers_1&quot;); scale: 1.05 1.1; translate: -10px -30px;" />
                         <ui:Label text="Coffee in storage:" style="font-size: 24px; white-space: normal;" />
                         <ui:VisualElement name="Coffee_Container" style="flex-grow: 0; width: 100%; height: 70%; flex-direction: row; align-items: flex-start; justify-content: flex-start; flex-wrap: wrap;">
                             <ui:VisualElement class="coffee--full" style="flex-grow: 0;" />
@@ -18,24 +22,28 @@
                             <ui:VisualElement class="coffee--full" style="flex-grow: 0;" />
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement name="Sticker_Quota" class="sticker--quota" style="top: 48px; left: 855px;">
+                    <ui:VisualElement name="Sticker_Quota" class="sticker--quota" style="top: 48px; left: 855px; background-color: rgba(224, 238, 236, 0);">
+                        <ui:VisualElement picking-mode="Ignore" style="flex-grow: 0; position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Art/UI/stickers.png?fileID=1313770957296414241&amp;guid=5204fc0d3f621154293bc831abdd25da&amp;type=3#stickers_4&quot;); scale: 1.05 1.35; translate: -10px -20px;" />
                         <ui:Label text="This week&apos;s quota:" style="font-size: 24px; white-space: normal;" />
                         <ui:VisualElement style="flex-grow: 0; width: 100%; height: 25%; flex-direction: row; align-items: flex-start; justify-content: flex-start; flex-wrap: wrap; background-color: rgb(171, 171, 171);">
                             <ui:VisualElement name="progress_bar" style="flex-grow: 0; width: 45%; height: 100%; flex-direction: row; align-items: flex-start; justify-content: flex-start; flex-wrap: wrap; background-color: rgb(93, 226, 255); position: absolute;" />
                         </ui:VisualElement>
                         <ui:Label text="m/n" name="progress_bar_text" style="font-size: 24px; -unity-text-align: upper-center; white-space: normal;" />
                     </ui:VisualElement>
-                    <ui:VisualElement name="Sticker_Vouchers" class="sticker--vouchers" style="top: 264px; left: 876px;">
+                    <ui:VisualElement name="Sticker_Vouchers" class="sticker--vouchers" style="top: 264px; left: 876px; background-color: rgba(219, 241, 185, 0);">
+                        <ui:VisualElement style="flex-grow: 0; position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Art/UI/stickers.png?fileID=1606897703786173908&amp;guid=5204fc0d3f621154293bc831abdd25da&amp;type=3#stickers_2&quot;); scale: 1 1.1; translate: -15px -30px;" />
                         <ui:Label text="Unused vouchers:" style="font-size: 24px; white-space: normal;" />
                         <ui:VisualElement name="Vouchers_Container" style="flex-grow: 0; width: 100%; height: 154px; flex-direction: row; align-items: flex-start; justify-content: flex-start; flex-wrap: wrap;">
                             <ui:VisualElement class="voucher" style="flex-grow: 0;" />
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement name="Sticker_Notes" class="sticker--note" style="top: 540px; left: 896px;">
+                    <ui:VisualElement name="Sticker_Notes" class="sticker--note" style="top: 540px; left: 896px; background-color: rgba(241, 238, 185, 0);">
+                        <ui:VisualElement style="flex-grow: 0; position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Art/UI/stickers.png?fileID=6327151208248608919&amp;guid=5204fc0d3f621154293bc831abdd25da&amp;type=3#stickers_3&quot;); scale: 1 1.1; translate: -20px -30px;" />
                         <ui:Label text="Worker is sick today!" name="note_text" style="font-size: 24px; white-space: normal;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="Task_Poster" class="poster">
+                <ui:VisualElement name="Task_Poster" class="poster" style="background-color: rgba(210, 225, 226, 0);">
+                    <ui:VisualElement style="flex-grow: 0; position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Art/UI/paper_sheet_pins.png?fileID=-2778618913894959015&amp;guid=65ae73c19d08d42409fac8aca83c2f04&amp;type=3#paper_sheet_pins_0&quot;); scale: 1 1.1; translate: -45px -15px;" />
                     <ui:Label text="Task Name" name="task_name" class="poster--title" />
                     <ui:Label text="Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor." name="task_description" class="poster--paragraph" />
                     <ui:VisualElement style="flex-grow: 0; background-color: rgba(200, 200, 200, 0); width: 80%; height: 50%; display: flex;">
@@ -88,7 +96,7 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="back_button" style="flex-grow: 1; position: absolute; width: 10%; height: 10%; top: auto; left: auto; bottom: 25px; right: 25px; background-color: rgb(159, 159, 159);" />
+            <ui:Button text="Button" name="back_button" class="go--back--button" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -8,3 +8,28 @@
     width: 10%;
     height: 10%;
 }
+
+.worker--full--mirrored {
+    flex-grow: 0;
+    width: 380px;
+    height: 450px;
+    top: 553px;
+    left: 835px;
+    background-image: url("project://database/Assets/Art/Placeholders/pawn_placeholder.png?fileID=-457045427575563763&guid=31d002a8d5f017d4c9966f159ee7addc&type=3#pawn_placeholder_0");
+    -unity-background-scale-mode: scale-to-fit;
+    rotate: 0;
+    position: absolute;
+    scale: -1 1;
+}
+
+.worker--full {
+    flex-grow: 0;
+    width: 380px;
+    height: 450px;
+    top: 489px;
+    left: 1137px;
+    background-image: url("project://database/Assets/Art/Placeholders/pawn_placeholder.png?fileID=-457045427575563763&guid=31d002a8d5f017d4c9966f159ee7addc&type=3#pawn_placeholder_0");
+    -unity-background-scale-mode: scale-to-fit;
+    rotate: 0;
+    position: absolute;
+}

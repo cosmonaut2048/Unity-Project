@@ -1,5 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/BulletinBoardStyles.uss?fileID=7433441132597879392&amp;guid=3a9d881aba3506447a39742f37ed22db&amp;type=3#BulletinBoardStyles" />
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/MultiSceneStyles.uss?fileID=7433441132597879392&amp;guid=18f79c210c7c6714e8c72818cbf88016&amp;type=3#MultiSceneStyles" />
     <ui:VisualElement name="Fullscreen" style="flex-grow: 1; width: 100%; height: 100%; align-self: stretch; align-items: center; justify-content: flex-end; display: flex; background-image: none; -unity-background-scale-mode: scale-and-crop;">
         <ui:VisualElement name="Office_Hall_Container" style="flex-grow: 0; width: 1920px; height: 1080px; justify-content: space-around; align-items: center; right: auto; left: 2px; position: absolute; background-image: url(&quot;project://database/Assets/Art/Backgrounds/Office/office_hall_1920x1080.png?fileID=2800000&amp;guid=d5472822be0b55c4e83dba2048501404&amp;type=3#office_hall_1920x1080&quot;); -unity-background-scale-mode: scale-and-crop; background-position-x: center; background-position-y: center; top: 0;">
             <ui:VisualElement name="Board_Hover_Container" style="flex-grow: 0; height: 350px; width: 475px; position: absolute; background-color: rgba(81, 76, 164, 0); top: 213px; left: 954px;">
@@ -17,12 +18,17 @@
             <ui:VisualElement name="Wall_Clock_Container" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/Art/UI/wall_clock.png?fileID=-4893785357181693393&amp;guid=39007198d8707c24297d5cc019d2a1c8&amp;type=3#wall_clock_0&quot;); width: 155px; height: 155px; position: absolute; top: 34px; left: 1109px;">
                 <ui:VisualElement name="wall_clock_glow" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/Art/UI/wall_clock_hover.png?fileID=6427153353625668054&amp;guid=c4125c44c8d807f4db912f7684f4060f&amp;type=3#wall_clock_hover_0&quot;); width: 155px; height: 155px; position: absolute; top: 2px; left: -2px; scale: 1.4 1.4;" />
             </ui:VisualElement>
-            <ui:VisualElement name="End_Day_Prompt_Container" style="flex-grow: 0; width: 100%; height: 100%; position: relative; background-color: rgba(0, 0, 0, 0.56); align-items: center; justify-content: center; display: none;">
-                <ui:Label text="Clock out now?" style="font-size: 48px; -unity-font-style: bold; color: rgb(255, 255, 255); translate: 0 -20px;" />
-                <ui:VisualElement name="End_Day_Buttons_Container" style="flex-grow: 0; flex-direction: row; width: 30%; height: 10%;">
-                    <ui:Button text="Yes" name="end_day_button" style="width: 50%; height: 100%; font-size: 30px; -unity-font-style: bold;" />
-                    <ui:Button text="Not yet" name="dont_end_day_button" style="width: 50%; height: 100%; font-size: 30px; -unity-font-style: bold;" />
-                </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Workers_Container" picking-mode="Ignore" style="flex-grow: 0; width: 1920px; height: 1080px; justify-content: space-around; align-items: center; right: auto; left: 2px; position: absolute; background-image: none; -unity-background-scale-mode: scale-and-crop; background-position-x: center; background-position-y: center; top: 0;">
+            <ui:VisualElement name="worker_full" class="worker--pawn--mirrored worker--full--mirrored" />
+            <ui:VisualElement name="worker_full" class="worker--full" />
+            <ui:VisualElement name="worker_full" class="worker--full--mirrored" style="flex-grow: 0; width: 380px; height: 450px; top: 452px; left: 179px; background-image: url(&quot;project://database/Assets/Art/Placeholders/pawn_placeholder.png?fileID=-457045427575563763&amp;guid=31d002a8d5f017d4c9966f159ee7addc&amp;type=3#pawn_placeholder_0&quot;); -unity-background-scale-mode: scale-to-fit; rotate: 0; position: absolute; opacity: 1; transform-origin: center; scale: -1 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="End_Day_Prompt_Container" style="flex-grow: 0; width: 100%; height: 100%; position: relative; background-color: rgba(0, 0, 0, 0.56); align-items: center; justify-content: center; display: none;">
+            <ui:Label text="Clock out now?" style="font-size: 48px; -unity-font-style: bold; color: rgb(255, 255, 255); translate: 0 -20px;" />
+            <ui:VisualElement name="End_Day_Buttons_Container" style="flex-grow: 0; flex-direction: row; width: 30%; height: 10%;">
+                <ui:Button text="Yes" name="end_day_button" style="width: 50%; height: 100%; font-size: 30px; -unity-font-style: bold;" />
+                <ui:Button text="Not yet" name="dont_end_day_button" style="width: 50%; height: 100%; font-size: 30px; -unity-font-style: bold;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

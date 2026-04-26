@@ -5,5 +5,12 @@
         <ui:VisualElement name="Office_Hall_Container" style="flex-grow: 0; width: 1920px; height: 1080px; justify-content: space-around; align-items: center; right: auto; left: 2px; position: absolute; background-image: url(&quot;project://database/Assets/Art/Backgrounds/Office/office_kitchen_1920x1080.png?fileID=2800000&amp;guid=40f4345f1eea7af429753534770bd2f5&amp;type=3#office_kitchen_1920x1080&quot;); -unity-background-scale-mode: scale-and-crop; background-position-x: center; background-position-y: center; top: 0;">
             <ui:Button text="Go Back" name="go_back_button" class="go--back--button" />
         </ui:VisualElement>
+        <ui:VisualElement name="Workers_Container" picking-mode="Ignore" style="flex-grow: 0; width: 1920px; height: 1080px; justify-content: space-around; align-items: center; right: auto; left: 2px; position: absolute; background-image: none; -unity-background-scale-mode: scale-and-crop; background-position-x: center; background-position-y: center; top: 0;">
+            <ui:VisualElement name="worker_full" class="worker--full" style="flex-grow: 1; top: 425px; left: 1490px;" />
+            <ui:VisualElement name="worker_full" class="worker--full" style="flex-grow: 1; top: 575px; left: 622px;" />
+            <ui:VisualElement name="worker_full" class="worker--full--mirrored" style="flex-grow: 1; top: 490px; left: 1208px;" />
+            <ui:VisualElement name="worker_full" class="worker--full--mirrored" style="flex-grow: 1; top: 555px; left: 219px;" />
+            <ui:VisualElement name="worker_full" class="worker--full--mirrored" style="flex-grow: 1; top: 592px; left: 17px;" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

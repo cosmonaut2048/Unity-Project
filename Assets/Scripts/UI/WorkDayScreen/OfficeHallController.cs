@@ -1,5 +1,8 @@
-﻿using Core.DayLogic;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Core.DayLogic;
 using Gameflow;
+using Runtime;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -23,9 +26,14 @@ namespace UI.WorkDayScreen
         private VisualElement _endDayPromptContainer;
         private Button _endDayButton;
         private Button _dontEndDayButton;
+        // Контейнер работников.
+        private VisualElement _workersContainer;
+        // Работники.
+        private List<VisualElement> _workers;
 
         void Start()
         {
+            WorkerSetter workerSetter = new WorkerSetter();
             var root = GetComponent<UIDocument>().rootVisualElement;
             
             // Queue:
@@ -45,6 +53,8 @@ namespace UI.WorkDayScreen
             _endDayPromptContainer = root.Q<VisualElement>("End_Day_Prompt_Container");
             _endDayButton = root.Q<Button>("end_day_button");
             _dontEndDayButton = root.Q<Button>("dont_end_day_button");
+            // Контейнер работников.
+            _workersContainer = root.Q<VisualElement>("Workers_Container");
             
             // Скрываем неактивные элементы.
             _boardHoverGlow.style.display = DisplayStyle.None;
@@ -53,6 +63,11 @@ namespace UI.WorkDayScreen
             _secondRoomHoverGlow.style.display = DisplayStyle.None;
             _kitchenHoverGlow.style.display = DisplayStyle.None;
             _endDayPromptContainer.style.display = DisplayStyle.None;
+            
+            // Настройка работников.
+            _workers = workerSetter.CacheWorkers(_workersContainer);
+            workerSetter.HideWorkers(_workers);
+            workerSetter.SetAllWorkers(_workers, OfficeWorkerPlacement.Instance.WorkersInHall, OfficeWorkerPlacement.Instance.HallCapacity);
             
             // Подписываемся на события.
             _boardHoverContainer.RegisterCallback<MouseEnterEvent>(_ => _boardHoverGlow.style.display = DisplayStyle.Flex);

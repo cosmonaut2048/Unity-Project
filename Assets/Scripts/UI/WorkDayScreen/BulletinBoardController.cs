@@ -53,7 +53,7 @@ namespace UI.WorkDayScreen
         private Label _noteText;
         
         // Кнопки.
-        private VisualElement _backButton;
+        private Button _backButton;
 
         void Start()
         {
@@ -80,7 +80,7 @@ namespace UI.WorkDayScreen
             _progressBarText = root.Q<Label>("progress_bar_text");
             _noteText = root.Q<Label>("note_text");
             // Кнопки.
-            _backButton = root.Q<VisualElement>("back_button");
+            _backButton = root.Q<Button>("back_button");
             
             // Кэшируем ячейки навыков.
             CacheSkillCells();

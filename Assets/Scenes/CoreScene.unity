@@ -246,6 +246,72 @@ MonoBehaviour:
   breakVouchers: 2
   breakVouchersUsedToday: 0
   dailyReport: {fileID: 0}
+--- !u!1 &774276487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 774276490}
+  - component: {fileID: 774276489}
+  - component: {fileID: 774276488}
+  m_Layer: 0
+  m_Name: OfficeWorkerPlacement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &774276488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774276487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478a932876a645ddade5f0ca1a79e366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameflow.DontDestroyOnLoadObject
+--- !u!114 &774276489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774276487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a08f2fea5584eeda01a19eaacfeb7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Runtime.OfficeWorkerPlacement
+  hallCapacity: 3
+  mainRoomCapacity: 3
+  secondRoomCapacity: 5
+  kitchenCapacity: 5
+  workersInHall: []
+  workersInMainRoom: []
+  workersInSecondRoom: []
+  workersInKitchen: []
+  workersInComputer: []
+--- !u!4 &774276490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774276487}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &823926960
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 823926962}
   - component: {fileID: 823926961}
+  - component: {fileID: 823926963}
   m_Layer: 0
   m_Name: DayCycleManager
   m_TagString: Untagged
@@ -292,6 +359,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &823926963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823926960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478a932876a645ddade5f0ca1a79e366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameflow.DontDestroyOnLoadObject
 --- !u!1 &1002263422
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,3 +644,4 @@ SceneRoots:
   - {fileID: 1002263424}
   - {fileID: 545621804}
   - {fileID: 823926962}
+  - {fileID: 774276490}
