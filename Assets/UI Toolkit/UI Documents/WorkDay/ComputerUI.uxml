@@ -1,0 +1,33 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/BulletinBoardStyles.uss?fileID=7433441132597879392&amp;guid=3a9d881aba3506447a39742f37ed22db&amp;type=3#BulletinBoardStyles" />
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/ComputerScreenStyles.uss?fileID=7433441132597879392&amp;guid=b87b9382a5b578c499a59334c5c95757&amp;type=3#ComputerScreenStyles" />
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/MultiSceneStyles.uss?fileID=7433441132597879392&amp;guid=18f79c210c7c6714e8c72818cbf88016&amp;type=3#MultiSceneStyles" />
+    <ui:VisualElement name="Fullscreen" style="flex-grow: 1; width: 100%; height: 100%; align-self: stretch; align-items: center; justify-content: flex-end; display: flex; background-image: none; -unity-background-scale-mode: scale-and-crop;">
+        <ui:VisualElement name="Computer_Screen_Container" style="flex-grow: 0; width: 1920px; height: 1080px; justify-content: space-around; align-items: center; right: auto; left: 2px; position: absolute; background-image: url(&quot;project://database/Assets/Art/Backgrounds/Office/office_main_room_1920x1080.png?fileID=2800000&amp;guid=921ce563792d95e4f9fbac1037ad2542&amp;type=3#office_main_room_1920x1080&quot;); -unity-background-scale-mode: scale-and-crop; background-position-x: center; background-position-y: center; top: 0;">
+            <ui:VisualElement name="Monitor_Container" style="flex-grow: 0; width: 1494px; height: 1314px; background-color: rgba(0, 0, 0, 0); display: flex; background-image: url(&quot;project://database/Assets/Art/UI/monitor.png?fileID=6864705659591406222&amp;guid=9d6faa04993991148b7d942b7b5e9772&amp;type=3#monitor_0&quot;); translate: 0 0%; position: absolute; top: 60px; left: auto; align-items: center;">
+                <ui:VisualElement name="Screen_Zone" style="flex-grow: 0; background-color: rgb(106, 159, 145); width: 98%; height: 66%; top: 20px; background-image: url(&quot;project://database/Assets/Art/Backgrounds/Office/computer_wallpaper_1920x1080.png?fileID=2800000&amp;guid=528e72f086f3ce74997fbb4d04e581a4&amp;type=3#computer_wallpaper_1920x1080&quot;);">
+                    <ui:ScrollView horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="AlwaysVisible" touch-scroll-type="Clamped" enabled="true" nested-interaction-kind="Default" focusable="false" style="width: 100%; height: 100%; background-image: none; padding-top: 50px; padding-right: 150px; padding-bottom: 50px; padding-left: 150px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
+                        <ui:VisualElement style="flex-grow: 0; width: 100%; height: auto; position: relative; background-color: rgb(197, 206, 219); background-image: none; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
+                            <ui:VisualElement style="flex-grow: 0; background-color: rgb(197, 206, 219); position: absolute; width: 100%; height: 770px;" />
+                            <ui:VisualElement name="Worker_Call_Card_Container" style="flex-grow: 0; -unity-background-image-tint-color: rgba(140, 140, 140, 0); width: 100%; height: auto; background-color: rgba(123, 133, 147, 0); flex-direction: row; align-items: stretch; flex-wrap: wrap;">
+                                <ui:VisualElement name="Worker_Call_Card" class="worker--call--card">
+                                    <ui:VisualElement name="worker_icon" class="worker--icon" />
+                                    <ui:VisualElement name="Worker_Call_Info" class="worker--call--info">
+                                        <ui:Label text="Worker Name" name="worker_name" class="worker--name" />
+                                        <ui:Button text="Call" name="call_button" class="call--button" />
+                                        <ui:VisualElement name="Give_Buttons_Container" class="give--buttons--container">
+                                            <ui:Button text="Give Coffee" name="coffee_button" class="coffee--button" />
+                                            <ui:Button text="Give Break" name="break_button" class="break--button" />
+                                        </ui:VisualElement>
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:ScrollView>
+                </ui:VisualElement>
+                <ui:VisualElement name="monitor_overlay" picking-mode="Ignore" style="flex-grow: 0; width: 1494px; height: 1314px; background-color: rgba(0, 0, 0, 0); display: flex; background-image: url(&quot;project://database/Assets/Art/UI/monitor_overlay.png?fileID=7402850565901533005&amp;guid=ef334a7fbf6fce24ba362c0cd6a3e491&amp;type=3#monitor_overlay_0&quot;); translate: 0 0%; position: absolute; top: auto; left: auto; align-items: center;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Button text="Go back" name="back_button" class="go--back--button" />
+    </ui:VisualElement>
+</ui:UXML>

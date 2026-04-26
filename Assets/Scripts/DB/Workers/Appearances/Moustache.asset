@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fdf5f132ad54aa49244c45f36d9758b, type: 3}
+  m_Name: Moustache
+  m_EditorClassIdentifier: Assembly-CSharp::Content.WorkerAppearance
+  workerName: Moustache
+  portraitSprite: {fileID: 2837265903197560199, guid: b7ca19c7e02637841ae4f5800fd56556, type: 3}
+  fullBodySprite: {fileID: 5128833879386809022, guid: b945e257103271043a5337a4b252999d, type: 3}
+  iconSprite: {fileID: 777758357635653677, guid: c23a749e6fb9b1d4e8428d71e6ee6f2d, type: 3}
+  firedIconSprite: {fileID: 7068018293417579948, guid: cafa0c74bcef329429445c7cee715c7b, type: 3}

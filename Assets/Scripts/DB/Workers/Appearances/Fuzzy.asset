@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fdf5f132ad54aa49244c45f36d9758b, type: 3}
+  m_Name: Fuzzy
+  m_EditorClassIdentifier: Assembly-CSharp::Content.WorkerAppearance
+  workerName: Fuzzy
+  portraitSprite: {fileID: -3884777709195691768, guid: 7d7841a54f6b11e47851053dedce47e9, type: 3}
+  fullBodySprite: {fileID: 0}
+  iconSprite: {fileID: 1853355366351124964, guid: 2c4c71b8fccdad743ad62509ce72c75e, type: 3}
+  firedIconSprite: {fileID: -7694779016862640879, guid: a6286d10f98323a4d9724007f0aa6845, type: 3}

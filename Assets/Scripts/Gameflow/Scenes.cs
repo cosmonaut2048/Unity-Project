@@ -17,6 +17,7 @@
         KitchenScene,
         MainRoomScene,
         SecondRoomScene,
+        ComputerScreenScene,
         // After-Work:
         StatsScene
     }

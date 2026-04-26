@@ -234,10 +234,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Runtime.OfficeRuntime
   inventory: []
+  dayOfTheWeek: 0
   hiredWorkers: []
-  coffee: 4
-  breakVouchers: 2
+  firedWorkersToday: []
   currentQuota: {fileID: 11400000, guid: 5177c5c5c81767748927235ad9ef2eea, type: 2}
+  availableTask: {fileID: 0}
+  currentTask: {fileID: 0}
+  coffee: 4
+  coffeeConsumedToday: 0
+  coffeeObtainedToday: 0
+  breakVouchers: 2
+  breakVouchersUsedToday: 0
+  dailyReport: {fileID: 0}
+--- !u!1 &823926960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 823926962}
+  - component: {fileID: 823926961}
+  m_Layer: 0
+  m_Name: DayCycleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &823926961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823926960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0db5a1f9fdf54030982674a8bfb64aac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Core.DayLogic.DayCycleManager
+  dayStartSetup: {fileID: 5873082737579134447, guid: a81a21bb782ada445a70a89d673f587f, type: 3}
+  dayEndSetup: {fileID: 2201635880875413425, guid: 85f863653e9855044bd6f05f570b5c22, type: 3}
+--- !u!4 &823926962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823926960}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1002263422
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,3 +564,4 @@ SceneRoots:
   - {fileID: 286809873}
   - {fileID: 1002263424}
   - {fileID: 545621804}
+  - {fileID: 823926962}

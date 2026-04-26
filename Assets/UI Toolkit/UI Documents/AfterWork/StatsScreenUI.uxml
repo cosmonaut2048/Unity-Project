@@ -1,0 +1,64 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/HireScreenStyles.uss?fileID=7433441132597879392&amp;guid=109f1bd979df9534f9d2fd2971f0bbf4&amp;type=3#HireScreenStyles" />
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/StatsScreenStyles.uss?fileID=7433441132597879392&amp;guid=304953a157e764f4abc030de9abb8e80&amp;type=3#StatsScreenStyles" />
+    <ui:VisualElement name="Fullscreen" style="flex-grow: 1; width: 100%; height: 100%; align-self: stretch; align-items: center; justify-content: flex-end; display: flex;">
+        <ui:VisualElement name="Stats_Screen_Container" style="flex-grow: 0; width: 1920px; height: 1080px; justify-content: space-between; align-items: flex-end; right: auto; left: auto; position: absolute; padding-top: 3%; padding-bottom: 3%; padding-right: 3%; padding-left: 3%; flex-direction: row; flex-wrap: nowrap; align-content: auto;">
+            <ui:Label text="PERFORMANCE REVIEW" style="font-size: 60px; -unity-font-style: bold; position: absolute; top: 5%;" />
+            <ui:VisualElement name="Report_Container" style="flex-grow: 0; width: 45%; height: 90%; background-color: rgb(217, 217, 217); padding-top: 2%; padding-bottom: 2%; padding-right: 2%; padding-left: 2%;">
+                <ui:VisualElement name="Quota_Report_Container" style="flex-grow: 0; width: 100%; height: 14%;">
+                    <ui:Label text="Quota progress" style="font-size: 40px;" />
+                    <ui:VisualElement name="Progress_Bar_Container" style="flex-grow: 0; width: 100%; height: 50%; flex-direction: column;">
+                        <ui:VisualElement name="Progress_Bar_Cell_Container" style="flex-grow: 1; height: 60%; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);">
+                            <ui:VisualElement style="flex-grow: 1; background-color: rgba(144, 144, 144, 0); width: 100%;" />
+                            <ui:VisualElement name="progress_new" style="flex-grow: 1; background-color: rgb(60, 141, 214); width: 80%; position: absolute; height: 100%; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; padding-top: 0%; padding-right: 0%; padding-bottom: 0%; padding-left: 0%;" />
+                            <ui:VisualElement name="progress_old" style="flex-grow: 1; background-color: rgb(70, 83, 120); width: 50%; position: absolute; height: 100%; margin-top: 0%; margin-right: 0%; margin-bottom: 0%; margin-left: 0%; padding-top: 0%; padding-right: 0%; padding-bottom: 0%; padding-left: 0%;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement style="flex-grow: 1; align-self: center; display: flex; position: absolute;">
+                            <ui:Label text="750/1000" name="progress_bar_text" style="width: auto; height: auto; font-size: 30px; background-color: rgba(0, 0, 0, 0); color: rgb(255, 255, 255);" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="divider" class="divider" />
+                <ui:VisualElement name="Coffee_Report_Container" style="flex-grow: 0; height: 28%;">
+                    <ui:Label text="Coffee consumed" style="font-size: 40px;" />
+                    <ui:VisualElement name="Coffee_Consumed_Container" style="flex-grow: 1; height: 5%; flex-direction: row; justify-content: flex-start; align-items: stretch;">
+                        <ui:VisualElement name="coffee_empty" class="coffee--empty" />
+                    </ui:VisualElement>
+                    <ui:Label text="Coffee obtained" style="font-size: 40px;" />
+                    <ui:VisualElement name="Coffee_Obtained_Container" style="flex-grow: 1; height: 5%; flex-direction: row; justify-content: flex-start; align-items: stretch;">
+                        <ui:VisualElement name="coffee_full" class="coffee--full" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="divider" class="divider" />
+                <ui:VisualElement name="Break_Report_Container" style="flex-grow: 0; background-size: 100% 100%; height: 14%; width: 100%;">
+                    <ui:Label text="Breaks taken&#10;" style="font-size: 40px;" />
+                    <ui:VisualElement name="Breaks_Taken_Container" style="flex-grow: 1; height: 5%; flex-direction: row; justify-content: flex-start; align-items: stretch;">
+                        <ui:VisualElement name="voucher" class="voucher" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="divider" class="divider" />
+                <ui:VisualElement name="Recourses_Left_Container" style="flex-grow: 0; width: 100%; height: 28%;">
+                    <ui:Label text="Coffee left" style="font-size: 40px;" />
+                    <ui:VisualElement name="Coffee_Left_Container" style="flex-grow: 1; height: 5%; flex-direction: row; justify-content: flex-start; align-items: stretch;">
+                        <ui:VisualElement class="coffee--full" />
+                    </ui:VisualElement>
+                    <ui:Label text="Breaks left" style="font-size: 40px;" />
+                    <ui:VisualElement name="Breaks_Left_Container" style="flex-grow: 1; height: 5%; flex-direction: row; justify-content: flex-start; align-items: stretch;">
+                        <ui:VisualElement class="voucher" style="flex-grow: 0;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="divider" class="divider" />
+                <ui:Label text="N DAYS LEFT" name="days_left" style="font-size: 40px; -unity-font-style: bold; width: 100%; height: 7%; -unity-text-align: upper-center; background-color: rgba(0, 0, 0, 0); color: rgb(152, 19, 19);" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Workers_Container" style="flex-grow: 0; width: 50%; height: 90%; background-color: rgba(217, 217, 217, 0); align-content: auto; flex-wrap: wrap; flex-direction: row; align-items: flex-start; justify-content: flex-start; align-self: flex-end;">
+                <ui:VisualElement name="Worker_Portrait_Container" class="worker--portrait--container">
+                    <ui:VisualElement name="worker_portrait" class="worker--portrait" />
+                </ui:VisualElement>
+                <ui:VisualElement name="Worker_Portrait_Container" class="worker--portrait--container">
+                    <ui:VisualElement name="worker_portrait" style="flex-grow: 1; background-color: rgb(112, 127, 142); background-image: url(&quot;project://database/Assets/Art/Portraits/Dim/Sad_cell_dark.png?fileID=-632890438756583622&amp;guid=14c11c3abc1da3541b57c42f1e7c37dd&amp;type=3#Sad_cell_dark_0&quot;); background-position-y: center; background-position-x: center; -unity-background-scale-mode: scale-and-crop; background-size: cover; flex-direction: column; align-items: stretch; display: flex;" />
+                    <ui:VisualElement class="fired--overlay" style="flex-grow: 1;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

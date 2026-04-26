@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/BulletinBoardStyles.uss?fileID=7433441132597879392&amp;guid=3a9d881aba3506447a39742f37ed22db&amp;type=3#BulletinBoardStyles" />
+    <ui:VisualElement name="Fullscreen" style="flex-grow: 1; width: 100%; height: 100%; align-self: stretch; align-items: center; justify-content: flex-end; display: flex; background-image: none; -unity-background-scale-mode: scale-and-crop;">
+        <ui:VisualElement name="Office_Second_Room_Container" style="flex-grow: 0; width: 1920px; height: 1080px; justify-content: space-around; align-items: center; right: auto; left: 2px; position: absolute; background-image: url(&quot;project://database/Assets/Art/Backgrounds/Office/office_second_room_1920x1080.png?fileID=2800000&amp;guid=658c74c469f1b0241b772ca981d69b41&amp;type=3#office_second_room_1920x1080&quot;); -unity-background-scale-mode: scale-and-crop; background-position-x: center; background-position-y: center; top: 0;">
+            <ui:Button text="Go Back" name="go_back_button" style="position: absolute; right: 25px; bottom: 25px; width: 10%; height: 10%;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

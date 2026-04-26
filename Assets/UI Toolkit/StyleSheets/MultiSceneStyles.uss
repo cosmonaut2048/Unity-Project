@@ -1,0 +1,10 @@
+:root {
+}
+
+.go--back--button {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    width: 10%;
+    height: 10%;
+}
