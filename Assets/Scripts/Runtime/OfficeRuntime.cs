@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Content;
+using Core.TaskLogic;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -19,6 +20,8 @@ namespace Runtime
         // Задание.
         [SerializeField] private TaskDef availableTask;
         [CanBeNull] [SerializeField] private TaskRuntime currentTask;
+
+        [CanBeNull] [SerializeField] private TotalTaskResult lastTaskResult;
         // Кофе.
         [SerializeField] private int coffee;
         [SerializeField] private int coffeeConsumedToday;
@@ -41,6 +44,7 @@ namespace Runtime
         public QuotaRuntime CurrentQuota => currentQuota;
         public TaskDef AvailableTask => availableTask;
         public TaskRuntime CurrentTask => currentTask;
+        public TotalTaskResult LastTaskResult => lastTaskResult;
         public DailyReport DailyReport => dailyReport;
 
         public void ClearRuntimeData()
@@ -128,6 +132,39 @@ namespace Runtime
         public void SetDailyReport(DailyReport newReport)
         {
             dailyReport = newReport;
+        }
+
+        public void SetActiveTask(TaskDef assignedTask, List<WorkerRuntime> assignedWorkers)
+        {
+            if (currentTask && !currentTask.IsFinished) return;
+            if (assignedWorkers.Count < assignedTask.WorkerAmountRequired) return;
+            
+            currentTask = ScriptableObject.CreateInstance<TaskRuntime>();
+            currentTask?.InitializeTaskRuntime(assignedTask, assignedWorkers);
+
+            foreach (var worker in assignedWorkers)
+            {
+                if (hiredWorkers.Contains(worker))
+                    worker.SetBusyReason = BusyReason.OnTask;
+            }
+        }
+
+        public void FreeActiveTask()
+        {
+            if (!currentTask) return;
+            
+            foreach (var worker in currentTask.Workers)
+            {
+                if (hiredWorkers.Contains(worker))
+                    worker.SetBusyReason = BusyReason.None;
+            }
+            
+            currentTask = null;
+        }
+
+        public void SetTaskResult(TotalTaskResult totalTaskResult)
+        {
+            lastTaskResult = totalTaskResult;
         }
     }
 }

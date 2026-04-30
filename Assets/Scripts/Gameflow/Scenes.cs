@@ -18,6 +18,7 @@
         MainRoomScene,
         SecondRoomScene,
         ComputerScreenScene,
+        AssignWorkersScene,
         // After-Work:
         StatsScene
     }

@@ -82,7 +82,6 @@ namespace Runtime
         
         public void InitializeWorkerRuntime(WorkerDef workerDef)
         {
-            // Вызываем метод базового класса.
             worker =  workerDef;
         }
         

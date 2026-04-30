@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Content.WorkerAppearance
   workerName: Ponytail
   portraitSprite: {fileID: -1221443075205077547, guid: ad32b3d922cea5549807cc5c8179462d, type: 3}
-  fullBodySprite: {fileID: 0}
+  fullBodySprite: {fileID: -1221443075205077547, guid: ad32b3d922cea5549807cc5c8179462d, type: 3}
   iconSprite: {fileID: -5706208343986491492, guid: 46f44a74a5b9fc543b3163ede8abc844, type: 3}
   firedIconSprite: {fileID: 4305300893254585483, guid: bf98a5736d4b6184db6dafc6521d79b6, type: 3}

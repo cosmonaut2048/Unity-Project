@@ -14,7 +14,7 @@ namespace Scriptable_Objects.Trait_Definitions
         
         public override int ModifyPatienceConditional(int baseValue, TaskRuntime task)
         {
-            if (task.workers.Count != 1)
+            if (task.Workers.Count != 1)
                 return baseValue + 1;
             
             return baseValue - 1;
@@ -22,7 +22,7 @@ namespace Scriptable_Objects.Trait_Definitions
 
         public override int ModifyIntellectualConditional(int baseValue, TaskRuntime task)
         {
-            if (task.workers.Count != 1)
+            if (task.Workers.Count != 1)
                 return baseValue + 1;
             
             return baseValue - 1;
@@ -30,7 +30,7 @@ namespace Scriptable_Objects.Trait_Definitions
 
         public override int ModifyPhysicalConditional(int baseValue, TaskRuntime task)
         {
-            if (task.workers.Count != 1)
+            if (task.Workers.Count != 1)
                 return baseValue + 1;
             
             return baseValue - 1;

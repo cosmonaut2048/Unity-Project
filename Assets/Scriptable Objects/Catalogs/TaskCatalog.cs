@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using Content;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Scriptable_Objects.Catalogs
 {
@@ -27,7 +25,7 @@ namespace Scriptable_Objects.Catalogs
             foreach (var task in allTasks)
             {
                 if (task != null)
-                    _tasksByName.TryAdd(task.taskName, task);
+                    _tasksByName.TryAdd(task.TaskName, task);
             }
         }
 

@@ -78,6 +78,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\Scripts\UI\StatsScreen\StatsController.cs" />
+    <Compile Include="Assets\Scripts\UI\WorkDayScreen\AssignWorkersComponents\WorkerIcon.cs" />
     <Compile Include="Assets\Scripts\Runtime\OfficeWorkerPlacement.cs" />
     <Compile Include="Assets\Scripts\Core\WorkerLogic\WorkerSkillsCalculator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Assets\Scripts\Content\BusyReason.cs" />
     <Compile Include="Assets\Scriptable Objects\Catalogs\WorkerCatalog.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
+    <Compile Include="Assets\Scripts\UI\WorkDayScreen\AssignWorkersComponents\WorkerSlot.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Scripts\Core\TaskLogic\WorkerTaskResult.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
+    <Compile Include="Assets\Scripts\UI\WorkDayScreen\AssignWorkersController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
@@ -114,6 +117,7 @@
     <Compile Include="Assets\Scripts\Gameflow\App.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Generators\TaskGenerator.cs" />
+    <Compile Include="Assets\Scripts\UI\WorkDayScreen\AssignWorkersComponents\DragAndDropManipulator.cs" />
     <Compile Include="Assets\Scripts\Core\WorkerLogic\SkillClamp.cs" />
     <Compile Include="Assets\Scriptable Objects\Catalogs\TraitCatalog.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
@@ -135,7 +139,6 @@
     <Compile Include="Assets\Scripts\Content\IncompatableWithAttribute.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-    <Compile Include="Assets\Scripts\Core\TaskLogic\TaskPicker.cs" />
     <Compile Include="Assets\Scripts\Generators\QuotaGenerator.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\IntrovertTraitDef.cs" />
     <Compile Include="Assets\Scripts\Core\TaskLogic\TaskResolver.cs" />
@@ -183,8 +186,10 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\UI Toolkit\StyleSheets\BulletinBoardStyles.uss" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\UI Toolkit\UI Documents\WorkDay\AssignWorkersUI.uxml" />
     <None Include="Assets\UI Toolkit\UI Documents\BeforeWork\HireScreenUI.uxml" />
     <None Include="Assets\UI Toolkit\UI Documents\WorkDay\BulletinBoardUI.uxml" />
+    <None Include="Assets\UI Toolkit\StyleSheets\AssignWorkersStyles.uss" />
     <None Include="Assets\UI Toolkit\UI Documents\WorkDay\OfficeMainRoomUI.uxml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\UI Toolkit\UI Documents\LoadingScreenUI.uxml" />

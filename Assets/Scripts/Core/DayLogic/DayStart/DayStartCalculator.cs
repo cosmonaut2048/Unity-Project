@@ -1,6 +1,6 @@
 ﻿using Core.DayLogic.TickCalculation;
+using Core.TaskLogic;
 using Runtime;
-using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Core.DayLogic.DayStart
@@ -28,6 +28,25 @@ namespace Core.DayLogic.DayStart
             if (workerRuntime.Worker.PersonalityTraits != null)
                 foreach (var trait in workerRuntime.Worker.PersonalityTraits)
                     workerRuntime.SetProductivity = trait.OnStartOfDayProductivity(workerRuntime.Productivity);
+        }
+
+        public void OnDayStartTask()
+        {
+            if (!OfficeRuntime.Instance.CurrentTask)
+                return;
+            if (OfficeRuntime.Instance.CurrentTask.CurrentTaskDay != OfficeRuntime.Instance.CurrentTask.Task.Duration)
+                return;
+            
+            TaskResultCalculator calculator = new TaskResultCalculator();
+            
+            TotalTaskResult totalTaskResult = calculator.TotalTaskResult(
+                OfficeRuntime.Instance.CurrentTask,
+                OfficeRuntime.Instance.CurrentTask.Workers
+                );
+            
+            OfficeRuntime.Instance.CurrentTask.FinishTask();
+            OfficeRuntime.Instance.SetTaskResult(totalTaskResult);
+            OfficeRuntime.Instance.FreeActiveTask();
         }
     }
 }

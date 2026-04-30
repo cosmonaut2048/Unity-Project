@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Content.WorkerAppearance
   workerName: Round Glasses
   portraitSprite: {fileID: 7828305103331640506, guid: 935a433c594bdeb43b20e7cc6a760557, type: 3}
-  fullBodySprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  fullBodySprite: {fileID: 7828305103331640506, guid: 935a433c594bdeb43b20e7cc6a760557, type: 3}
   iconSprite: {fileID: 7419333609375034870, guid: 5033afda366cc2e41b9f8549fe681c84, type: 3}
   firedIconSprite: {fileID: 4959938623977595292, guid: 8be5cbbd1a1a3dc4d830a0876f14e656, type: 3}

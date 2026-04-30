@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Content
@@ -8,23 +7,33 @@ namespace Content
     public class TaskDef : ScriptableObject
     {
         [SerializeField] private int maxWorkerAmount = 4;
-        public int MaxWorkerAmount => maxWorkerAmount;
         
         [Header("Name and description")]
-        public string taskName;
-        public string taskDescription;
+        [SerializeField] private string taskName;
+        [SerializeField] private string taskDescription;
 
         [Header("Time and workers needed")]
-        public int duration; // Длина задания (в днях).
-        public int workerAmountRequired; // Минимум работников.
+        [SerializeField] private int duration; // Длина задания (в днях).
+        [SerializeField] private int workerAmountRequired; // Минимум работников.
         
         [Header("Required skills")] // Пороги проверки.
-        public int patienceRequired;
-        public int socialRequired;
-        public int intellectualRequired;
-        public int physicalRequired;
+        [SerializeField] private int patienceRequired;
+        [SerializeField] private int socialRequired;
+        [SerializeField] private int intellectualRequired;
+        [SerializeField] private int physicalRequired;
         
         [Header("Reward(s)")] // Награда (предметы).
-        [CanBeNull] public List<ItemDef> reward;
+        [SerializeField] private List<ItemDef> reward;
+        
+        public int MaxWorkerAmount => maxWorkerAmount;
+        public string TaskName => taskName;
+        public string TaskDescription => taskDescription;
+        public int Duration => duration;
+        public int WorkerAmountRequired => workerAmountRequired;
+        public int PatienceRequired => patienceRequired;
+        public int SocialRequired => socialRequired;
+        public int IntellectualRequired => intellectualRequired;
+        public int PhysicalRequired => physicalRequired;
+        public List<ItemDef> Reward => reward;
     }
 }

@@ -20,7 +20,7 @@ namespace UI.WorkDayScreen
                 if (_task != value)
                 {
                     _task = value;
-                    OnTaskChanged();
+                    SetTaskPoster();
                 }
             }
         }
@@ -54,6 +54,7 @@ namespace UI.WorkDayScreen
         
         // Кнопки.
         private Button _backButton;
+        private Button _assignWorkersButton;
 
         void Start()
         {
@@ -81,6 +82,7 @@ namespace UI.WorkDayScreen
             _noteText = root.Q<Label>("note_text");
             // Кнопки.
             _backButton = root.Q<Button>("back_button");
+            _assignWorkersButton  = root.Q<Button>("assign_workers_button");
             
             // Кэшируем ячейки навыков.
             CacheSkillCells();
@@ -90,7 +92,7 @@ namespace UI.WorkDayScreen
             ClearAllStickers();
             
             // Отображаем данные на доску.
-            OnTaskChanged();
+            SetTaskPoster();
             SetQuotaSticker();
             SetWorkersSticker();
             SetCoffeeSticker();
@@ -107,6 +109,7 @@ namespace UI.WorkDayScreen
             
             // Подписываемся на события.
             _backButton.RegisterCallback<ClickEvent>(_ => SceneController.Instance.LoadScene(nameof(Scenes.HallsScene)));
+            _assignWorkersButton.RegisterCallback<ClickEvent>(_ => SceneController.Instance.LoadScene(nameof(Scenes.AssignWorkersScene)));
         }
 
         private void SetNoteSticker()
@@ -191,21 +194,21 @@ namespace UI.WorkDayScreen
             }
         }
         
-        private void OnTaskChanged()
+        private void SetTaskPoster()
         {
             if (_task)
             {
                 // Обновляем текстовую информацию.
-                _taskName.text = _task.taskName;
-                _taskDescription.text = _task.taskDescription;
-                _workersRequired.text = $"MIN WORKERS REQUIRED: {_task.workerAmountRequired}.";
-                _daysRequired.text = $"TASK WILL TAKE {_task.duration} DAYS.";
+                _taskName.text = _task.TaskName;
+                _taskDescription.text = _task.TaskDescription;
+                _workersRequired.text = $"MIN WORKERS REQUIRED: {_task.WorkerAmountRequired}.";
+                _daysRequired.text = $"TASK WILL TAKE {_task.Duration} DAYS.";
                 
                 // Обновляем ячейки навыков.
-                UpdateSkillCells(_patienceCells, _task.patienceRequired);
-                UpdateSkillCells(_socialCells, _task.socialRequired);
-                UpdateSkillCells(_intellectualCells, _task.intellectualRequired);
-                UpdateSkillCells(_physicalCells, _task.physicalRequired);
+                UpdateSkillCells(_patienceCells, _task.PatienceRequired);
+                UpdateSkillCells(_socialCells, _task.SocialRequired);
+                UpdateSkillCells(_intellectualCells, _task.IntellectualRequired);
+                UpdateSkillCells(_physicalCells, _task.PhysicalRequired);
             }
             else
             {

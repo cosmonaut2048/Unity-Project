@@ -22,5 +22,13 @@ namespace Core.DayLogic.DayEnd
                 foreach (var trait in workerRuntime.Worker.PersonalityTraits)
                     workerRuntime.SetLoyalty = trait.OnEndOfDayLoyalty(workerRuntime.Loyalty);
         }
+
+        public void OnDayEndTask()
+        {
+            if (!OfficeRuntime.Instance.CurrentTask)
+                return;
+            if (OfficeRuntime.Instance.CurrentTask.CurrentTaskDay < OfficeRuntime.Instance.CurrentTask.Task.Duration)
+                OfficeRuntime.Instance.CurrentTask.TickTaskDay();
+        }
     }
 }

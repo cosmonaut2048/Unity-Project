@@ -1,16 +1,13 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Content;
 using Core.WorkerLogic;
 using Runtime;
-using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Core.TaskLogic
 {
-    [CreateAssetMenu(fileName = "TaskResultCalculator", menuName = "Scriptable Objects/Core/TaskLogic/TaskResultCalculator")]
-    public class TaskResultCalculator : ScriptableObject
+    public class TaskResultCalculator
     {
         private readonly int _criticalFailure = 0; // Минимальное возможное значение навыка.
         private readonly int _criticalSuccess = 5; // Максимальное возможное значение навыка.
@@ -24,7 +21,7 @@ namespace Core.TaskLogic
         /// <param name="task">Задание.</param>
         /// <param name="workers">Список работников.</param>
         /// <returns>Результат выполнения задания: успех/провал, критический успех, критический провал.</returns>
-        public TotalTaskResult TotalTaskResult(TaskRuntime task, params WorkerDef[] workers)
+        public TotalTaskResult TotalTaskResult(TaskRuntime task, List<WorkerRuntime> workers)
         {
             TotalTaskResult result =  new TotalTaskResult();
             
@@ -34,7 +31,7 @@ namespace Core.TaskLogic
 
             // Применяем пассивные и условные модификаторы к навыкам.
             foreach (var worker in workers)
-                workerTaskResults.Add(TotalWorkerTaskResult(task, _workerSkillsCalculator.CalculateModifiedSkillsConditional(worker, _workerSkillsCalculator.CalculateModifiedSkills(worker), task)));
+                workerTaskResults.Add(TotalWorkerTaskResult(task.Task, _workerSkillsCalculator.CalculateModifiedSkillsConditional(worker.Worker, _workerSkillsCalculator.CalculateModifiedSkills(worker.Worker), task)));
 
             foreach (var workerTaskResult in workerTaskResults)
                 totalCriticalSuccessAmount += workerTaskResult.CriticalSuccessAmount;
@@ -109,10 +106,10 @@ namespace Core.TaskLogic
             // Фиксируем результаты проверки успеха.
             List<bool> result = new List<bool>
             {
-                IsSkillSuccess(patienceRolls, task.patienceRequired),
-                IsSkillSuccess(socialRolls, task.socialRequired),
-                IsSkillSuccess(intellectualRolls, task.intellectualRequired),
-                IsSkillSuccess(physicalRolls, task.physicalRequired)
+                IsSkillSuccess(patienceRolls, task.PatienceRequired),
+                IsSkillSuccess(socialRolls, task.SocialRequired),
+                IsSkillSuccess(intellectualRolls, task.IntellectualRequired),
+                IsSkillSuccess(physicalRolls, task.PhysicalRequired)
             };
 
             return result;
@@ -167,10 +164,10 @@ namespace Core.TaskLogic
             int criticalSuccessAmount = 0;
             
             // Фиксируем количество критических успехов.
-            criticalSuccessAmount += CriticalSuccessInRollCount(patienceRolls, task.patienceRequired); 
-            criticalSuccessAmount += CriticalSuccessInRollCount(socialRolls, task.socialRequired);
-            criticalSuccessAmount += CriticalSuccessInRollCount(intellectualRolls, task.intellectualRequired);
-            criticalSuccessAmount += CriticalSuccessInRollCount(physicalRolls, task.physicalRequired);
+            criticalSuccessAmount += CriticalSuccessInRollCount(patienceRolls, task.PatienceRequired); 
+            criticalSuccessAmount += CriticalSuccessInRollCount(socialRolls, task.SocialRequired);
+            criticalSuccessAmount += CriticalSuccessInRollCount(intellectualRolls, task.IntellectualRequired);
+            criticalSuccessAmount += CriticalSuccessInRollCount(physicalRolls, task.PhysicalRequired);
             
             return criticalSuccessAmount;
         }
@@ -190,10 +187,10 @@ namespace Core.TaskLogic
             int criticalFailureAmount = 0;
             
             // Фиксируем количество критических провалов.
-            criticalFailureAmount += CriticalFailureInRollCount(patienceRolls, task.patienceRequired); 
-            criticalFailureAmount += CriticalFailureInRollCount(socialRolls, task.socialRequired);
-            criticalFailureAmount += CriticalFailureInRollCount(intellectualRolls, task.intellectualRequired);
-            criticalFailureAmount += CriticalFailureInRollCount(physicalRolls, task.physicalRequired);
+            criticalFailureAmount += CriticalFailureInRollCount(patienceRolls, task.PatienceRequired); 
+            criticalFailureAmount += CriticalFailureInRollCount(socialRolls, task.SocialRequired);
+            criticalFailureAmount += CriticalFailureInRollCount(intellectualRolls, task.IntellectualRequired);
+            criticalFailureAmount += CriticalFailureInRollCount(physicalRolls, task.PhysicalRequired);
             
             return criticalFailureAmount;
         }
@@ -228,32 +225,6 @@ namespace Core.TaskLogic
                 result = rolls.Count(x => x.Equals(_criticalFailure));
             
             return result;
-        }
-        
-        /// <summary>
-        /// Фиксирует критический провал.
-        /// Если порог проверки == 0, провал не учитывается.
-        /// </summary>
-        /// <param name="rolls">Список результатов бросков кубика.</param>
-        /// <param name="skillRequired">Порог проверки.</param>
-        /// <returns>Есть ли критический провал.</returns>
-        [Obsolete("IsCriticalFailure больше не используется -- заменён на CriticalFailureInRollCount.")]
-        private bool IsCriticalFailure(List<int> rolls, int skillRequired)
-        {
-            return rolls.Contains(_criticalFailure) && skillRequired != 0;
-        }
-
-        /// <summary>
-        /// Фиксирует критический успех.
-        /// Если порог проверки == 0, успех не учитывается.
-        /// </summary>
-        /// <param name="rolls">Список результатов бросков кубика.</param>
-        /// <param name="skillRequired">Порог проверки.</param>
-        /// <returns>Есть ли критический успех.</returns>
-        [Obsolete("IsCriticalSuccess больше не используется -- заменён на CriticalSuccessInRollCount.")]
-        private bool IsCriticalSuccess(List<int> rolls, int skillRequired)
-        {
-            return rolls.Contains(_criticalSuccess) && skillRequired != 0;
         }
     }
 }

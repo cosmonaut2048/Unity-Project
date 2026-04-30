@@ -31,6 +31,7 @@ namespace Core.DayLogic.DayStart
             }
             
             // Обновляем состояние заданий.
+            dayStartCalculator.OnDayStartTask();
             OfficeRuntime.Instance.SetAvailableTask(taskGenerator.GetRandomTask());
             
             // Расставляем работников по комнатам в офисе.

@@ -94,6 +94,7 @@
                             <ui:Label text="TASK WILL TAKE N DAYS." name="days_required" class="poster--info" style="font-size: 20px;" />
                         </ui:VisualElement>
                     </ui:VisualElement>
+                    <ui:Button text="Assign Workers" name="assign_workers_button" class="assign--workers--button" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:Button text="Button" name="back_button" class="go--back--button" />

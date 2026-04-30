@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Content.WorkerAppearance
   workerName: Normal
   portraitSprite: {fileID: 1977547213100517089, guid: ef634395e6935a04d84659535e3d1dcc, type: 3}
-  fullBodySprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  fullBodySprite: {fileID: 1977547213100517089, guid: ef634395e6935a04d84659535e3d1dcc, type: 3}
   iconSprite: {fileID: -4731735297950285047, guid: 0984e7b793fcea24c9df6a1339f52541, type: 3}
   firedIconSprite: {fileID: -5337727755403658946, guid: 2ff44b6d6aa49f6428a28a2042c013a6, type: 3}
