@@ -32,7 +32,7 @@ namespace Runtime
 
         public void AddWorkerToHall(WorkerRuntime worker)
         {
-            if (workersInHall.Count > hallCapacity)
+            if (workersInHall.Count >= hallCapacity)
                 AddWorkerToComputer(worker);
             else
                 workersInHall.Add(worker);
@@ -40,7 +40,7 @@ namespace Runtime
 
         public void AddWorkerToMainRoom(WorkerRuntime worker)
         {
-            if (workersInMainRoom.Count > mainRoomCapacity)
+            if (workersInMainRoom.Count >= mainRoomCapacity)
                 AddWorkerToComputer(worker);
             else
                 workersInMainRoom.Add(worker);
@@ -48,7 +48,7 @@ namespace Runtime
 
         public void AddWorkerToSecondRoom(WorkerRuntime worker)
         {
-            if (workersInSecondRoom.Count > secondRoomCapacity)
+            if (workersInSecondRoom.Count >= secondRoomCapacity)
                 AddWorkerToComputer(worker);
             else
                 workersInSecondRoom.Add(worker);
@@ -56,7 +56,7 @@ namespace Runtime
 
         public void AddWorkerToKitchen(WorkerRuntime worker)
         {
-            if (workersInKitchen.Count > kitchenCapacity)
+            if (workersInKitchen.Count >= kitchenCapacity)
                 AddWorkerToComputer(worker);
             else
                 workersInKitchen.Add(worker);

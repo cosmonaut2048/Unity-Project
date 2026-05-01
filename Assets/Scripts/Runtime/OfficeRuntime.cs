@@ -87,12 +87,6 @@ namespace Runtime
                 hiredWorkers?.Add(worker);
         }
 
-        public void FireWorkers(List<WorkerRuntime> workers)
-        {
-            foreach (WorkerRuntime worker in workers)
-                hiredWorkers?.Remove(worker);
-        }
-
         public List<WorkerRuntime> WorkersInOffice()
         {
             List<WorkerRuntime> workersInOffice = new List<WorkerRuntime>();
@@ -165,6 +159,25 @@ namespace Runtime
         public void SetTaskResult(TotalTaskResult totalTaskResult)
         {
             lastTaskResult = totalTaskResult;
+        }
+
+        public void ClearFiredWorkersToday()
+        {
+            firedWorkersToday.Clear();
+        }
+
+        public void FiredWorkersUpdate()
+        {
+            foreach (var worker in firedWorkersToday)
+            {
+                hiredWorkers?.Remove(worker);
+            }
+        }
+
+        public void FireWorker(WorkerRuntime worker)
+        {
+            firedWorkersToday.Add(worker);
+            hiredWorkers.Remove(worker);
         }
     }
 }

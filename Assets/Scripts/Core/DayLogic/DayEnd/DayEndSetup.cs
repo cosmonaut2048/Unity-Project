@@ -1,5 +1,4 @@
-﻿using Content;
-using Core.DayLogic.ReportLogic;
+﻿using Core.DayLogic.ReportLogic;
 using Core.DayLogic.TickCalculation;
 using Runtime;
 using UnityEngine;

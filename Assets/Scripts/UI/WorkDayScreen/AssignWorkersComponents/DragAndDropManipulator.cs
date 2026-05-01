@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using PointerType = UnityEngine.UIElements.PointerType;
 
-namespace UI.WorkDayScreen
+namespace UI.WorkDayScreen.AssignWorkersComponents
 {
     public class DragAndDropManipulator : PointerManipulator
     {

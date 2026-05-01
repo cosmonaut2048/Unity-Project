@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Content;
 using Runtime;
 using UnityEngine;
@@ -10,10 +9,10 @@ namespace Core.DayLogic.ReportLogic
     {
         public DailyReport CreateReport()
         {
-            List<WorkerRuntime> hiredTemp = OfficeRuntime.Instance.HiredWorkers;
-            List<WorkerRuntime> firedTemp = OfficeRuntime.Instance.FiredWorkersToday;
-            hiredTemp.AddRange(firedTemp);
-            List<WorkerRuntime> workersInReport = hiredTemp.OrderBy(w => w.Worker.Appearance.WorkerName).ToList();
+            var workersInReport = OfficeRuntime.Instance.HiredWorkers
+                .Concat(OfficeRuntime.Instance.FiredWorkersToday)
+                .OrderBy(w => w.Worker.Appearance.WorkerName)
+                .ToList();
             
             DailyReport report = ScriptableObject.CreateInstance<DailyReport>();
             report.InitializeDailyReport(

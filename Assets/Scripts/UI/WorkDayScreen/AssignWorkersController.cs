@@ -11,8 +11,6 @@ namespace UI.WorkDayScreen
 {
     public class AssignWorkersController : MonoBehaviour
     {
-        private TaskDef _task;
-        
         // Контейнеры.
         private VisualElement _workerSlotsContainer;
         private VisualElement _workersContainer;
@@ -50,7 +48,6 @@ namespace UI.WorkDayScreen
 
         void Start()
         {
-            _task = OfficeRuntime.Instance.AvailableTask;
             var root = GetComponent<UIDocument>().rootVisualElement;
             
             // Queue:
@@ -87,7 +84,7 @@ namespace UI.WorkDayScreen
             
             // Расставляем элементы.
             SetWorkerIcons();
-            SetTaskPoster();
+            SetTaskPoster(OfficeRuntime.Instance.AvailableTask);
             
             // Получаем элементы.
             CacheSlots();
@@ -155,6 +152,8 @@ namespace UI.WorkDayScreen
             _workerSlotsContainer.AddToClassList("worker--slots--container--on--task");
             
             _onTaskText.style.display = DisplayStyle.Flex;
+            
+            SetTaskPoster(OfficeRuntime.Instance.CurrentTask.Task);
         }
 
         private List<WorkerRuntime> GetAssignedWorkers()
@@ -268,21 +267,21 @@ namespace UI.WorkDayScreen
             }
         }
         
-        private void SetTaskPoster()
+        private void SetTaskPoster(TaskDef task)
         {
-            if (_task)
+            if (task)
             {
                 // Обновляем текстовую информацию.
-                _taskName.text = _task.TaskName;
-                _taskDescription.text = _task.TaskDescription;
-                _workersRequired.text = $"MIN WORKERS REQUIRED: {_task.WorkerAmountRequired}.";
-                _daysRequired.text = $"TASK WILL TAKE {_task.Duration} DAYS.";
+                _taskName.text = task.TaskName;
+                _taskDescription.text = task.TaskDescription;
+                _workersRequired.text = $"MIN WORKERS REQUIRED: {task.WorkerAmountRequired}.";
+                _daysRequired.text = $"TASK WILL TAKE {task.Duration} DAYS.";
                 
                 // Обновляем ячейки навыков.
-                UpdateSkillCells(_patienceCells, _task.PatienceRequired);
-                UpdateSkillCells(_socialCells, _task.SocialRequired);
-                UpdateSkillCells(_intellectualCells, _task.IntellectualRequired);
-                UpdateSkillCells(_physicalCells, _task.PhysicalRequired);
+                UpdateSkillCells(_patienceCells, task.PatienceRequired);
+                UpdateSkillCells(_socialCells, task.SocialRequired);
+                UpdateSkillCells(_intellectualCells, task.IntellectualRequired);
+                UpdateSkillCells(_physicalCells, task.PhysicalRequired);
             }
             else
             {

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Content;
+using Gameflow;
 using Runtime;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -36,6 +37,9 @@ namespace UI.StatsScreen
         private VisualElement _breaksLeftContainer;
         // Оставшиеся дни до конца недели.
         private Label _daysLeft;
+        
+        // Кнопки.
+        private Button _nextDayButton;
 
         void Start()
         {
@@ -59,6 +63,8 @@ namespace UI.StatsScreen
             
             _daysLeft = root.Q<Label>("days_left");
             
+            _nextDayButton = root.Q<Button>("next_day_button");
+            
             // Очищаем отображаемые данные.
             ClearStats();
             
@@ -69,6 +75,12 @@ namespace UI.StatsScreen
             SetBreaks();
             SetLeft();
             
+            _nextDayButton.RegisterCallback<ClickEvent>(OnNextDayButton);
+        }
+
+        private void OnNextDayButton(ClickEvent evt)
+        {
+            SceneController.Instance.LoadScene(nameof(Scenes.HiringScene));
         }
 
         private void SetPortraits()
