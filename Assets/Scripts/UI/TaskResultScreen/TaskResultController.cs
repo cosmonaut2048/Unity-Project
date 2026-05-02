@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Content;
 using Gameflow;
 using Runtime;
 using UI.WorkDayScreen.AssignWorkersComponents;
@@ -51,6 +52,17 @@ namespace UI.TaskResultScreen
             _criticalFailureText = root.Q<Label>("critical_failure_text");
             // Кнопки.
             _backButton = root.Q<Button>("back_button");
+            // Элементы задания:
+            // Текстовая информация.
+            _taskName = root.Q<Label>("task_name");
+            _taskDescription = root.Q<Label>("task_description");
+            _workersRequired = root.Q<Label>("workers_required");
+            _daysRequired = root.Q<Label>("days_required");
+            // Контейнеры навыков.
+            _skillPatienceCellsContainer = root.Q<VisualElement>("Skill_Patience_Cells_Container");
+            _skillSocialCellsContainer = root.Q<VisualElement>("Skill_Social_Cells_Container");
+            _skillIntellectualCellsContainer = root.Q<VisualElement>("Skill_Intellectual_Cells_Container");
+            _skillPhysicalCellsContainer = root.Q<VisualElement>("Skill_Physical_Cells_Container");
             
             // Кэшируем.
             CacheSkillCells();
@@ -63,50 +75,53 @@ namespace UI.TaskResultScreen
             // Расставляем элементы.
             SetWorkerIcons();
             SetTaskResultText();
+            SetTaskPoster(OfficeRuntime.Instance.LastTaskResult.Task);
             
             // Подписываемся на события.
             _backButton.RegisterCallback<ClickEvent>(_ => SceneController.Instance.LoadScene(nameof(Scenes.HallsScene)));
         }
 
+        private void SwitchClasses(VisualElement element, string setClass, string removeClass)
+        {
+            if (element.ClassListContains(removeClass))
+                _taskCompletionText.RemoveFromClassList(removeClass);
+            
+            element.AddToClassList(setClass);
+        }
+
         private void SetTaskResultText()
         {
-            _taskCompletionText.ClearClassList();
-            
             if (OfficeRuntime.Instance.LastTaskResult.IsSuccess)
             {
                 _taskCompletionText.text = "TASK COMPLETED SUCCESSFULLY";
-                _taskCompletionText.AddToClassList("task--result--success");
+                SwitchClasses(_taskCompletionText, "task--result--success", "task--result--failure");
             }
             else
             {
                 _taskCompletionText.text = "TASK FAILED";
-                _taskCompletionText.AddToClassList("task--result--failure");
+                SwitchClasses(_taskCompletionText, "task--result--failure", "task--result--success");
             }
-            
-            _criticalFailureText.ClearClassList();
 
             if (OfficeRuntime.Instance.LastTaskResult.IsCriticalFailure)
             {
                 _criticalFailureText.text = "YES";
-                _criticalFailureText.AddToClassList("critical--text--no");
+                SwitchClasses(_criticalFailureText, "critical--text--no", "critical--text--yes");
             }
             else
             {
                 _criticalFailureText.text = "NO";
-                _criticalFailureText.AddToClassList("critical--text--yes");
+                SwitchClasses(_criticalFailureText, "critical--text--yes", "critical--text--no");
             }
-            
-            _criticalSuccessText.ClearClassList();
 
             if (OfficeRuntime.Instance.LastTaskResult.IsCriticalSuccess)
             {
                 _criticalSuccessText.text = "YES";
-                _criticalSuccessText.AddToClassList("critical--text--yes");
+                SwitchClasses(_criticalSuccessText, "critical--text--yes", "critical--text--no");
             }
             else
             {
                 _criticalSuccessText.text = "NO";
-                _criticalSuccessText.AddToClassList("critical--text--no");
+                SwitchClasses(_criticalSuccessText, "critical--text--no", "critical--text--yes");
             }
         }
         
@@ -148,6 +163,60 @@ namespace UI.TaskResultScreen
             foreach (var slot in _workerSlots)
             {
                 slot.FreeSlot();
+            }
+        }
+        
+        private void SetTaskPoster(TaskDef task)
+        {
+            if (task)
+            {
+                // Обновляем текстовую информацию.
+                _taskName.text = task.TaskName;
+                _taskDescription.text = task.TaskDescription;
+                _workersRequired.text = $"MIN WORKERS REQUIRED: {task.WorkerAmountRequired}.";
+                _daysRequired.text = $"TASK WILL TAKE {task.Duration} DAYS.";
+                
+                // Обновляем ячейки навыков.
+                UpdateSkillCells(_patienceCells, task.PatienceRequired);
+                UpdateSkillCells(_socialCells, task.SocialRequired);
+                UpdateSkillCells(_intellectualCells, task.IntellectualRequired);
+                UpdateSkillCells(_physicalCells, task.PhysicalRequired);
+            }
+            else
+            {
+                // Если task == null, очищаем информацию.
+                ClearAllSkillCells();
+                ClearAllSkillCells();
+                _taskName.text = "";
+                _taskDescription.text = "";
+                _workersRequired.text = "";
+                _daysRequired.text = "";
+            }
+        }
+        
+        private void UpdateSkillCells(List<VisualElement> cells, int skillLevel)
+        {
+            if (cells == null || cells.Count == 0) return;
+            
+            // Ограничиваем уровень навыка количеством ячеек.
+            int filledCount = Mathf.Clamp(skillLevel, 0, cells.Count);
+            
+            for (int i = 0; i < cells.Count; i++)
+            {
+                if (cells[i] == null) continue;
+                
+                if (i < filledCount)
+                {
+                    // Заполненная ячейка.
+                    cells[i].RemoveFromClassList("task--skill--cell--empty");
+                    cells[i].AddToClassList("task--skill--cell--full");
+                }
+                else
+                {
+                    // Пустая ячейка.
+                    cells[i].RemoveFromClassList("task--skill--cell--full");
+                    cells[i].AddToClassList("task--skill--cell--empty");
+                }
             }
         }
         
