@@ -9,6 +9,7 @@ namespace Core.DayLogic.DayStart
     {
         public bool IsLeavingCompany(WorkerRuntime worker)
         {
+            if (worker.IsBusy()) return false;
             return worker.Loyalty < Random.Range(1, 100);
         }
         

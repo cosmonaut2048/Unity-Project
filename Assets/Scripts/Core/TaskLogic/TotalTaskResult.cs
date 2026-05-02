@@ -2,14 +2,18 @@
 
 namespace Core.TaskLogic
 {
-    public class TotalTaskResult
+    public class TotalTaskResult : ScriptableObject
     {
-        private bool _isSuccess;
-        private bool _isCriticalFailure;
-        private bool _isCriticalSuccess;
+        [SerializeField] private bool isSuccess;
+        [SerializeField] private bool isCriticalFailure;
+        [SerializeField] private bool isCriticalSuccess;
         
-        public bool IsSuccess { get; set; }
-        public bool IsCriticalFailure { get; set; }
-        public bool IsCriticalSuccess { get; set; }
+        public bool IsSuccess => isSuccess;
+        public bool IsCriticalFailure => isCriticalFailure;
+        public bool IsCriticalSuccess => isCriticalSuccess;
+        
+        public void SetIsSuccess(bool success) =>  isSuccess = success;
+        public void SetIsCriticalFailure(bool criticalFailure) =>  isCriticalFailure = criticalFailure;
+        public void SetIsCriticalSuccess(bool criticalSuccess) =>  isCriticalSuccess = criticalSuccess;
     }
 }

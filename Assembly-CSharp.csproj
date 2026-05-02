@@ -163,6 +163,7 @@
     <None Include="Assets\UI Toolkit\UI Documents\WorkDay\OfficeKitchenUI.uxml" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Unity - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\UI Toolkit\UI Documents\BeforeWork\TaskResultUI.uxml" />
     <None Include="Assets\UI Toolkit\UI Documents\Menus\MainMenuUI.uxml" />
     <None Include="Assets\UI Toolkit\UI Documents\Menus\SaveSelectUI.uxml" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />

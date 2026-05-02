@@ -20,8 +20,8 @@ namespace Runtime
         // Задание.
         [SerializeField] private TaskDef availableTask;
         [CanBeNull] [SerializeField] private TaskRuntime currentTask;
-
         [CanBeNull] [SerializeField] private TotalTaskResult lastTaskResult;
+        
         // Кофе.
         [SerializeField] private int coffee;
         [SerializeField] private int coffeeConsumedToday;

@@ -196,6 +196,7 @@ namespace UI.WorkDayScreen
         
         private void SetTaskPoster()
         {
+            if (OfficeRuntime.Instance.CurrentTask) _task = OfficeRuntime.Instance.CurrentTask.Task;
             if (_task)
             {
                 // Обновляем текстовую информацию.

@@ -3,6 +3,7 @@ using System.Linq;
 using Content;
 using Core.WorkerLogic;
 using Runtime;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Core.TaskLogic
@@ -23,7 +24,7 @@ namespace Core.TaskLogic
         /// <returns>Результат выполнения задания: успех/провал, критический успех, критический провал.</returns>
         public TotalTaskResult TotalTaskResult(TaskRuntime task, List<WorkerRuntime> workers)
         {
-            TotalTaskResult result =  new TotalTaskResult();
+            TotalTaskResult result =  ScriptableObject.CreateInstance<TotalTaskResult>();
             
             List<WorkerTaskResult> workerTaskResults = new List<WorkerTaskResult>();
             int totalCriticalSuccessAmount = 0;
@@ -38,13 +39,13 @@ namespace Core.TaskLogic
 
             foreach (var workerTaskResult in workerTaskResults)
                 totalCriticalFailureAmount += workerTaskResult.CriticalFailureAmount;
-            
+
             if (totalCriticalSuccessAmount > totalCriticalFailureAmount)
-                result.IsCriticalSuccess = true;
-            if  (totalCriticalFailureAmount > totalCriticalSuccessAmount)
-                result.IsCriticalFailure = true;
+                result.SetIsCriticalSuccess(true);
+            if (totalCriticalFailureAmount > totalCriticalSuccessAmount)
+                result.SetIsCriticalFailure(true);
             
-            result.IsSuccess = IsTaskSuccessful(workerTaskResults);
+            result.SetIsSuccess(IsTaskSuccessful(workerTaskResults));
             
             return result;
         }

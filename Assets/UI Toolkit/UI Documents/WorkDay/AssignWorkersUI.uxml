@@ -1,0 +1,112 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/AssignWorkersStyles.uss?fileID=7433441132597879392&amp;guid=1cef9223e3575c44089e2dce184d8cef&amp;type=3#AssignWorkersStyles" />
+    <Style src="project://database/Assets/UI%20Toolkit/StyleSheets/MultiSceneStyles.uss?fileID=7433441132597879392&amp;guid=18f79c210c7c6714e8c72818cbf88016&amp;type=3#MultiSceneStyles" />
+    <ui:VisualElement name="Fullscreen" style="flex-grow: 1; width: 100%; height: 100%; align-self: stretch; align-items: center; justify-content: flex-end; display: flex; background-image: url(&quot;project://database/Assets/Art/Backgrounds/white_wall_1920x1080.png?fileID=2800000&amp;guid=644c7f27e13d7da4a9f9d0f4438dc4fe&amp;type=3#white_wall_1920x1080&quot;); -unity-background-scale-mode: scale-and-crop;">
+        <ui:VisualElement name="Bulletin_Board_Container" style="flex-grow: 0; width: 1920px; height: 1080px; justify-content: space-around; align-items: center; right: auto; left: auto; position: absolute; background-image: none; -unity-background-scale-mode: scale-and-crop; background-position-x: center; background-position-y: center;">
+            <ui:VisualElement name="Bulletin_Board" style="flex-grow: 0; background-color: rgba(140, 140, 140, 0); width: 75%; height: 85%; align-items: center; justify-content: flex-start; flex-direction: row;">
+                <ui:VisualElement name="Task_Poster" class="poster">
+                    <ui:Label text="Task Name" name="task_name" class="poster--title" />
+                    <ui:Label text="Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor." name="task_description" class="poster--paragraph" />
+                    <ui:VisualElement style="flex-grow: 0; background-color: rgba(200, 200, 200, 0); width: 80%; height: 50%; display: flex;">
+                        <ui:VisualElement class="task--info--container">
+                            <ui:Label text="PATIENCE" class="poster--info" />
+                            <ui:VisualElement name="Skill_Patience_Cells_Container" class="task--cell--container">
+                                <ui:VisualElement class="task--skill--cell--full" />
+                                <ui:VisualElement class="task--skill--cell--full" />
+                                <ui:VisualElement class="task--skill--cell--full" />
+                                <ui:VisualElement class="task--skill--cell--full" />
+                                <ui:VisualElement class="task--skill--cell--empty" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="task--info--container">
+                            <ui:Label text="SOCIAL" class="poster--info" style="font-size: 20px;" />
+                            <ui:VisualElement name="Skill_Social_Cells_Container" class="task--cell--container">
+                                <ui:VisualElement class="task--skill--cell--full" />
+                                <ui:VisualElement class="task--skill--cell--full" />
+                                <ui:VisualElement class="task--skill--cell--full" />
+                                <ui:VisualElement class="task--skill--cell--full" />
+                                <ui:VisualElement class="task--skill--cell--full" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="task--info--container">
+                            <ui:Label text="INTELLECTUAL" class="poster--info" style="font-size: 20px;" />
+                            <ui:VisualElement name="Skill_Intellectual_Cells_Container" class="task--cell--container">
+                                <ui:VisualElement class="task--skill--cell--full" />
+                                <ui:VisualElement class="task--skill--cell--full" />
+                                <ui:VisualElement class="task--skill--cell--full" />
+                                <ui:VisualElement class="task--skill--cell--full" />
+                                <ui:VisualElement class="task--skill--cell--full" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="task--info--container">
+                            <ui:Label text="PHYSICAL" class="poster--info" style="font-size: 20px;" />
+                            <ui:VisualElement name="Skill_Physical_Cells_Container" class="task--cell--container">
+                                <ui:VisualElement class="task--skill--cell--full" />
+                                <ui:VisualElement class="task--skill--cell--full" />
+                                <ui:VisualElement class="task--skill--cell--full" />
+                                <ui:VisualElement class="task--skill--cell--full" />
+                                <ui:VisualElement class="task--skill--cell--full" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="task--info--container">
+                            <ui:Label text="MIN WORKRES REQUIRED: 1." name="workers_required" class="poster--info" style="font-size: 20px;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement class="task--info--container">
+                            <ui:Label text="TASK WILL TAKE N DAYS." name="days_required" class="poster--info" style="font-size: 20px;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:Button text="Start Task" name="start_task_button" class="start--task--button" />
+                </ui:VisualElement>
+                <ui:VisualElement name="Assignment_Panel" style="width: 65%; height: 70%; background-color: rgb(193, 200, 217); flex-direction: column; display: flex;">
+                    <ui:VisualElement name="Worker_Slots_Container" class="worker--slots--container">
+                        <ui:VisualElement name="worker_slot_background" class="slot--background" style="background-image: url(&quot;project://database/Assets/Art/UI/worker_cell_empty.png?fileID=2800000&amp;guid=d2a0b6cc68f80ee4085baa7626b1ce39&amp;type=3#worker_cell_empty&quot;);">
+                            <ui:VisualElement name="worker_slot" class="slot" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="worker_slot_background" class="slot--background" style="background-image: url(&quot;project://database/Assets/Art/UI/worker_cell_empty.png?fileID=2800000&amp;guid=d2a0b6cc68f80ee4085baa7626b1ce39&amp;type=3#worker_cell_empty&quot;);">
+                            <ui:VisualElement name="worker_slot" class="slot" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="worker_slot_background" class="slot--background" style="background-image: url(&quot;project://database/Assets/Art/UI/worker_cell_empty.png?fileID=2800000&amp;guid=d2a0b6cc68f80ee4085baa7626b1ce39&amp;type=3#worker_cell_empty&quot;);">
+                            <ui:VisualElement name="worker_slot" class="slot" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="worker_slot_background" class="slot--background" style="background-image: url(&quot;project://database/Assets/Art/UI/worker_cell_empty.png?fileID=2800000&amp;guid=d2a0b6cc68f80ee4085baa7626b1ce39&amp;type=3#worker_cell_empty&quot;);">
+                            <ui:VisualElement name="worker_slot" class="slot" />
+                        </ui:VisualElement>
+                        <ui:Label text="Task in progres. Come back tomorrow.&#10;Workers on task:" name="on_task_text" class="poster--title" style="position: absolute; top: 20%; -unity-text-align: upper-center; display: none;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Scroll_Container" style="flex-grow: 1; width: 100%; height: 70%; display: flex;">
+                        <ui:ScrollView horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="AlwaysVisible" style="width: 100%; height: 100%; align-items: stretch;">
+                            <ui:VisualElement name="Workers_Container" style="flex-grow: 0; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; align-items: flex-start; align-content: auto; align-self: auto; padding-top: 0; padding-right: 31px; padding-bottom: 0; padding-left: 31px; flex-basis: auto; width: auto; height: auto;">
+                                <ui:VisualElement name="worker_icon_container" class="worker--icon--container" style="background-image: none;">
+                                    <ui:VisualElement name="worker_icon" class="worker--icon" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="worker_icon_container" class="worker--icon--container" style="background-image: none;">
+                                    <ui:VisualElement name="worker_icon" class="worker--icon" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="worker_icon_container" class="worker--icon--container" style="background-image: none;">
+                                    <ui:VisualElement name="worker_icon" class="worker--icon" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="worker_icon_container" class="worker--icon--container" style="background-image: none;">
+                                    <ui:VisualElement name="worker_icon" class="worker--icon" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="worker_icon_container" class="worker--icon--container" style="background-image: none;">
+                                    <ui:VisualElement name="worker_icon" class="worker--icon" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="worker_icon_container" class="worker--icon--container" style="background-image: none;">
+                                    <ui:VisualElement name="worker_icon" class="worker--icon" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="worker_icon_container" class="worker--icon--container" style="background-image: none;">
+                                    <ui:VisualElement name="worker_icon" class="worker--icon" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:ScrollView>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="Assignment_Warning" style="width: 100%; height: 70%; background-color: rgba(31, 31, 31, 0.84); flex-direction: column; display: none; position: absolute; -unity-text-outline-color: rgb(192, 57, 57); align-items: center; justify-content: flex-start;">
+                    <ui:Label text="You didn&apos;t assign enough workers!" name="not_enough_workers_assigned_warning" class="poster--title" style="background-color: rgba(255, 255, 255, 0); color: rgb(255, 255, 255); top: 200px;" />
+                    <ui:Button text="Try again" name="try_again_button" style="width: 30%; height: 15%; font-size: 36px; -unity-font-style: bold; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; top: 200px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:Button text="Button" name="back_button" class="go--back--button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
