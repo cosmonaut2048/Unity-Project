@@ -166,18 +166,15 @@ namespace Runtime
             firedWorkersToday.Clear();
         }
 
-        public void FiredWorkersUpdate()
-        {
-            foreach (var worker in firedWorkersToday)
-            {
-                hiredWorkers?.Remove(worker);
-            }
-        }
-
         public void FireWorker(WorkerRuntime worker)
         {
             firedWorkersToday.Add(worker);
             hiredWorkers.Remove(worker);
+        }
+
+        public void TickDayOfTheWeek()
+        {
+            dayOfTheWeek++;
         }
     }
 }

@@ -1,6 +1,19 @@
 :root {
 }
 
+.worker--container {
+    flex-grow: 0;
+    width: 380px;
+    height: 450px;
+    top: 553px;
+    left: 835px;
+    background-image: none;
+    -unity-background-scale-mode: scale-to-fit;
+    rotate: 0;
+    position: absolute;
+    scale: 1 1;
+}
+
 .go--back--button {
     position: absolute;
     right: 25px;
@@ -9,27 +22,73 @@
     height: 10%;
 }
 
-.worker--full--mirrored {
-    flex-grow: 0;
-    width: 380px;
-    height: 450px;
-    top: 553px;
-    left: 835px;
-    background-image: url("project://database/Assets/Art/Placeholders/pawn_placeholder.png?fileID=-457045427575563763&guid=31d002a8d5f017d4c9966f159ee7addc&type=3#pawn_placeholder_0");
-    -unity-background-scale-mode: scale-to-fit;
-    rotate: 0;
-    position: absolute;
-    scale: -1 1;
-}
-
 .worker--full {
     flex-grow: 0;
     width: 380px;
     height: 450px;
-    top: 489px;
-    left: 1137px;
+    top: auto;
+    left: auto;
     background-image: url("project://database/Assets/Art/Placeholders/pawn_placeholder.png?fileID=-457045427575563763&guid=31d002a8d5f017d4c9966f159ee7addc&type=3#pawn_placeholder_0");
     -unity-background-scale-mode: scale-to-fit;
     rotate: 0;
     position: absolute;
+    opacity: 1;
+    transform-origin: center;
+    scale: -1 1;
+}
+
+.give--coffee {
+    flex-grow: 0;
+    background-color: rgba(197, 144, 68, 0);
+    height: 80px;
+    width: 80px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-image: url("project://database/Assets/Art/UI/coffee_full.png?fileID=2800000&guid=a852f7ae78ab47c4d93881a6f4479686&type=3#coffee_full");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.give--voucher {
+    flex-grow: 0;
+    background-color: rgba(123, 197, 68, 0);
+    height: 80px;
+    width: 80px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-image: url("project://database/Assets/Art/UI/voucher.png?fileID=2800000&guid=a2b588783c8d1e547b79330cbddf383c&type=3#voucher");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.give--container {
+    flex-grow: 0;
+    background-color: rgba(188, 134, 134, 0);
+    position: absolute;
+    width: 100%;
+    height: 80px;
+    translate: 0 -100%;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.give--coffee--inactive {
+    flex-grow: 0;
+    background-color: rgba(197, 144, 68, 0);
+    height: 80px;
+    width: 80px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-image: url("project://database/Assets/Art/UI/coffee_full_inactive.png?fileID=2800000&guid=d5d94c5a2006f8842a25ad9ba9cfcfcb&type=3#coffee_full_inactive");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.give--voucher--inactive {
+    flex-grow: 0;
+    background-color: rgba(123, 197, 68, 0);
+    height: 80px;
+    width: 80px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-image: url("project://database/Assets/Art/UI/voucher_inactive.png?fileID=2800000&guid=237ae69971188404cb7fbeac63b31c2f&type=3#voucher_inactive");
+    -unity-background-scale-mode: scale-to-fit;
 }

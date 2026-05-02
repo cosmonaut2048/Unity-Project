@@ -27,12 +27,10 @@ namespace Content
         public virtual void OnEndOfDay(WorkerRuntime worker) { }
         
         /* ------------------------------ Модификаторы кофе ------------------------------ */
-        public virtual void OnCoffee(WorkerRuntime worker) { }
-        public virtual int OnCoffeeProductivity(int baseProductivity) => baseProductivity;
-        public virtual int OnCoffeeLoyalty(int baseLoyalty) => baseLoyalty;
+        public virtual void OnCoffee(WorkerRuntime worker) => worker.SetProductivity(worker.ProductivityMaxValue);
         
         /* ------------------------------ Модификаторы перерывов ------------------------------ */
-        public virtual void OnBreak(WorkerRuntime worker) { }
+        public virtual void OnBreak(WorkerRuntime worker) => worker.SetLoyalty(worker.LoyaltyMaxValue);
         
         /* ------------------------------ Модификаторы заданий ------------------------------ */
         // Заморозки.

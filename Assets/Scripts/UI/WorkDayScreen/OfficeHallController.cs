@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Core.DayLogic;
 using Gameflow;
 using Runtime;
+using UI.WorkDayScreen.WorkersInOfficeComponents;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -29,7 +29,7 @@ namespace UI.WorkDayScreen
         // Контейнер работников.
         private VisualElement _workersContainer;
         // Работники.
-        private List<VisualElement> _workers;
+        private List<WorkerInOffice> _workers = new List<WorkerInOffice>();
 
         void Start()
         {
@@ -65,9 +65,9 @@ namespace UI.WorkDayScreen
             _endDayPromptContainer.style.display = DisplayStyle.None;
             
             // Настройка работников.
-            _workers = workerSetter.CacheWorkers(_workersContainer);
-            workerSetter.HideWorkers(_workers);
-            workerSetter.SetAllWorkers(_workers, OfficeWorkerPlacement.Instance.WorkersInHall, OfficeWorkerPlacement.Instance.HallCapacity);
+            _workers = workerSetter.CreateWorkersInOffice(OfficeWorkerPlacement.Instance.WorkersInHall, _workersContainer);
+            workerSetter.HideAllWorkers(_workersContainer);
+            workerSetter.SetAllWorkers(_workers, OfficeWorkerPlacement.Instance.HallCapacity);
             
             // Подписываемся на события.
             _boardHoverContainer.RegisterCallback<MouseEnterEvent>(_ => _boardHoverGlow.style.display = DisplayStyle.Flex);
@@ -92,6 +92,11 @@ namespace UI.WorkDayScreen
             _secondRoomHoverContainer.RegisterCallback<ClickEvent>(_ => SceneController.Instance.LoadScene(nameof(Scenes.SecondRoomScene)));
             _endDayButton.RegisterCallback<ClickEvent>(OnEndDayButtonClick);
             _dontEndDayButton.RegisterCallback<ClickEvent>(_ => _endDayPromptContainer.style.display = DisplayStyle.None);
+
+            foreach (var worker in _workers)
+            {
+                worker.SubscribeToClickEvents();
+            }
         }
 
         private void OnClockClick(ClickEvent evt)

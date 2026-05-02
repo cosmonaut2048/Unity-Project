@@ -51,15 +51,26 @@
                 <ui:VisualElement name="divider" class="divider" />
                 <ui:Label text="N DAYS LEFT" name="days_left" style="font-size: 40px; -unity-font-style: bold; width: 100%; height: 7%; -unity-text-align: upper-center; background-color: rgba(0, 0, 0, 0); color: rgb(152, 19, 19);" />
             </ui:VisualElement>
-            <ui:VisualElement name="Workers_Container" style="flex-grow: 0; width: 50%; height: 90%; background-color: rgba(217, 217, 217, 0); align-content: auto; flex-wrap: wrap; flex-direction: row; align-items: flex-start; justify-content: flex-start; align-self: flex-end;">
-                <ui:VisualElement name="Worker_Portrait_Container" class="worker--portrait--container">
-                    <ui:VisualElement name="worker_portrait" class="worker--portrait" />
+            <ui:ScrollView horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Auto" style="width: 50%; height: 90%; flex-direction: row; justify-content: space-evenly; align-items: stretch;">
+                <ui:VisualElement name="Workers_Container" style="flex-grow: 0; width: 100%; height: auto; background-color: rgba(217, 217, 217, 0); align-content: auto; flex-wrap: wrap; flex-direction: row; align-items: flex-start; justify-content: flex-start; align-self: flex-end; margin-right: 0; margin-left: 0; margin-top: 0; margin-bottom: 0; padding-right: 0; padding-left: 0;">
+                    <ui:VisualElement name="Worker_Portrait_Container" class="worker--portrait--container">
+                        <ui:VisualElement name="worker_portrait" class="worker--portrait" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Worker_Portrait_Container" class="worker--portrait--container">
+                        <ui:VisualElement name="worker_portrait" style="flex-grow: 1; background-color: rgb(112, 127, 142); background-image: url(&quot;project://database/Assets/Art/Portraits/Dim/Sad_cell_dark.png?fileID=-632890438756583622&amp;guid=14c11c3abc1da3541b57c42f1e7c37dd&amp;type=3#Sad_cell_dark_0&quot;); background-position-y: center; background-position-x: center; -unity-background-scale-mode: scale-and-crop; background-size: cover; flex-direction: column; align-items: stretch; display: flex;" />
+                        <ui:VisualElement class="fired--overlay" style="flex-grow: 1;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Worker_Portrait_Container" class="worker--portrait--container">
+                        <ui:VisualElement name="worker_portrait" class="worker--portrait" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Worker_Portrait_Container" class="worker--portrait--container">
+                        <ui:VisualElement name="worker_portrait" class="worker--portrait" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Worker_Portrait_Container" class="worker--portrait--container">
+                        <ui:VisualElement name="worker_portrait" class="worker--portrait" />
+                    </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="Worker_Portrait_Container" class="worker--portrait--container">
-                    <ui:VisualElement name="worker_portrait" style="flex-grow: 1; background-color: rgb(112, 127, 142); background-image: url(&quot;project://database/Assets/Art/Portraits/Dim/Sad_cell_dark.png?fileID=-632890438756583622&amp;guid=14c11c3abc1da3541b57c42f1e7c37dd&amp;type=3#Sad_cell_dark_0&quot;); background-position-y: center; background-position-x: center; -unity-background-scale-mode: scale-and-crop; background-size: cover; flex-direction: column; align-items: stretch; display: flex;" />
-                    <ui:VisualElement class="fired--overlay" style="flex-grow: 1;" />
-                </ui:VisualElement>
-            </ui:VisualElement>
+            </ui:ScrollView>
             <ui:Button text="Button" name="next_day_button" class="go--back--button" />
         </ui:VisualElement>
     </ui:VisualElement>

@@ -17,6 +17,10 @@ namespace Core.DayLogic.DayStart
             if (workerRuntime.Worker.PersonalityTraits != null)
                 foreach (var trait in workerRuntime.Worker.PersonalityTraits)
                     trait.OnStartOfDay(workerRuntime);
+            
+            workerRuntime.ResetDrankCoffeeToday();
+            workerRuntime.ResetTookBreakToday();
+            workerRuntime.TickLastBreakDay();
         }
         
         public void DayStartWorkerProductivity(WorkerRuntime workerRuntime, ProductivityTickCalculator calculator)
@@ -27,7 +31,7 @@ namespace Core.DayLogic.DayStart
             // Productivity Mod.
             if (workerRuntime.Worker.PersonalityTraits != null)
                 foreach (var trait in workerRuntime.Worker.PersonalityTraits)
-                    workerRuntime.SetProductivity = trait.OnStartOfDayProductivity(workerRuntime.Productivity);
+                    workerRuntime.SetProductivity(trait.OnStartOfDayProductivity(workerRuntime.Productivity));
         }
 
         public void OnDayStartTask()

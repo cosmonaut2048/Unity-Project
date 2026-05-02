@@ -23,20 +23,17 @@ namespace Scriptable_Objects.Trait_Definitions
         {
             if (_caffeineRushCountdown == 0)
                 _caffeineRushCountdown = _caffeineRushCountdownFresh;
+            
+            if (_caffeineRushCountdown > 0)
+                workerRuntime.SetProductivity(_caffeineRushProductivity);
+            else
+                workerRuntime.SetProductivity(_noCaffeineRushProductivity);
         }
 
         public override void OnStartOfDay(WorkerRuntime workerRuntime)
         {
             if (_caffeineRushCountdown > 0)
                 _caffeineRushCountdown--;
-        }
-
-        public override int OnCoffeeProductivity(int baseProductivity)
-        {
-            if (_caffeineRushCountdown > 0)
-                return _caffeineRushProductivity;
-            
-            return _noCaffeineRushProductivity;
         }
     }
 }

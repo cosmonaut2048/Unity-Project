@@ -27,7 +27,7 @@ namespace Scriptable_Objects.Trait_Definitions
         public override void OnBreak(WorkerRuntime worker)
         {
             if (worker.Loyalty < 100)
-                worker.SetLoyalty = 100;
+                worker.SetLoyalty(100);
         }
     }
 }

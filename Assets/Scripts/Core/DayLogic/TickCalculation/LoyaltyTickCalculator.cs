@@ -16,13 +16,13 @@ namespace Core.DayLogic.TickCalculation
             {
                 if (trait.IsUniqueLoyaltyTick())
                 {
-                    workerRuntime.SetLoyalty = workerRuntime.Loyalty - trait.LoyaltyTickSize(workerRuntime);
+                    workerRuntime.SetLoyalty(workerRuntime.Loyalty - trait.LoyaltyTickSize(workerRuntime));
                     return;
                 }
             }
         }
 
-        workerRuntime.SetLoyalty = workerRuntime.Loyalty - workerRuntime.Worker.BaseLoyaltyTickSize;
+        workerRuntime.SetLoyalty(workerRuntime.Loyalty - workerRuntime.Worker.BaseLoyaltyTickSize);
     }
     }
 }

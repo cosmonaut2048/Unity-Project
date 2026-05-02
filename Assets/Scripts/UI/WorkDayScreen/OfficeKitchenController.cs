@@ -2,6 +2,7 @@
 using System.Linq;
 using Gameflow;
 using Runtime;
+using UI.WorkDayScreen.WorkersInOfficeComponents;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,7 +14,7 @@ namespace UI.WorkDayScreen
         // Контейнер работников.
         private VisualElement _workersContainer;
         // Работники.
-        private List<VisualElement> _workers;
+        private List<WorkerInOffice> _workers = new List<WorkerInOffice>();
 
         void Start()
         {
@@ -27,12 +28,17 @@ namespace UI.WorkDayScreen
             _workersContainer = root.Q<VisualElement>("Workers_Container");
             
             // Настройка работников.
-            _workers = workerSetter.CacheWorkers(_workersContainer);
-            workerSetter.HideWorkers(_workers);
-            workerSetter.SetAllWorkers(_workers, OfficeWorkerPlacement.Instance.WorkersInKitchen, OfficeWorkerPlacement.Instance.KitchenCapacity);
+            _workers = workerSetter.CreateWorkersInOffice(OfficeWorkerPlacement.Instance.WorkersInKitchen, _workersContainer);
+            workerSetter.HideAllWorkers(_workersContainer);
+            workerSetter.SetAllWorkers(_workers, OfficeWorkerPlacement.Instance.KitchenCapacity);
             
             // Подписываемся на события.
             _goBackButton.RegisterCallback<ClickEvent>(_ => SceneController.Instance.LoadScene(nameof(Scenes.HallsScene)));
+            
+            foreach (var worker in _workers)
+            {
+                worker.SubscribeToClickEvents();
+            }
         }
     }
 }

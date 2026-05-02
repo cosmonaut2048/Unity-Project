@@ -6,11 +6,41 @@
             <ui:Button text="Go Back" name="go_back_button" style="position: absolute; right: 25px; bottom: 25px; width: 10%; height: 10%;" />
         </ui:VisualElement>
         <ui:VisualElement name="Workers_Container" picking-mode="Ignore" style="flex-grow: 0; width: 1920px; height: 1080px; justify-content: space-around; align-items: center; right: auto; left: 2px; position: absolute; background-image: none; -unity-background-scale-mode: scale-and-crop; background-position-x: center; background-position-y: center; top: 0;">
-            <ui:VisualElement name="worker_full" class="worker--full" style="flex-grow: 1; top: 473px; left: 1503px;" />
-            <ui:VisualElement name="worker_full" class="worker--full" style="flex-grow: 1; top: 507px; left: 579px;" />
-            <ui:VisualElement name="worker_full" class="worker--full--mirrored" style="flex-grow: 1; top: 586px; left: 0;" />
-            <ui:VisualElement name="worker_full" class="worker--full--mirrored" style="flex-grow: 1; top: 593px; left: 1204px;" />
-            <ui:VisualElement name="worker_full" class="worker--full" style="flex-grow: 1; top: 331px; left: 300px; height: 405px; width: 359px;" />
+            <ui:VisualElement name="Worker_Full_Container" class="worker--container" style="top: 281px; left: 271px;">
+                <ui:VisualElement name="worker_full" class="worker--full" style="scale: 1 1;" />
+                <ui:VisualElement name="Give_Container" class="give--container" style="flex-grow: 1;">
+                    <ui:VisualElement name="give_coffee" class="give--coffee" style="flex-grow: 0;" />
+                    <ui:VisualElement name="give_voucher" class="give--voucher" style="flex-grow: 0;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Worker_Full_Container" class="worker--container" style="top: 482px; left: 1511px;">
+                <ui:VisualElement name="worker_full" class="worker--full" style="scale: 1 1;" />
+                <ui:VisualElement name="Give_Container" class="give--container" style="flex-grow: 1;">
+                    <ui:VisualElement name="give_coffee" class="give--coffee" style="flex-grow: 0;" />
+                    <ui:VisualElement name="give_voucher" class="give--voucher" style="flex-grow: 0;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Worker_Full_Container" class="worker--container" style="top: 597px; left: 1206px;">
+                <ui:VisualElement name="worker_full" class="worker--full" />
+                <ui:VisualElement name="Give_Container" class="give--container" style="flex-grow: 1;">
+                    <ui:VisualElement name="give_coffee" class="give--coffee" style="flex-grow: 0;" />
+                    <ui:VisualElement name="give_voucher" class="give--voucher" style="flex-grow: 0;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Worker_Full_Container" class="worker--container" style="top: 497px; left: 581px;">
+                <ui:VisualElement name="worker_full" class="worker--full" style="scale: 1 1;" />
+                <ui:VisualElement name="Give_Container" class="give--container" style="flex-grow: 1;">
+                    <ui:VisualElement name="give_coffee" class="give--coffee" style="flex-grow: 0;" />
+                    <ui:VisualElement name="give_voucher" class="give--voucher" style="flex-grow: 0;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Worker_Full_Container" class="worker--container" style="top: 595px; left: 6px;">
+                <ui:VisualElement name="worker_full" class="worker--full" />
+                <ui:VisualElement name="Give_Container" class="give--container" style="flex-grow: 1;">
+                    <ui:VisualElement name="give_coffee" class="give--coffee" style="flex-grow: 0;" />
+                    <ui:VisualElement name="give_voucher" class="give--voucher" style="flex-grow: 0;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

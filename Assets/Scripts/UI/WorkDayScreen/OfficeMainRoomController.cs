@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Gameflow;
 using Runtime;
+using UI.WorkDayScreen.WorkersInOfficeComponents;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -17,7 +18,7 @@ namespace UI.WorkDayScreen
         // Контейнер работников.
         private VisualElement _workersContainer;
         // Работники.
-        private List<VisualElement> _workers;
+        private List<WorkerInOffice> _workers = new List<WorkerInOffice>();
 
         void Start()
         {
@@ -35,9 +36,9 @@ namespace UI.WorkDayScreen
             _workersContainer = root.Q<VisualElement>("Workers_Container");
             
             // Настройка работников.
-            _workers = workerSetter.CacheWorkers(_workersContainer);
-            workerSetter.HideWorkers(_workers);
-            workerSetter.SetAllWorkers(_workers, OfficeWorkerPlacement.Instance.WorkersInMainRoom, OfficeWorkerPlacement.Instance.MainRoomCapacity);
+            _workers = workerSetter.CreateWorkersInOffice(OfficeWorkerPlacement.Instance.WorkersInMainRoom, _workersContainer);
+            workerSetter.HideAllWorkers(_workersContainer);
+            workerSetter.SetAllWorkers(_workers, OfficeWorkerPlacement.Instance.MainRoomCapacity);
             
             // Скрываем неактивные элементы.
             _computerHoverGlow.style.display = DisplayStyle.None;
@@ -48,6 +49,11 @@ namespace UI.WorkDayScreen
             _goBackButton.RegisterCallback<ClickEvent>(_ => SceneController.Instance.LoadScene(nameof(Scenes.HallsScene)));
             
             _computerHoverContainer.RegisterCallback<ClickEvent>(_ => SceneController.Instance.LoadScene(nameof(Scenes.ComputerScreenScene)));
+            
+            foreach (var worker in _workers)
+            {
+                worker.SubscribeToClickEvents();
+            }
         }
     }
 }

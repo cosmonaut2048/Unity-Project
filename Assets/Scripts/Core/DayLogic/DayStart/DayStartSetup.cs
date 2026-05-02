@@ -41,6 +41,9 @@ namespace Core.DayLogic.DayStart
             // Расставляем работников по комнатам в офисе.
             OfficeWorkerPlacement.Instance.ClearAllRooms();
             OfficeWorkerPlacement.Instance.SetWorkersInRooms(OfficeRuntime.Instance.WorkersInOffice());
+            
+            // Обновляем счётчик дня.
+            OfficeRuntime.Instance.TickDayOfTheWeek();
         }
     }
 }

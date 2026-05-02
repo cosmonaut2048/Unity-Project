@@ -3,8 +3,8 @@
 
 .worker--portrait--container {
     flex-grow: 0;
-    width: 25%;
-    height: 25%;
+    width: 219px;
+    height: 219px;
     background-color: rgba(143, 180, 209, 0);
     margin-top: 0%;
     margin-right: 0%;

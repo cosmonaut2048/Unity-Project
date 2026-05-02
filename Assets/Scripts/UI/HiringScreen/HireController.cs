@@ -137,9 +137,8 @@ namespace UI.HiringScreen
 
         private void MoveToNextScene()
         {
-            SceneController.Instance.LoadScene(nameof(Scenes.HallsScene));
             DayCycleManager.Instance.OnDayStart();
-
+            SceneController.Instance.LoadScene(nameof(Scenes.HallsScene));
         }
         
         /// <summary>

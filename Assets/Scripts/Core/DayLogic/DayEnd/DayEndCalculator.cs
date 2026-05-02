@@ -20,7 +20,7 @@ namespace Core.DayLogic.DayEnd
             // Loyalty Mod.
             if (workerRuntime.Worker.PersonalityTraits != null)
                 foreach (var trait in workerRuntime.Worker.PersonalityTraits)
-                    workerRuntime.SetLoyalty = trait.OnEndOfDayLoyalty(workerRuntime.Loyalty);
+                    workerRuntime.SetLoyalty(trait.OnEndOfDayLoyalty(workerRuntime.Loyalty));
         }
 
         public void OnDayEndTask()

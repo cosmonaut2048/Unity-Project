@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Content;
 
@@ -19,6 +18,9 @@ namespace Runtime
         [SerializeField] private bool isProductivityFrozen;
         [SerializeField] private bool isLoyaltyFrozen;
         
+        [SerializeField] private bool drankCoffeeToday;
+        [SerializeField] private bool tookBreakToday;
+        
         
         // Пограничные значения Productivity и Loyalty.
         private readonly int _productivityMinValue = 0;
@@ -27,19 +29,21 @@ namespace Runtime
         private readonly int _loyaltyMaxValue = 100;
         
         // Свойства.
+        public int ProductivityMaxValue => _productivityMaxValue;
+        public int LoyaltyMaxValue => _loyaltyMaxValue;
         public WorkerDef Worker => worker;
         public bool IsEmployed => isEmployed;
 
         public int Productivity => productivity;
-        public int SetProductivity
+        public void SetProductivity(int newProductivity)
         { 
-            set => productivity = Mathf.Clamp(isProductivityFrozen ? productivity : value, _productivityMinValue, _productivityMaxValue);
+            productivity = Mathf.Clamp(isProductivityFrozen ? productivity : newProductivity, _productivityMinValue, _productivityMaxValue);
         }
 
         public int Loyalty => loyalty;
-        public int SetLoyalty
+        public void SetLoyalty(int newLoyalty)
         {
-            set => loyalty = Mathf.Clamp(isLoyaltyFrozen ? loyalty : value, _loyaltyMinValue, _loyaltyMaxValue);
+            loyalty = Mathf.Clamp(isLoyaltyFrozen ? loyalty : newLoyalty, _loyaltyMinValue, _loyaltyMaxValue);
         }
 
         public int LastBreakDay => lastBreakDay;
@@ -59,6 +63,9 @@ namespace Runtime
         public bool IsLoyaltyFrozen => isLoyaltyFrozen;
         public bool SetIsLoyaltyFrozen { set => isLoyaltyFrozen = value; }
         
+        public bool DrankCoffeeToday => drankCoffeeToday;
+        public bool TookBreakToday => tookBreakToday;
+        
         // Методы.
         public bool IsBusy() => busyReason != BusyReason.None;
 
@@ -66,6 +73,50 @@ namespace Runtime
         {
             Debug.Log($"{worker.Appearance.WorkerName} is fired.");
             isEmployed = false;
+        }
+
+        public void DrinkCoffee()
+        {
+            if (OfficeRuntime.Instance.Coffee > 0)
+            {
+                drankCoffeeToday = true;
+                OfficeRuntime.Instance.TickCoffee();
+                
+                foreach (var trait in worker.PersonalityTraits)
+                {
+                    trait.OnCoffee(this);
+                }
+            }
+        }
+
+        public void TakeBreak()
+        {
+            if (OfficeRuntime.Instance.BreakVouchers > 0)
+            {
+                tookBreakToday = true;
+                lastBreakDay = 0;
+                OfficeRuntime.Instance.TickBreakVouchers();
+                
+                foreach (var trait in worker.PersonalityTraits)
+                {
+                    trait.OnBreak(this);
+                }
+            }
+        }
+
+        public void ResetDrankCoffeeToday()
+        {
+            drankCoffeeToday = false;
+        }
+
+        public void ResetTookBreakToday()
+        {
+            tookBreakToday = false;
+        }
+
+        public void TickLastBreakDay()
+        {
+            lastBreakDay++;
         }
 
         // Инициализация из WorkerDef.
@@ -83,26 +134,6 @@ namespace Runtime
         public void InitializeWorkerRuntime(WorkerDef workerDef)
         {
             worker =  workerDef;
-        }
-        
-        // Больше не используется:
-        
-        [Obsolete("ChangeProductivity больше не используется -- используется свойство Productivity.")]
-        public void ChangeProductivity(int delta)
-        {
-            if (isProductivityFrozen)
-                return;
-        
-            productivity = Mathf.Clamp(productivity + delta, _productivityMinValue, _productivityMaxValue);
-        }
-
-        [Obsolete("ChangeLoyalty больше не используется -- используется свойство Loyalty.")]
-        public void ChangeLoyalty(int delta)
-        {
-            if (isLoyaltyFrozen)
-                return;
-        
-            loyalty = Mathf.Clamp(loyalty + delta, _loyaltyMinValue, _loyaltyMaxValue);
         }
         
         // private int _freezeProductivityDays;

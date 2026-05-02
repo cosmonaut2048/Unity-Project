@@ -20,9 +20,27 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="Workers_Container" picking-mode="Ignore" style="flex-grow: 0; width: 1920px; height: 1080px; justify-content: space-around; align-items: center; right: auto; left: 2px; position: absolute; background-image: none; -unity-background-scale-mode: scale-and-crop; background-position-x: center; background-position-y: center; top: 0;">
-            <ui:VisualElement name="worker_full" class="worker--pawn--mirrored worker--full--mirrored" />
-            <ui:VisualElement name="worker_full" class="worker--full" />
-            <ui:VisualElement name="worker_full" class="worker--full--mirrored" style="flex-grow: 0; width: 380px; height: 450px; top: 452px; left: 179px; background-image: url(&quot;project://database/Assets/Art/Placeholders/pawn_placeholder.png?fileID=-457045427575563763&amp;guid=31d002a8d5f017d4c9966f159ee7addc&amp;type=3#pawn_placeholder_0&quot;); -unity-background-scale-mode: scale-to-fit; rotate: 0; position: absolute; opacity: 1; transform-origin: center; scale: -1 1;" />
+            <ui:VisualElement name="Worker_Full_Container" class="worker--container" style="flex-grow: 0; width: 380px; height: 450px; top: 452px; left: 179px; background-image: none; -unity-background-scale-mode: scale-to-fit; rotate: 0; position: absolute; opacity: 1; transform-origin: center; scale: 1 1;">
+                <ui:VisualElement name="worker_full" class="worker--full" />
+                <ui:VisualElement name="Give_Container" class="give--container">
+                    <ui:VisualElement name="give_coffee" class="give--coffee" />
+                    <ui:VisualElement name="give_voucher" class="give--voucher" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Worker_Full_Container" class="worker--container" style="flex-grow: 0; width: 380px; height: 450px; top: 496px; left: 1155px; background-image: none; -unity-background-scale-mode: scale-to-fit; rotate: 0; position: absolute; opacity: 1; transform-origin: center; scale: 1 1;">
+                <ui:VisualElement name="worker_full" class="worker--full" style="flex-grow: 0; width: 380px; height: 450px; top: auto; left: auto; background-image: url(&quot;project://database/Assets/Art/Placeholders/pawn_placeholder.png?fileID=-457045427575563763&amp;guid=31d002a8d5f017d4c9966f159ee7addc&amp;type=3#pawn_placeholder_0&quot;); -unity-background-scale-mode: scale-to-fit; rotate: 0; position: absolute; opacity: 1; transform-origin: center; scale: 1 1;" />
+                <ui:VisualElement name="Give_Container" class="give--container">
+                    <ui:VisualElement name="give_coffee" class="give--coffee" />
+                    <ui:VisualElement name="give_voucher" class="give--voucher" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Worker_Full_Container" class="worker--container" style="flex-grow: 0; width: 380px; height: 450px; top: 534px; left: 853px; background-image: none; -unity-background-scale-mode: scale-to-fit; rotate: 0; position: absolute; opacity: 1; transform-origin: center; scale: 1 1;">
+                <ui:VisualElement name="worker_full" class="worker--full" style="flex-grow: 0; width: 380px; height: 450px; top: auto; left: auto; background-image: url(&quot;project://database/Assets/Art/Placeholders/pawn_placeholder.png?fileID=-457045427575563763&amp;guid=31d002a8d5f017d4c9966f159ee7addc&amp;type=3#pawn_placeholder_0&quot;); -unity-background-scale-mode: scale-to-fit; rotate: 0; position: absolute; opacity: 1; transform-origin: center; scale: -1 1;" />
+                <ui:VisualElement name="Give_Container" class="give--container">
+                    <ui:VisualElement name="give_coffee" class="give--coffee" />
+                    <ui:VisualElement name="give_voucher" class="give--voucher" />
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="End_Day_Prompt_Container" style="flex-grow: 0; width: 100%; height: 100%; position: relative; background-color: rgba(0, 0, 0, 0.56); align-items: center; justify-content: center; display: none;">
             <ui:Label text="Clock out now?" style="font-size: 48px; -unity-font-style: bold; color: rgb(255, 255, 255); translate: 0 -20px;" />
