@@ -1,0 +1,28 @@
+:root {
+}
+
+.critical--text--no {
+    font-size: 36px;
+    -unity-font-style: bold;
+    color: rgb(168, 39, 39);
+}
+
+.critical--text--yes {
+    font-size: 36px;
+    -unity-font-style: bold;
+    color: rgb(83, 168, 39);
+}
+
+.task--result--success {
+    font-size: 40px;
+    -unity-font-style: bold;
+    -unity-text-align: upper-center;
+    color: rgb(83, 168, 39);
+}
+
+.task--result--failure {
+    font-size: 40px;
+    -unity-font-style: bold;
+    -unity-text-align: upper-center;
+    color: rgb(168, 39, 39);
+}

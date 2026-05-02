@@ -47,6 +47,10 @@ namespace Core.TaskLogic
             
             result.SetIsSuccess(IsTaskSuccessful(workerTaskResults));
             
+            // Записываем работников и задание.
+            result.SetWorkers(workers);
+            result.SetTask(task.Task);
+            
             return result;
         }
         

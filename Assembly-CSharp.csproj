@@ -127,6 +127,7 @@
     <Compile Include="Assets\Scripts\Content\DailyReport.cs" />
     <Compile Include="Assets\Scripts\Gameflow\Bootstrapper.cs" />
     <Compile Include="Assets\Scripts\Services\SaveService.cs" />
+    <Compile Include="Assets\Scripts\UI\TaskResultScreen\TaskResultController.cs" />
     <Compile Include="Assets\Scripts\Runtime\TaskRuntime.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
@@ -156,6 +157,7 @@
     <None Include="Assets\UI Toolkit\StyleSheets\HireScreenStyles.uss" />
     <None Include="Assets\UI Toolkit\StyleSheets\StatsScreenStyles.uss" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\UI Toolkit\StyleSheets\TaskResultStyles.uss" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Roboto-Bold - License.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />

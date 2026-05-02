@@ -11,6 +11,7 @@
         SaveSelectScene,
         // Pre-Work:
         HiringScene,
+        TaskResultScene,
         // Work Day:
         HallsScene,
         BulletinBoardScene,

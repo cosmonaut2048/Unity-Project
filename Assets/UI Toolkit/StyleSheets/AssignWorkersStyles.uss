@@ -1,0 +1,196 @@
+:root {
+}
+
+.task--info--container {
+    flex-grow: 0;
+    background-color: rgba(255, 0, 222, 0);
+    height: 15%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 2%;
+    padding-left: 2%;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+    -unity-text-align: middle-left;
+    align-self: auto;
+    align-content: flex-start;
+    align-items: center;
+}
+
+.task--skill--cell--empty {
+    flex-grow: 0;
+    height: 30px;
+    width: 30px;
+    background-color: rgba(161, 161, 161, 0.65);
+    display: flex;
+    justify-content: flex-start;
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.task--skill--cell--full {
+    flex-grow: 0;
+    height: 30px;
+    width: 30px;
+    background-color: rgb(79, 109, 188);
+    display: flex;
+    justify-content: flex-start;
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.task--cell--container {
+    flex-grow: 0;
+    flex-direction: row;
+    width: 50%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    white-space: normal;
+    flex-wrap: nowrap;
+}
+
+.poster {
+    flex-grow: 0;
+    background-color: rgb(210, 225, 226);
+    width: 35%;
+    height: 70%;
+    position: relative;
+    top: auto;
+    left: auto;
+    padding-top: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+    padding-left: 2%;
+}
+
+.poster--title {
+    font-size: 40px;
+    -unity-font-style: bold;
+    white-space: normal;
+}
+
+.poster--paragraph {
+    white-space: normal;
+    font-size: 24px;
+}
+
+.poster--info {
+    font-size: 20px;
+    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=1a886a0f1330bfc4abe790ae7feef01d&type=3#NotInter-Regular");
+    -unity-font-style: normal;
+}
+
+.start--task--button {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(188, 188, 188, 0);
+    border-left-color: rgb(63, 166, 20);
+    border-right-color: rgb(63, 166, 20);
+    border-top-color: rgb(63, 166, 20);
+    border-bottom-color: rgb(63, 166, 20);
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    -unity-font-style: bold;
+    white-space: normal;
+    color: rgb(93, 178, 62);
+    font-size: 20px;
+}
+
+.start--task--button:hover {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(165, 207, 67, 0.54);
+    border-left-color: rgb(93, 178, 62);
+    border-right-color: rgb(93, 178, 62);
+    border-top-color: rgb(93, 178, 62);
+    border-bottom-color: rgb(93, 178, 62);
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    -unity-font-style: bold;
+    white-space: normal;
+    color: rgb(63, 166, 20);
+}
+
+.worker--icon--container {
+    flex-grow: 0;
+    width: 150px;
+    height: 150px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(183, 174, 141);
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    -unity-background-scale-mode: stretch-to-fill;
+    background-position-y: center;
+    background-size: 100% 100%;
+}
+
+.slot--background {
+    flex-grow: 0;
+    width: 150px;
+    height: 150px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(183, 174, 141);
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    -unity-background-scale-mode: stretch-to-fill;
+    background-position-y: center;
+    background-size: 100% 100%;
+}
+
+.slot {
+    flex-grow: 0;
+    background-color: rgba(255, 0, 0, 0);
+    width: 100%;
+    height: 100%;
+    background-image: none;
+}
+
+.worker--icon {
+    flex-grow: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("project://database/Assets/Art/Portraits/Normal/Arrogant_cell.png?fileID=2800000&guid=50666b58e6cba424ba570f848ef164e2&type=3#Arrogant_cell");
+}
+
+.worker--slots--container {
+    flex-grow: 0;
+    background-color: rgb(193, 200, 217);
+    width: 100%;
+    height: 30%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition-timing-function: ease-in-out-sine;
+}
+
+.worker--slots--container--on--task {
+    flex-grow: 0;
+    background-color: rgb(193, 200, 217);
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transition-timing-function: ease-in-out-sine;
+}
