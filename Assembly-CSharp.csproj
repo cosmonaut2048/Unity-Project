@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Core\QuotaLogic\QuotaCalculator.cs" />
     <Compile Include="Assets\Scripts\Core\WorkerLogic\CalculatedSkills.cs" />
     <Compile Include="Assets\Scripts\Gameflow\SceneController.cs" />
+    <Compile Include="Assets\Scripts\Core\DialogueLogic\DialogueTriggers.cs" />
     <Compile Include="Assets\Scripts\Gameflow\DontDestroyOnLoadObject.cs" />
     <Compile Include="Assets\Scripts\Core\DayLogic\TickCalculation\LoyaltyTickCalculator.cs" />
     <Compile Include="Assets\Scripts\UI\WorkDayScreen\OfficeSecondRoomController.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Assets\Scripts\Core\DayLogic\ReportLogic\DailyReportCreator.cs" />
     <Compile Include="Assets\Scripts\UI\WorkDayScreen\BulletinBoardController.cs" />
     <Compile Include="Assets\Scripts\Core\DayLogic\DayEnd\DayEndCalculator.cs" />
+    <Compile Include="Assets\Scripts\Core\DialogueLogic\DialogueSelector.cs" />
     <Compile Include="Assets\Scripts\Content\TraitDef.cs" />
     <Compile Include="Assets\Scriptable Objects\Item Definitions\BreakPass.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
@@ -102,10 +104,12 @@
     <Compile Include="Assets\Scripts\Core\TaskLogic\TotalTaskResult.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\SicklyTraitDef.cs" />
+    <Compile Include="Assets\Scripts\UI\MultiScene\WaitForButtonClick.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
+    <Compile Include="Assets\Scripts\UI\MultiScene\DialogueController.cs" />
     <Compile Include="Assets\Scripts\UI\WorkDayScreen\AssignWorkersController.cs" />
     <Compile Include="Assets\Scripts\UI\WorkDayScreen\WorkersInOfficeComponents\WorkerInOffice.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
@@ -132,6 +136,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\Scriptable Objects\Catalogs\TaskCatalog.cs" />
+    <Compile Include="Assets\Scripts\Core\DialogueLogic\DialogueNode.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\LongCommuteTraitDef.cs" />
     <Compile Include="Assets\Scripts\Core\QuotaLogic\QuotaResult.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\ExtrovertTraitDef.cs" />
@@ -149,6 +154,7 @@
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\PerfectionistTraitDef.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\NeuroticTraitDef.cs" />
     <Compile Include="Assets\Scripts\Content\WorkerAppearance.cs" />
+    <Compile Include="Assets\Scripts\Core\DialogueLogic\DialogueProfile.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\NullTraitDef.cs" />
     <Compile Include="Assets\Scripts\Content\Office.cs" />
     <Compile Include="Assets\Scripts\UI\MenuScreen\MainMenuController.cs" />
@@ -175,6 +181,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\UI Toolkit\UI Documents\WorkDay\OfficeHallUI.uxml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\UI Toolkit\UI Documents\MultiScene\DialogueUI.uxml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />

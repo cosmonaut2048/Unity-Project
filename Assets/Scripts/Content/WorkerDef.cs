@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Core.DialogueLogic;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Serialization;

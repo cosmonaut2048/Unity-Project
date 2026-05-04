@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using Content;
+using Core.DialogueLogic;
 
 namespace Runtime
 {
@@ -20,7 +21,6 @@ namespace Runtime
         
         [SerializeField] private bool drankCoffeeToday;
         [SerializeField] private bool tookBreakToday;
-        
         
         // Пограничные значения Productivity и Loyalty.
         private readonly int _productivityMinValue = 0;

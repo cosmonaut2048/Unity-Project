@@ -72,13 +72,19 @@ namespace Runtime
         public void TickCoffee()
         {
             if (coffee > 0)
+            {
                 coffee--;
+                coffeeConsumedToday++;
+            }
         }
 
         public void TickBreakVouchers()
         {
             if (breakVouchers > 0)
+            {
                 breakVouchers--;
+                breakVouchersUsedToday++;
+            }
         }
         
         public void AddWorkers(List<WorkerRuntime> workers)

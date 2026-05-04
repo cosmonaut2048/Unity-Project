@@ -13,6 +13,7 @@
         HiringScene,
         TaskResultScene,
         // Work Day:
+        DialogueScene,
         HallsScene,
         BulletinBoardScene,
         KitchenScene,

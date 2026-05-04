@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Core.DialogueLogic;
+using UnityEngine;
 
 namespace Content
 {
@@ -11,11 +12,15 @@ namespace Content
         [SerializeField] private Sprite fullBodySprite;
         [SerializeField] private Sprite iconSprite;
         [SerializeField] private Sprite firedIconSprite;
+        
+        [Header("Dialogue data")]
+        [SerializeField] private DialogueProfile dialogueProfile;
 
         public string WorkerName => workerName;
         public Sprite PortraitSprite => portraitSprite;
         public Sprite FullBodySprite => fullBodySprite;
         public Sprite IconSprite => iconSprite;
         public Sprite FiredIconSprite => firedIconSprite;
+        public DialogueProfile WorkerDialogueProfile => dialogueProfile;
     }
 }

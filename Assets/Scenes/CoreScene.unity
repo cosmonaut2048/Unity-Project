@@ -240,6 +240,7 @@ MonoBehaviour:
   currentQuota: {fileID: 11400000, guid: 5177c5c5c81767748927235ad9ef2eea, type: 2}
   availableTask: {fileID: 0}
   currentTask: {fileID: 0}
+  lastTaskResult: {fileID: 0}
   coffee: 4
   coffeeConsumedToday: 0
   coffeeObtainedToday: 0
