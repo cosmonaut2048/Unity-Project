@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Core.DialogueLogic;
 using Gameflow;
 using Runtime;
 using UI.WorkDayScreen.WorkersInOfficeComponents;
@@ -38,6 +39,7 @@ namespace UI.WorkDayScreen
             foreach (var worker in _workers)
             {
                 worker.SubscribeToClickEvents();
+                worker.SubscribeToDialogueOnClickEvent(DialogueConditions.WorkDay, Scenes.KitchenScene);
             }
         }
     }

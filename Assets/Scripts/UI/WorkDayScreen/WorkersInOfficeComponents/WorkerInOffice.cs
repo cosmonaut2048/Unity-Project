@@ -1,4 +1,7 @@
-﻿using Runtime;
+﻿using Core.DialogueLogic;
+using Gameflow;
+using Runtime;
+using UI.MultiScene;
 using UnityEngine.UIElements;
 
 namespace UI.WorkDayScreen.WorkersInOfficeComponents
@@ -55,6 +58,17 @@ namespace UI.WorkDayScreen.WorkersInOfficeComponents
         {
             _giveCoffeeElement.RegisterCallback<ClickEvent>(OnGiveCoffee);
             _giveVoucherElement.RegisterCallback<ClickEvent>(OnGiveVoucher);
+        }
+
+        public void SubscribeToDialogueOnClickEvent(DialogueConditions condition, Scenes scene)
+        {
+            _workerSprite.RegisterCallback<ClickEvent>(_ => StartDialogue(condition, scene));
+        }
+
+        private void StartDialogue(DialogueConditions condition, Scenes scene)
+        {
+            DialogueContext.Instance.SetDialogueContext(_worker, condition, scene);
+            SceneController.Instance.LoadScene(nameof(Scenes.DialogueScene));
         }
         
         private void OnGiveCoffee(ClickEvent evt)

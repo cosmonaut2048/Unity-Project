@@ -50,6 +50,7 @@
     <Compile Include="Assets\Scripts\UI\HiringScreen\HireController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Scripts\Core\DayLogic\TickCalculation\ProductivityTickCalculator.cs" />
+    <Compile Include="Assets\Scripts\Core\DialogueLogic\DialogueContext.cs" />
     <Compile Include="Assets\Scripts\Core\TaskLogic\TaskResultCalculator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Scripts\Core\DayLogic\DayCycleManager.cs" />
@@ -65,7 +66,6 @@
     <Compile Include="Assets\Scripts\Core\QuotaLogic\QuotaCalculator.cs" />
     <Compile Include="Assets\Scripts\Core\WorkerLogic\CalculatedSkills.cs" />
     <Compile Include="Assets\Scripts\Gameflow\SceneController.cs" />
-    <Compile Include="Assets\Scripts\Core\DialogueLogic\DialogueTriggers.cs" />
     <Compile Include="Assets\Scripts\Gameflow\DontDestroyOnLoadObject.cs" />
     <Compile Include="Assets\Scripts\Core\DayLogic\TickCalculation\LoyaltyTickCalculator.cs" />
     <Compile Include="Assets\Scripts\UI\WorkDayScreen\OfficeSecondRoomController.cs" />
@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\Core\TaskLogic\WorkerTaskResult.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\SlackerTraitDef.cs" />
+    <Compile Include="Assets\Scripts\Core\DialogueLogic\DialogueConditions.cs" />
     <Compile Include="Assets\Scripts\Core\DayLogic\DayStart\DayStartCalculator.cs" />
     <Compile Include="Assets\Scripts\Generators\WorkerGenerator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />

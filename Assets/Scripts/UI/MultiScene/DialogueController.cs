@@ -12,14 +12,14 @@ namespace UI.MultiScene
     public class DialogueController : MonoBehaviour
     {
         [SerializeField] private WorkerRuntime speaker;
-        [SerializeField] private DialogueTriggers trigger;
+        [SerializeField] private DialogueConditions condition;
         [SerializeField] private Scenes scene; // Сцена, на которую возвращаемся.
 
-        public void SetDialogueController(WorkerRuntime dialogueSpeaker, DialogueTriggers dialogueTrigger, Scenes goToScene)
+        private void SetDialogueController()
         {
-            speaker = dialogueSpeaker;
-            trigger = dialogueTrigger;
-            scene = goToScene;
+            speaker = DialogueContext.Instance.Speaker;
+            condition = DialogueContext.Instance.Condition;
+            scene = DialogueContext.Instance.Scene;
         }
         
         private VisualElement _workerPortrait;
@@ -32,6 +32,7 @@ namespace UI.MultiScene
 
         void Start()
         {
+            SetDialogueController();
             var root = GetComponent<UIDocument>().rootVisualElement;
             
             // Queue:
@@ -43,7 +44,6 @@ namespace UI.MultiScene
             // Кнопки.
             _nextDialogueButton = root.Q<Button>("next_dialogue_button");
             _nextSceneButton = root.Q<Button>("next_scene_button");
-            _nextSceneButton = root.Q<Button>("next_scene_button");
             
             // Скрываем элементы.
             _nextDialogueButton.style.display = DisplayStyle.None;
@@ -53,8 +53,7 @@ namespace UI.MultiScene
             ShowDialogue();
             
             // Подписываемся на события.
-            // _nextDialogueButton.RegisterCallback<ClickEvent>();
-            _nextSceneButton.RegisterCallback<ClickEvent>(_ => SceneController.Instance.LoadScene(nameof(scene)));
+            _nextSceneButton.RegisterCallback<ClickEvent>(_ => SceneController.Instance.LoadScene(scene.ToString()));
         }
 
         private List<string> CutTextBlock(DialogueNode node)
@@ -76,19 +75,21 @@ namespace UI.MultiScene
             
             List<string> lines = CutTextBlock(node);
             
-            _nextDialogueButton.style.display = DisplayStyle.Flex;
             StartCoroutine(ShowLines(lines));
-            _nextDialogueButton.style.display = DisplayStyle.None;
-            _nextSceneButton.style.display = DisplayStyle.Flex;
         }
         
         private IEnumerator ShowLines(List<string> lines)
         {
+            _nextDialogueButton.style.display = DisplayStyle.Flex;
+            
             foreach (string line in lines)
             {
                 DisplayDialogue(line);
                 yield return new WaitForButtonClick(_nextDialogueButton);
             }
+            
+            _nextDialogueButton.style.display = DisplayStyle.None;
+            _nextSceneButton.style.display = DisplayStyle.Flex;
         }
         
         private DialogueNode GetDialogue()
@@ -103,7 +104,7 @@ namespace UI.MultiScene
                 speaker.Worker.Appearance.WorkerDialogueProfile, 
                 speaker, 
                 currentDay,
-                trigger
+                condition
             );
         }
 

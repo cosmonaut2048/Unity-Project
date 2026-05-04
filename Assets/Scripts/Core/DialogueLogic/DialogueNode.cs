@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Core.DialogueLogic
 {
@@ -7,8 +8,8 @@ namespace Core.DialogueLogic
     {
         [Header("Main")]
         [SerializeField] private string nodeId;
-        [SerializeField] private string textBlock;
-        [SerializeField] private DialogueTriggers trigger;
+        [TextArea] [SerializeField] private string textBlock;
+        [FormerlySerializedAs("trigger")] [SerializeField] private DialogueConditions condition;
         
         [Header("Conditions")] 
         [SerializeField] private int minDay = 0;
@@ -29,7 +30,7 @@ namespace Core.DialogueLogic
         
         public string NodeId => nodeId;
         public string TextBlock => textBlock;
-        public DialogueTriggers Trigger => trigger;
+        public DialogueConditions Condition => condition;
         
         public int MinDay => minDay;
         public int MaxDay => maxDay;

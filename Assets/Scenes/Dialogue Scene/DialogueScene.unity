@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dda8b24880f04b23a7afe2c3dc0b5da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.MultiScene.DialogueController
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: d1cae8b296f95354eb226f5d7b0fa045, type: 2}
   trigger: 0
   scene: 0
 --- !u!114 &192536818

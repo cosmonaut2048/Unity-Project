@@ -6,20 +6,20 @@ namespace Core.DialogueLogic
     public class DialogueSelector
     {
         public DialogueNode SelectNode(DialogueProfile profile, WorkerRuntime worker, int currentDay,
-            DialogueTriggers trigger)
+            DialogueConditions condition)
         {
             if (!profile || profile.DialogueNodes() == null || profile.DialogueNodes().Count == 0)
                 return null;
 
             return profile.DialogueNodes()
-                .Where(n => IsSuitable(n, worker, currentDay, trigger))
+                .Where(n => IsSuitable(n, worker, currentDay, condition))
                 .OrderByDescending(n => n.Priority)
                 .FirstOrDefault();
         }
 
-        private bool IsSuitable(DialogueNode node, WorkerRuntime worker, int currentDay, DialogueTriggers trigger)
+        private bool IsSuitable(DialogueNode node, WorkerRuntime worker, int currentDay, DialogueConditions condition)
         {
-            if (node.Trigger != trigger && node.Trigger != DialogueTriggers.Default)
+            if (node.Condition != condition && node.Condition != DialogueConditions.Default)
                 return false;
             
             if (currentDay < node.MinDay || currentDay > node.MaxDay)
