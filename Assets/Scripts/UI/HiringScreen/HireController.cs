@@ -1,10 +1,13 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Content;
 using Core.DayLogic;
+using Core.DialogueLogic;
 using Gameflow;
 using Generators;
 using Runtime;
+using UI.MultiScene;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -38,7 +41,6 @@ namespace UI.HiringScreen
         private VisualElement _hireOverContainer;
         
         // Спрайт портрета и имя работника.
-        private VisualElement _workerPortrait;
         private Label _workerName;
         
         // Контейнеры навыков.
@@ -68,6 +70,14 @@ namespace UI.HiringScreen
         private Button _acceptButton;
         private Button _denyButton;
         private Button _nextSceneButton;
+        
+        // Диалоговая часть.
+        private VisualElement _workerPortrait;
+        
+        private Label _nameText;
+        private Label _dialogueText;
+        
+        private Button _nextDialogueButton;
 
         void Start()
         {
@@ -102,13 +112,23 @@ namespace UI.HiringScreen
             _acceptButton = root.Q<Button>("accept_button");
             _denyButton = root.Q<Button>("deny_button");
             _nextSceneButton = root.Q<Button>("next_scene_button");
+            // Диалоговая часть.
+            // Текст.
+            _nameText = root.Q<Label>("name_text");
+            _dialogueText = root.Q<Label>("dialogue_text");
+            // Кнопки.
+            _nextDialogueButton = root.Q<Button>("next_dialogue_button");
+            _nextSceneButton = root.Q<Button>("next_scene_button");
             
             // Кэшируем ячейки навыков.
             CacheSkillCells();
             
-            // Показываем и скрываем нужные контейнеры.
-            _hireScreenContainer.style.display = DisplayStyle.Flex;
+            // Скрываем элементы.
+            _nextDialogueButton.style.display = DisplayStyle.None;
             _hireOverContainer.style.display = DisplayStyle.None;
+            
+            // Показываем нужные контейнеры.
+            _hireScreenContainer.style.display = DisplayStyle.Flex;
             
             // Показываем первого кандидата.
             if (candidates is { Count: > 0 })
@@ -276,6 +296,8 @@ namespace UI.HiringScreen
                 
                 _trait2Name.text = _worker.PersonalityTraits[1]?.traitName;
                 _trait2Description.text = _worker.PersonalityTraits[1]?.traitDescription;
+                
+                ShowDialogue(_worker, DialogueConditions.Hire);
             }
             else
             {
@@ -357,5 +379,70 @@ namespace UI.HiringScreen
             }
         }
         
+        private List<string> CutTextBlock(DialogueNode node)
+        {
+            string textBlock = node.TextBlock;
+            List<string> result = textBlock.Split(node.Divider).ToList();
+            
+            return result;
+        }
+
+        private void ShowDialogue(WorkerDef speaker, DialogueConditions condition)
+        {
+            DialogueNode node = GetDialogue(speaker, condition);
+            
+            if (!node) return;
+
+            if (node.PlayOnlyOnce)
+                node.SetPlayed();
+            
+            List<string> lines = CutTextBlock(node);
+            
+            StartCoroutine(ShowLines(speaker, lines));
+        }
+        
+        private IEnumerator ShowLines(WorkerDef speaker, List<string> lines)
+        {
+            _nextDialogueButton.style.display = DisplayStyle.Flex;
+            
+            _acceptButton.SetEnabled(false);
+            _denyButton.SetEnabled(false);
+
+            for (int i = 0; i < lines.Count; i++)
+            {
+                DisplayDialogue(speaker, lines[i]);
+                
+                if (i == lines.Count - 1)
+                {
+                    _nextDialogueButton.style.display = DisplayStyle.None;
+                    _acceptButton.SetEnabled(true);
+                    _denyButton.SetEnabled(true);
+                }
+                
+                yield return new WaitForButtonClick(_nextDialogueButton);
+            }
+        }
+        
+        private DialogueNode GetDialogue(WorkerDef speaker, DialogueConditions condition)
+        {
+            if (!speaker ||  !speaker.Appearance.WorkerDialogueProfile)
+                return null;
+            
+            DialogueSelector selector = new DialogueSelector();
+            int currentDay = OfficeRuntime.Instance?.DayOfTheWeek ?? 0;
+            
+            return selector.SelectNodeWorkerDef(
+                speaker.Appearance.WorkerDialogueProfile,
+                currentDay,
+                condition
+            );
+        }
+
+        private void DisplayDialogue(WorkerDef speaker, string text)
+        {
+            if (_nameText != null) _nameText.text = speaker.Appearance.WorkerName ?? "Unknown name";
+            if (_workerPortrait != null) _workerPortrait.style.backgroundImage = new StyleBackground(speaker.Appearance.PortraitSprite);
+            if (_dialogueText != null) _dialogueText.text = text;
+        }
     }
 }

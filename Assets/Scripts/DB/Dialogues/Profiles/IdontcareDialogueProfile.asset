@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad44d4290ee4e92b68312de36398567, type: 3}
+  m_Name: IdontcareDialogueProfile
+  m_EditorClassIdentifier: Assembly-CSharp::Core.DialogueLogic.DialogueProfile
+  dialogueNodes:
+  - {fileID: 11400000, guid: b1950dc356a5d654483f0b73e1009981, type: 2}
+  - {fileID: 11400000, guid: 528f7617cf74adf4186f5d4aaaa16a90, type: 2}
+  - {fileID: 11400000, guid: 804889c6a57d9954dbd068a0b3dc3d74, type: 2}

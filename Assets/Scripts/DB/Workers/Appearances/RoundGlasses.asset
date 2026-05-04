@@ -17,4 +17,4 @@ MonoBehaviour:
   fullBodySprite: {fileID: 7828305103331640506, guid: 935a433c594bdeb43b20e7cc6a760557, type: 3}
   iconSprite: {fileID: 7419333609375034870, guid: 5033afda366cc2e41b9f8549fe681c84, type: 3}
   firedIconSprite: {fileID: 4959938623977595292, guid: 8be5cbbd1a1a3dc4d830a0876f14e656, type: 3}
-  dialogueProfile: {fileID: 11400000, guid: 62a2f20e634421e459bb754345cffe7c, type: 2}
+  dialogueProfile: {fileID: 11400000, guid: 1235bd2d9bdefb94ab10b26285b8a0e2, type: 2}

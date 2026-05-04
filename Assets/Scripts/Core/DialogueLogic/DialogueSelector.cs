@@ -10,9 +10,21 @@ namespace Core.DialogueLogic
         {
             if (!profile || profile.DialogueNodes() == null || profile.DialogueNodes().Count == 0)
                 return null;
-
+            
             return profile.DialogueNodes()
                 .Where(n => IsSuitable(n, worker, currentDay, condition))
+                .OrderByDescending(n => n.Priority)
+                .FirstOrDefault();
+        }
+        
+        public DialogueNode SelectNodeWorkerDef(DialogueProfile profile, int currentDay,
+            DialogueConditions condition)
+        {
+            if (!profile || profile.DialogueNodes() == null || profile.DialogueNodes().Count == 0)
+                return null;
+            
+            return profile.DialogueNodes()
+                .Where(n => IsSuitableWorkerDef(n, currentDay, condition))
                 .OrderByDescending(n => n.Priority)
                 .FirstOrDefault();
         }
@@ -35,6 +47,25 @@ namespace Core.DialogueLogic
                 return false;
             
             return true;
+        }
+        
+        private bool IsSuitableWorkerDef(DialogueNode node, int currentDay, DialogueConditions condition)
+        {
+            if (node.Condition != condition && node.Condition != DialogueConditions.Default)
+                return false;
+            
+            if (currentDay < node.MinDay || currentDay > node.MaxDay)
+                return false;
+            
+            if (node.PlayOnlyOnce && node.WasPlayed)
+                return false;
+            
+            return true;
+        }
+
+        private bool IsDefault(DialogueNode node)
+        {
+            return node.Condition == DialogueConditions.Default;
         }
     }
 }

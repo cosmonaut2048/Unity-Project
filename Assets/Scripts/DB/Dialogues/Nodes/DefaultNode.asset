@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d074d594380e4c7b8aecbfa1627a53e7, type: 3}
+  m_Name: DefaultNode
+  m_EditorClassIdentifier: Assembly-CSharp::Core.DialogueLogic.DialogueNode
+  nodeId: 
+  textBlock: "\u042F \u043D\u0435 \u0445\u043E\u0447\u0443 \u0433\u043E\u0432\u043E\u0440\u0438\u0442\u044C."
+  condition: 0
+  minDay: 0
+  maxDay: 999
+  minLoyalty: 0
+  maxLoyalty: 999
+  minProductivity: 0
+  maxProductivity: 999
+  priority: 0
+  playOnlyOnce: 0
+  wasPlayed: 0
+  divider: ---
