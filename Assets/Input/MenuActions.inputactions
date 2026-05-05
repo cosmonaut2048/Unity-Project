@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "MenuActions",
+    "maps": [
+        {
+            "name": "MenuActionMap",
+            "id": "4b5ce6ff-ceb8-46e9-987c-22944d0ceffd",
+            "actions": [
+                {
+                    "name": "Esc",
+                    "type": "Button",
+                    "id": "c4f6fc2a-43a3-4718-8731-b9bf6a95de45",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "825cb113-023b-4516-83fc-05fe82e163a1",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Esc",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

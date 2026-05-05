@@ -19,5 +19,12 @@ namespace Runtime
         {
             quotaProgressNew = Mathf.Clamp(quotaProgressNew + progress, 0, quotaProgressNew);
         }
+
+        public void SetQuotaRuntime(Quota newQuota, int progress, int oldProgress)
+        {
+            quota = newQuota;
+            quotaProgressNew = progress;
+            quotaProgressOld = oldProgress;
+        }
     }
 }

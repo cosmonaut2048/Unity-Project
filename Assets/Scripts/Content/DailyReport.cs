@@ -40,7 +40,8 @@ namespace Content
             List<WorkerRuntime> workersReport, 
             int quotaProgressOldReport, int quotaProgressNewReport, int quotaSizeReport, 
             int coffeeConsumedReport, int coffeeObtainedReport, int coffeeLeftReport,
-            int breaksTakenReport, int breaksLeftReport, int daysLeftReport
+            int breaksTakenReport, int breaksLeftReport, 
+            int daysLeftReport
             )
         {
             workers = workersReport;

@@ -24,5 +24,19 @@ namespace Core.TaskLogic
         public void SetIsCriticalSuccess(bool criticalSuccess) =>  isCriticalSuccess = criticalSuccess;
         public void SetWorkers(List<WorkerRuntime> assignedWorkers) => workers = assignedWorkers;
         public void SetTask(TaskDef completedTask) => task = completedTask;
+
+        public void SetTotalTaskResult(
+            bool newIsSuccess,
+            bool newIsCriticalFailure,
+            bool newIsCriticalSuccess,
+            List<WorkerRuntime> newWorkers,
+            TaskDef newTask)
+        {
+            isSuccess = newIsSuccess;
+            isCriticalFailure = newIsCriticalFailure;
+            isCriticalSuccess = newIsCriticalSuccess;
+            workers = newWorkers;
+            task = newTask;
+        }
     }
 }

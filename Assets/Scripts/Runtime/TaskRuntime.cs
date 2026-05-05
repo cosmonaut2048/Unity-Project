@@ -30,6 +30,20 @@ namespace Runtime
             isFinished = false;
         }
 
+        public void SetTaskRuntime(
+            TaskDef newTask,
+            List<ItemDef> newGear,
+            List<WorkerRuntime> newWorkers,
+            int newCurrentTaskDay,
+            bool newIsFinished)
+        {
+            task = newTask;
+            gear = newGear;
+            workers = newWorkers;
+            currentTaskDay = newCurrentTaskDay;
+            isFinished = newIsFinished;
+        }
+
         public bool HasValidWorkerCount()
         {
             if (workers.Count == 0)

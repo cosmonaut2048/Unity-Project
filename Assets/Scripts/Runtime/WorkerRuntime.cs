@@ -33,7 +33,30 @@ namespace Runtime
         public int LoyaltyMaxValue => _loyaltyMaxValue;
         public WorkerDef Worker => worker;
         public bool IsEmployed => isEmployed;
-
+        public void SetWorkerRuntime(
+            WorkerDef newWorkerDef,
+            bool newIsEmployed,
+            int newProductivity,
+            int newLoyalty,
+            int newLastBreakDay,
+            BusyReason newBusyReason,
+            bool newIsProductivityFrozen,
+            bool newIsLoyaltyFrozen,
+            bool newDrankCoffeeToday,
+            bool newTookBreakToday
+            )
+        {
+            worker = newWorkerDef;
+            isEmployed = newIsEmployed;
+            productivity = newProductivity;
+            loyalty = newLoyalty;
+            lastBreakDay = newLastBreakDay;
+            busyReason = newBusyReason;
+            isProductivityFrozen = newIsProductivityFrozen;
+            isLoyaltyFrozen = newIsLoyaltyFrozen;
+            drankCoffeeToday = newDrankCoffeeToday;
+            tookBreakToday = newTookBreakToday;
+        }
         public int Productivity => productivity;
         public void SetProductivity(int newProductivity)
         { 

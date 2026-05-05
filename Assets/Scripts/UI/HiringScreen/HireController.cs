@@ -234,9 +234,9 @@ namespace UI.HiringScreen
             _workerName.text = "No more candidates.";
             _workerPortrait.style.backgroundImage = null;
             
-            App app = FindFirstObjectByType<App>();
+            OfficeRuntime office = FindFirstObjectByType<OfficeRuntime>();
         
-            if (app)
+            if (office)
             {
                 OfficeRuntime.Instance.AddWorkers(_hiredWorkers);
 
@@ -255,7 +255,7 @@ namespace UI.HiringScreen
             }
             else
             {
-                Debug.LogError("App not found!");
+                Debug.LogError("OfficeRuntime not found!");
             }
             
             // Скрываем элементы найма, показываем кнопку перехода на следующую сцену.

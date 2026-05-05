@@ -2,6 +2,7 @@
 using Content;
 using Core.TaskLogic;
 using JetBrains.Annotations;
+using Services.SaveComponents;
 using UnityEngine;
 
 namespace Runtime
@@ -181,6 +182,46 @@ namespace Runtime
         public void TickDayOfTheWeek()
         {
             dayOfTheWeek++;
+        }
+
+        public void SetInventory(List<ItemDef> newInventory)
+        {
+            inventory = newInventory;
+        }
+
+        public void SetDayOfTheWeek(int newDayOfTheWeek)
+        {
+            dayOfTheWeek = newDayOfTheWeek;
+        }
+
+        public void SetHiredWorkers(List<WorkerRuntime> newWorkers)
+        {
+            hiredWorkers = newWorkers;
+        }
+
+        public void SetFiredWorkersToday(List<WorkerRuntime> newWorkers)
+        {
+            firedWorkersToday = newWorkers;
+        }
+
+        public void SetCurrentQuota(QuotaRuntime newQuota)
+        {
+            currentQuota = newQuota;
+        }
+
+        public void SetCoffeeConsumedToday(int consumedToday)
+        {
+            coffeeConsumedToday = consumedToday;
+        }
+
+        public void SetCoffeeObtainedToday(int obtainedToday)
+        {
+            coffeeObtainedToday = obtainedToday;
+        }
+
+        public void SetBreakVouchersUsedToday(int usedToday)
+        {
+            breakVouchersUsedToday = usedToday;
         }
     }
 }
