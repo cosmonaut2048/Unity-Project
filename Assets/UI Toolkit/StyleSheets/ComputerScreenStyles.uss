@@ -69,7 +69,7 @@
 }
 
 .coffee--button {
-    background-color: rgb(188, 160, 107);
+    background-color: rgba(188, 160, 107, 0);
     color: rgb(0, 0, 0);
     border-top-left-radius: 0%;
     border-top-right-radius: 0%;
@@ -90,10 +90,12 @@
     margin-left: 0;
     height: 100%;
     width: 50%;
+    background-image: url("project://database/Assets/Art/UI/coffee_full.png?fileID=2800000&guid=a852f7ae78ab47c4d93881a6f4479686&type=3#coffee_full");
+    -unity-background-scale-mode: scale-to-fit;
 }
 
 .break--button {
-    background-color: rgb(200, 255, 174);
+    background-color: rgba(200, 255, 174, 0);
     color: rgb(0, 0, 0);
     border-top-left-radius: 0%;
     border-top-right-radius: 0%;
@@ -114,6 +116,8 @@
     margin-left: 0;
     height: 100%;
     width: 50%;
+    background-image: url("project://database/Assets/Art/UI/voucher.png?fileID=2800000&guid=a2b588783c8d1e547b79330cbddf383c&type=3#voucher");
+    -unity-background-scale-mode: scale-to-fit;
 }
 
 .give--buttons--container {
@@ -127,4 +131,55 @@
     padding-bottom: 3px;
     padding-left: 3px;
     height: 50px;
+}
+
+.coffee--button--inactive {
+    background-color: rgba(120, 120, 120, 0);
+    color: rgb(0, 0, 0);
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    border-bottom-left-radius: 0%;
+    border-left-color: rgba(149, 149, 149, 0);
+    border-right-color: rgba(149, 149, 149, 0);
+    border-top-color: rgba(149, 149, 149, 0);
+    border-bottom-color: rgba(149, 149, 149, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    flex-grow: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    height: 100%;
+    width: 50%;
+    background-image: url("project://database/Assets/Art/UI/coffee_empty.png?fileID=2800000&guid=d6a722ff5fac70d41b1c326fe20b9f60&type=3#coffee_empty");
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.break--button--inactive {
+    background-color: rgba(120, 120, 120, 0);
+    color: rgb(0, 0, 0);
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    border-bottom-left-radius: 0%;
+    border-left-color: rgba(149, 149, 149, 0);
+    border-right-color: rgba(149, 149, 149, 0);
+    border-top-color: rgba(149, 149, 149, 0);
+    border-bottom-color: rgba(149, 149, 149, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    flex-grow: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    height: 100%;
+    width: 50%;
+    background-image: url("project://database/Assets/Art/UI/voucher_inactive.png?fileID=2800000&guid=237ae69971188404cb7fbeac63b31c2f&type=3#voucher_inactive");
 }

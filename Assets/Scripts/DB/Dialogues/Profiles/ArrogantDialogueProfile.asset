@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Core.DialogueLogic.DialogueProfile
   dialogueNodes:
   - {fileID: 11400000, guid: b1950dc356a5d654483f0b73e1009981, type: 2}
-  - {fileID: 11400000, guid: 528f7617cf74adf4186f5d4aaaa16a90, type: 2}
+  - {fileID: 11400000, guid: 037fef0127d5fd841bd655b3b13cb5c7, type: 2}
   - {fileID: 11400000, guid: 804889c6a57d9954dbd068a0b3dc3d74, type: 2}

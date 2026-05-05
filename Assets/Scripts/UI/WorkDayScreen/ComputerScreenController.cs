@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using Core.DialogueLogic;
 using Gameflow;
 using Runtime;
+using UI.WorkDayScreen.WorkersInOfficeComponents;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -14,9 +15,13 @@ namespace UI.WorkDayScreen
         
         // Кнопки.
         private VisualElement _backButton;
+        
+        // Работники.
+        private List<WorkerInComputer> _workers;
 
         void Start()
         {
+            WorkersInComputerSetter workersInComputerSetter = new WorkersInComputerSetter();
             var root = GetComponent<UIDocument>().rootVisualElement;
             
             // Queue:
@@ -26,75 +31,20 @@ namespace UI.WorkDayScreen
             _backButton = root.Q<VisualElement>("back_button");
             
             // Очищаем данные с экрана.
-            ClearScreen();
+            workersInComputerSetter.ClearAllCards(_workerCallCardContainer);
+            
+            // Настройка работников.
+            _workers = new List<WorkerInComputer>();
             
             // Добавляем элементы для работников.
-            foreach (var worker in OfficeRuntime.Instance.WorkersInOffice())
-            {
-                CreateCard(worker);
-            }
+            workersInComputerSetter.CreateAllCards(_workers, OfficeRuntime.Instance.WorkersInOffice(), _workerCallCardContainer);
             
             // Подписываемся на события.
             _backButton.RegisterCallback<ClickEvent>(_ => SceneController.Instance.LoadScene(nameof(Scenes.MainRoomScene)));
-        }
-
-        private void CreateCard(WorkerRuntime worker)
-        {
-            // Создаём контейнеры.
-            VisualElement workerCallCard = new VisualElement();
-            VisualElement workerCallInfo = new VisualElement();
-            VisualElement giveButtonsContainer = new VisualElement();
-            
-            // Создаём элементы.
-            VisualElement workerIcon = new VisualElement();
-            Label workerName = new Label();
-            Button callButton = new Button();
-            Button giveCoffeeButton = new Button();
-            Button giveBreakButton = new Button();
-            
-            // Применяем стили.
-            workerCallCard.AddToClassList("worker--call--card");
-            workerCallInfo.AddToClassList("worker--call--info");
-            giveButtonsContainer.AddToClassList("give--buttons--container");
-            workerIcon.AddToClassList("worker--icon");
-            workerName.AddToClassList("worker--name");
-            callButton.AddToClassList("call--button");
-            giveCoffeeButton.AddToClassList("coffee--button");
-            giveBreakButton.AddToClassList("break--button");
-            
-            // Добавляем информацию работника.
-            workerIcon.style.backgroundImage = new StyleBackground(worker.Worker.Appearance.IconSprite);
-            workerName.text = worker.Worker.Appearance.WorkerName;
-            callButton.text = "Call";
-            giveCoffeeButton.text = "Give Coffee";
-            giveBreakButton.text = "Give Break";
-            
-            // Добавляем элементы в контейнеры.
-            giveButtonsContainer.Add(giveCoffeeButton);
-            giveButtonsContainer.Add(giveBreakButton);
-            
-            workerCallInfo.Add(workerName);
-            workerCallInfo.Add(callButton);
-            workerCallInfo.Add(giveButtonsContainer);
-            
-            workerCallCard.Add(workerIcon);
-            workerCallCard.Add(workerCallInfo);
-            
-            _workerCallCardContainer.Add(workerCallCard);
-        }
-
-        private void ClearScreen()
-        {
-            List<VisualElement> elements = _workerCallCardContainer?.Children().ToList();
-            
-            if (elements == null) return;
-            
-            foreach (var element in elements)
+            foreach (var worker in _workers)
             {
-                if (element != null)
-                {
-                    _workerCallCardContainer.Remove(element);
-                }
+                worker.SubscribeToClickEvents();
+                worker.SubscribeToDialogueOnClickEvent(DialogueConditions.WorkDay, Scenes.ComputerScreenScene);
             }
         }
     }

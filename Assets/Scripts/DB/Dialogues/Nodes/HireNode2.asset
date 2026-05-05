@@ -13,10 +13,7 @@ MonoBehaviour:
   m_Name: HireNode2
   m_EditorClassIdentifier: Assembly-CSharp::Core.DialogueLogic.DialogueNode
   nodeId: 
-  textBlock: "\u041D\u0430\u0439\u043C\u0438\u0442\u0435 \u043F\u0436.---\u041D\u0430\u0439\u043C\u0438\u0442\u0435
-    \u043F\u0436.---\u041D\u0430\u0439\u043C\u0438\u0442\u0435 \u043F\u0436.---\u041D\u0430\u0439\u043C\u0438\u0442\u0435
-    \u043F\u0436.---\u041D\u0430\u0439\u043C\u0438\u0442\u0435 \u043F\u0436.---\u041D\u0430\u0439\u043C\u0438\u0442\u0435
-    \u043F\u0436."
+  textBlock: "\u041D\u0430\u0439\u043C\u0438\u0442\u0435 \u043F\u0436."
   condition: 1
   minDay: 0
   maxDay: 999

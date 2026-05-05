@@ -23,7 +23,7 @@ namespace UI.WorkDayScreen
 
         void Start()
         {
-            WorkerSetter workerSetter = new WorkerSetter();
+            WorkersInOfficeSetter workersInOfficeSetter = new WorkersInOfficeSetter();
             var root = GetComponent<UIDocument>().rootVisualElement;
             
             // Queue:
@@ -37,9 +37,9 @@ namespace UI.WorkDayScreen
             _workersContainer = root.Q<VisualElement>("Workers_Container");
             
             // Настройка работников.
-            _workers = workerSetter.CreateWorkersInOffice(OfficeWorkerPlacement.Instance.WorkersInMainRoom, _workersContainer);
-            workerSetter.HideAllWorkers(_workersContainer);
-            workerSetter.SetAllWorkers(_workers, OfficeWorkerPlacement.Instance.MainRoomCapacity);
+            _workers = workersInOfficeSetter.CreateWorkersInOffice(OfficeWorkerPlacement.Instance.WorkersInMainRoom, _workersContainer);
+            workersInOfficeSetter.HideAllWorkers(_workersContainer);
+            workersInOfficeSetter.SetAllWorkers(_workers, OfficeWorkerPlacement.Instance.MainRoomCapacity);
             
             // Скрываем неактивные элементы.
             _computerHoverGlow.style.display = DisplayStyle.None;

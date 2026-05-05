@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 namespace UI.WorkDayScreen.WorkersInOfficeComponents
 {
-    public class WorkerSetter
+    public class WorkersInOfficeSetter
     {
         public List<WorkerInOffice> CreateWorkersInOffice(List<WorkerRuntime> workersRuntime, VisualElement allWorkersContainer)
         {

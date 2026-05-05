@@ -19,7 +19,7 @@ namespace UI.WorkDayScreen
 
         void Start()
         {
-            WorkerSetter workerSetter = new WorkerSetter();
+            WorkersInOfficeSetter workersInOfficeSetter = new WorkersInOfficeSetter();
             var root = GetComponent<UIDocument>().rootVisualElement;
             
             // Queue:
@@ -29,9 +29,9 @@ namespace UI.WorkDayScreen
             _workersContainer = root.Q<VisualElement>("Workers_Container");
             
             // Настройка работников.
-            _workers = workerSetter.CreateWorkersInOffice(OfficeWorkerPlacement.Instance.WorkersInKitchen, _workersContainer);
-            workerSetter.HideAllWorkers(_workersContainer);
-            workerSetter.SetAllWorkers(_workers, OfficeWorkerPlacement.Instance.KitchenCapacity);
+            _workers = workersInOfficeSetter.CreateWorkersInOffice(OfficeWorkerPlacement.Instance.WorkersInKitchen, _workersContainer);
+            workersInOfficeSetter.HideAllWorkers(_workersContainer);
+            workersInOfficeSetter.SetAllWorkers(_workers, OfficeWorkerPlacement.Instance.KitchenCapacity);
             
             // Подписываемся на события.
             _goBackButton.RegisterCallback<ClickEvent>(_ => SceneController.Instance.LoadScene(nameof(Scenes.HallsScene)));

@@ -78,7 +78,7 @@
                         <ui:VisualElement name="Critical_Result_Container" style="flex-grow: 1; flex-direction: row; justify-content: space-evenly; padding-left: 50px; padding-right: 50px;">
                             <ui:VisualElement name="Critical_Success_Container" style="flex-grow: 1; flex-direction: row;">
                                 <ui:Label text="Critical success:" style="font-size: 36px;" />
-                                <ui:Label text="YES" name="critical_success_text" class="critical--text--yes" />
+                                <ui:Label text="NO" name="critical_success_text" class="critical--text--no" />
                             </ui:VisualElement>
                             <ui:VisualElement name="Critical_Failure_Container" style="flex-grow: 1; flex-direction: row;">
                                 <ui:Label text="Critical failure:" style="-unity-text-align: upper-left; font-size: 36px;" />

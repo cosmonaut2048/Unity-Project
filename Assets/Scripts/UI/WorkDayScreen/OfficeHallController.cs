@@ -34,7 +34,7 @@ namespace UI.WorkDayScreen
 
         void Start()
         {
-            WorkerSetter workerSetter = new WorkerSetter();
+            WorkersInOfficeSetter workersInOfficeSetter = new WorkersInOfficeSetter();
             var root = GetComponent<UIDocument>().rootVisualElement;
             
             // Queue:
@@ -66,9 +66,9 @@ namespace UI.WorkDayScreen
             _endDayPromptContainer.style.display = DisplayStyle.None;
             
             // Настройка работников.
-            _workers = workerSetter.CreateWorkersInOffice(OfficeWorkerPlacement.Instance.WorkersInHall, _workersContainer);
-            workerSetter.HideAllWorkers(_workersContainer);
-            workerSetter.SetAllWorkers(_workers, OfficeWorkerPlacement.Instance.HallCapacity);
+            _workers = workersInOfficeSetter.CreateWorkersInOffice(OfficeWorkerPlacement.Instance.WorkersInHall, _workersContainer);
+            workersInOfficeSetter.HideAllWorkers(_workersContainer);
+            workersInOfficeSetter.SetAllWorkers(_workers, OfficeWorkerPlacement.Instance.HallCapacity);
             
             // Подписываемся на события.
             _boardHoverContainer.RegisterCallback<MouseEnterEvent>(_ => _boardHoverGlow.style.display = DisplayStyle.Flex);

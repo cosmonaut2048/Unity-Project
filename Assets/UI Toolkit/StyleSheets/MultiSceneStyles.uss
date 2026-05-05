@@ -78,7 +78,7 @@
     width: 80px;
     margin-right: 10px;
     margin-left: 10px;
-    background-image: url("project://database/Assets/Art/UI/coffee_full_inactive.png?fileID=2800000&guid=d5d94c5a2006f8842a25ad9ba9cfcfcb&type=3#coffee_full_inactive");
+    background-image: url("project://database/Assets/Art/UI/coffee_empty.png?fileID=2800000&guid=d6a722ff5fac70d41b1c326fe20b9f60&type=3#coffee_empty");
     -unity-background-scale-mode: scale-to-fit;
 }
 

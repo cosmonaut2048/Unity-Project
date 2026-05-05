@@ -20,6 +20,7 @@ namespace Core.DayLogic.DayEnd
             }
             
             OfficeRuntime.Instance.SetDailyReport(reportCreator.CreateReport());
+            OfficeRuntime.Instance.SetTaskResult(null);
             dayEndCalculator.OnDayEndTask();
         }
     }
