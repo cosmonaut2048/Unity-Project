@@ -1,7 +1,7 @@
-﻿using Services;
+﻿using Gameflow;
+using Services;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 namespace UI.MenuScreen
@@ -39,7 +39,9 @@ namespace UI.MenuScreen
             _saveQuitToDesktopButton = root.Q<Button>("save_quit_to_desktop_button");
             
             // Подписываемся на события:
+            _resumeGameButton.RegisterCallback<ClickEvent>(_ => HideMenu());
             _saveButton.RegisterCallback<ClickEvent>(_ => SaveService.Instance.SaveGame());
+            _saveQuitToMainMenuButton.RegisterCallback<ClickEvent>(OnSaveQuitToMainMenu);
             _loadButton.RegisterCallback<ClickEvent>(_ => LoadService.Instance.LoadGame());
             
             // Скрываем элементы.
@@ -50,17 +52,33 @@ namespace UI.MenuScreen
         {
             if (esc.action.triggered)
             {
-                Debug.Log("Escape Pressed");
                 if (_devMenuContainer.style.display == DisplayStyle.None)
                 {
-                    _devMenuContainer.style.display = DisplayStyle.Flex;
-                    uiDocument.sortingOrder = devMenuSortingOrder;
+                    ShowMenu();
                     return;
                 }
                 
-                _devMenuContainer.style.display = DisplayStyle.None;
-                uiDocument.sortingOrder = _originalSortingOrder;
+                HideMenu();
             }
+        }
+
+        private void OnSaveQuitToMainMenu(ClickEvent evt)
+        {
+            SaveService.Instance.SaveGame();
+            SceneController.Instance.LoadScene(nameof(Scenes.MainMenuScene));
+            HideMenu();
+        }
+
+        private void ShowMenu()
+        {
+            _devMenuContainer.style.display = DisplayStyle.Flex;
+            uiDocument.sortingOrder = devMenuSortingOrder;
+        }
+
+        private void HideMenu()
+        {
+            _devMenuContainer.style.display = DisplayStyle.None;
+            uiDocument.sortingOrder = _originalSortingOrder;
         }
     }
 }

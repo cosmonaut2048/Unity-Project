@@ -23,7 +23,7 @@ namespace UI.MenuScreen
             
             // Подписываемся на события:
             // Переходы на другие сцены.
-            _startGameButton.RegisterCallback<ClickEvent>(_ => SceneController.Instance.LoadScene(nameof(Scenes.HiringScene)));
+            _startGameButton.RegisterCallback<ClickEvent>(_ => SceneController.Instance.LoadScene(nameof(Scenes.SaveSelectScene)));
             _optionsButton.RegisterCallback<ClickEvent>(_ => Debug.Log("Not Implemented."));
             _quitGameButton.RegisterCallback<ClickEvent>(_ => Debug.Log("Not Implemented."));
         }

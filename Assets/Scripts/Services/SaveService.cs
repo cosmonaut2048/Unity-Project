@@ -1,5 +1,6 @@
 using System.IO;
 using Services.SaveComponents;
+using Services.SaveSlotComponents;
 using UnityEngine;
 
 namespace Services
@@ -17,30 +18,40 @@ namespace Services
             {
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
-                savePath = Application.persistentDataPath + "/GameSave.json";
+                savePath = Path.Combine(Application.persistentDataPath, "GameSave.json");
             }
             else
             {
                 Destroy(gameObject);
             }
         }
-
-        private void UpdatePath()
-        {
-            savePath = Application.persistentDataPath + "/GameSave.json";
-        }
-
+        
         public void SaveGame()
         {
+            savePath = SaveSlotService.Instance?.GetSavePath();
+            
+            if (string.IsNullOrEmpty(savePath))
+            {
+                Debug.LogError("Cannot save: invalid path!");
+                return;
+            }
+            
+            // Если нет папки, создаём.
+            string directory = Path.GetDirectoryName(savePath);
+            if (!Directory.Exists(directory))
+                if (directory != null)
+                    Directory.CreateDirectory(directory);
+            
             GameData data = new GameData();
             data.SetGameData();
             
             string json = JsonUtility.ToJson(data, true);
-            
-            UpdatePath();
             File.WriteAllText(savePath, json);
             
             Debug.Log($"Game Saved to: {savePath}");
+            
+            // Обновляем файл слотов.
+            AllSaveSlotsData.LoadFromFile()?.SaveToFile();
         }
     }
 }
