@@ -36,6 +36,9 @@ namespace Services
 
         private DailyReport CreateDailyReportFromData(DailyReportData data)
         {
+            if (data.isEmpty)
+                return null;
+            
             DailyReport report = ScriptableObject.CreateInstance<DailyReport>();
             
             report.InitializeDailyReport(
@@ -51,6 +54,9 @@ namespace Services
 
         private TotalTaskResult CreateTaskResultFromData(TotalTaskResultData data)
         {
+            if (data.isEmpty)
+                return null;
+            
             TotalTaskResult result = ScriptableObject.CreateInstance<TotalTaskResult>();
             
             result.SetTotalTaskResult(
@@ -66,6 +72,9 @@ namespace Services
 
         private TaskRuntime CreateTaskRuntimeFromData(TaskRuntimeData data)
         {
+            if (data.isEmpty)
+                return null;
+            
             TaskRuntime taskRuntime = ScriptableObject.CreateInstance<TaskRuntime>();
             
             taskRuntime.SetTaskRuntime(

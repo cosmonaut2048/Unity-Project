@@ -13,10 +13,17 @@ namespace Services.SaveComponents
         public List<WorkerRuntimeData> workers;
         public int currentTaskDay;
         public bool isFinished;
+        public bool isEmpty;
 
         public void SetDataFromTaskRuntime([CanBeNull] TaskRuntime taskRuntime)
         {
-            if (!taskRuntime) return;
+            if (!taskRuntime)
+            {
+                isEmpty = true;
+                return;
+            }
+            
+            isEmpty = false;
             
             task = taskRuntime.Task;
             gear = taskRuntime.Gear;

@@ -22,10 +22,18 @@ namespace Services.SaveComponents
         public int breaksLeft;
         
         public int daysLeft;
+        
+        public bool isEmpty;
 
         public void SetDataFromReport([CanBeNull] DailyReport report)
         {
-            if (!report) return;
+            if (!report)
+            {
+                isEmpty = true;
+                return;
+            }
+            
+            isEmpty = false;
             
             foreach (var worker in report.Workers)
             {

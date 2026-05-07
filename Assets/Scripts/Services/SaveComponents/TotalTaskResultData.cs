@@ -15,9 +15,17 @@ namespace Services.SaveComponents
         public List<WorkerRuntimeData> workers;
         public TaskDef task;
 
+        public bool isEmpty;
+
         public void SetDataFromTaskResult([CanBeNull] TotalTaskResult taskResult)
         {
-            if (!taskResult) return;
+            if (!taskResult)
+            {
+                isEmpty = true;
+                return;
+            }
+            
+            isEmpty = false;
             
             isSuccess = taskResult.IsSuccess;
             isCriticalFailure = taskResult.IsCriticalFailure;
