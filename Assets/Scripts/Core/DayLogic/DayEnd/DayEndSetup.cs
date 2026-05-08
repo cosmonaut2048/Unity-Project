@@ -19,7 +19,9 @@ namespace Core.DayLogic.DayEnd
                 dayEndCalculator.DayEndWorkerLoyalty(worker, loyaltyCalculator);
             }
             
+            dayEndCalculator.OnDayEndQuota();
             OfficeRuntime.Instance.SetDailyReport(reportCreator.CreateReport());
+            OfficeRuntime.Instance.CurrentQuota.NewProgressToOld();
             OfficeRuntime.Instance.SetTaskResult(null);
             dayEndCalculator.OnDayEndTask();
         }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Content;
+using Core.QuotaLogic;
 using Runtime;
 
 namespace Services.SaveComponents
@@ -26,8 +27,9 @@ namespace Services.SaveComponents
         // Перерывы.
         public int breakVouchers;
         public int breakVouchersUsedToday;
-        // Отчёт.
+        // Отчёты.
         public DailyReportData dailyReport;
+        public QuotaResultData quotaResult;
 
         public void SetDataFromOffice()
         {
@@ -57,6 +59,9 @@ namespace Services.SaveComponents
 
             dailyReport = new DailyReportData();
             dailyReport.SetDataFromReport(OfficeRuntime.Instance.DailyReport);
+
+            quotaResult = new QuotaResultData();
+            quotaResult.SetDataFromQuotaResult(OfficeRuntime.Instance.QuotaResult);
         }
 
         private List<WorkerRuntimeData> GetWorkerRuntimeDataList(List<WorkerRuntime> workers)

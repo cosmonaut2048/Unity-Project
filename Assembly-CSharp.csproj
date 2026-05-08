@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\Core\WorkerLogic\WorkerSkillsCalculator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Scripts\Gameflow\Scenes.cs" />
+    <Compile Include="Assets\Scripts\Services\SaveComponents\QuotaResultData.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\HomebodyTraitDef.cs" />
     <Compile Include="Assets\Scripts\UI\WorkDayScreen\WorkersInOfficeComponents\WorkerInComputer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Content;
+using Core.QuotaLogic;
 using Core.TaskLogic;
 using JetBrains.Annotations;
-using Services.SaveComponents;
 using UnityEngine;
 
 namespace Runtime
@@ -30,8 +30,9 @@ namespace Runtime
         // Перерывы.
         [SerializeField] private int breakVouchers;
         [SerializeField] private int breakVouchersUsedToday;
-        // Отчёт.
+        // Отчёты.
         [SerializeField] private DailyReport dailyReport;
+        [SerializeField] private QuotaResult quotaResult;
         
         public List<ItemDef> Inventory => inventory;
         public int DayOfTheWeek => dayOfTheWeek;
@@ -47,6 +48,7 @@ namespace Runtime
         public TaskRuntime CurrentTask => currentTask;
         public TotalTaskResult LastTaskResult => lastTaskResult;
         public DailyReport DailyReport => dailyReport;
+        public QuotaResult QuotaResult => quotaResult;
 
         public void ClearRuntimeData()
         {
@@ -56,6 +58,7 @@ namespace Runtime
         
         public void SetCoffee(int coffeeAmount) { coffee = coffeeAmount; }
         public void SetBreakVouchers(int voucherAmount) { breakVouchers = voucherAmount; }
+        public void SetQuotaResult(QuotaResult newQuotaResult)  { quotaResult = newQuotaResult; }
 
         private void Awake()
         {
@@ -222,6 +225,31 @@ namespace Runtime
         public void SetBreakVouchersUsedToday(int usedToday)
         {
             breakVouchersUsedToday = usedToday;
+        }
+
+        public void ClearOffice()
+        {
+            inventory.Clear();
+            dayOfTheWeek = 0;
+            
+            hiredWorkers.Clear();
+            firedWorkersToday.Clear();
+            
+            currentQuota = null;
+            
+            availableTask = null;
+            currentTask = null;
+            lastTaskResult = null;
+
+            coffee = 0;
+            coffeeConsumedToday = 0;
+            coffeeObtainedToday = 0;
+
+            breakVouchers = 0;
+            breakVouchersUsedToday = 0;
+            
+            dailyReport = null;
+            quotaResult = null;
         }
     }
 }

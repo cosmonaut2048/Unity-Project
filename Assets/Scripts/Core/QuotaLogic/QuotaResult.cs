@@ -1,14 +1,25 @@
-﻿namespace Core.QuotaLogic
+﻿using UnityEngine;
+
+namespace Core.QuotaLogic
 {
-    public class QuotaResult
+    public class QuotaResult : ScriptableObject
     {
-        private bool _isSuccess;
-        private Quota _quota;
-        private int _quotaContribution;
-        private double _quotaCompletion; // размер_вклада / размер_квоты.
+        [SerializeField] private bool isSuccess;
+        [SerializeField] private Quota quota;
+        [SerializeField] private int quotaContribution;
+        [SerializeField] private double quotaCompletion; // размер_вклада / размер_квоты.
+
+        public void InitializeQuotaResult(bool setIsSuccess, Quota setQuota, int setQuotaContribution)
+        {
+            isSuccess = setIsSuccess;
+            quota = setQuota;
+            quotaContribution = setQuotaContribution;
+            quotaCompletion = (float)setQuotaContribution / setQuota.QuotaSize;
+        }
         
-        public bool IsSuccess { get; set; }
-        public Quota Quota { get; set; }
-        public int QuotaContribution { get; set; }
+        public bool IsSuccess => isSuccess;
+        public Quota Quota => quota;
+        public int QuotaContribution => quotaContribution;
+        public double QuotaCompletion => quotaCompletion;
     }
 }

@@ -34,6 +34,9 @@ namespace Core.DayLogic.DayStart
             }
             
             
+            // Обновляем состояние квоты.
+            dayStartCalculator.OnDayStartQuota();
+            
             // Обновляем состояние заданий.
             dayStartCalculator.OnDayStartTask();
             OfficeRuntime.Instance.SetAvailableTask(taskGenerator.GetRandomTask());

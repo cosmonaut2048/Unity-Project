@@ -1,5 +1,7 @@
 ﻿using Core.DayLogic.TickCalculation;
+using Core.QuotaLogic;
 using Runtime;
+using UnityEngine;
 
 namespace Core.DayLogic.DayEnd
 {
@@ -29,6 +31,29 @@ namespace Core.DayLogic.DayEnd
                 return;
             if (OfficeRuntime.Instance.CurrentTask.CurrentTaskDay < OfficeRuntime.Instance.CurrentTask.Task.Duration)
                 OfficeRuntime.Instance.CurrentTask.TickTaskDay();
+        }
+
+        public void OnDayEndQuota()
+        {
+            QuotaCalculator calculator = new QuotaCalculator();
+
+            OfficeRuntime.Instance.CurrentQuota.FillQuota(calculator.TotalQuotaContribution(
+                OfficeRuntime.Instance.WorkersInOffice()));
+            
+            if (OfficeRuntime.Instance.CurrentQuota.QuotaDay ==
+                OfficeRuntime.Instance.CurrentQuota.StaticQuota.QuotaDuration)
+            {
+                bool isSuccess = OfficeRuntime.Instance.CurrentQuota.StaticQuota.QuotaSize == 
+                                 OfficeRuntime.Instance.CurrentQuota.QuotaProgressNew;
+                
+                QuotaResult result = ScriptableObject.CreateInstance<QuotaResult>();
+                result.InitializeQuotaResult(
+                    isSuccess, 
+                    OfficeRuntime.Instance.CurrentQuota.StaticQuota,
+                    OfficeRuntime.Instance.CurrentQuota.QuotaProgressNew);
+                
+                OfficeRuntime.Instance.SetQuotaResult(result);
+            }
         }
     }
 }

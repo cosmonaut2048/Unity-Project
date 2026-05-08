@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Content;
 using Gameflow;
+using Runtime;
 using Services;
 using Services.SaveSlotComponents;
 using UnityEngine;
@@ -48,6 +50,9 @@ namespace UI.MenuScreen
                 SaveSlotService.Instance.CreateNewSlot(slotName);
                 
                 SaveSlotService.Instance.SelectSlot(slotName);
+                
+                OfficeWorkerPlacement.Instance.ClearAllRooms();
+                OfficeRuntime.Instance.ClearOffice();
                 
                 SceneController.Instance.LoadScene(nameof(Scenes.HiringScene));
                 return;

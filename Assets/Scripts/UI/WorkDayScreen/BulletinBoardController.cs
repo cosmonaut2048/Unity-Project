@@ -140,6 +140,9 @@ namespace UI.WorkDayScreen
 
         private void SetQuotaSticker()
         {
+            if (!OfficeRuntime.Instance.CurrentQuota)
+                return;
+            
             _progressBar.style.width = 
                 OfficeRuntime.Instance.CurrentQuota.StaticQuota.QuotaSize != 0 ? 
                 Length.Percent((float)OfficeRuntime.Instance.CurrentQuota.QuotaProgressNew / OfficeRuntime.Instance.CurrentQuota.StaticQuota.QuotaSize * 100) 

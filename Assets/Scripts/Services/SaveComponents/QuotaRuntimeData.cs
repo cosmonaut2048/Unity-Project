@@ -7,6 +7,7 @@ namespace Services.SaveComponents
     public class QuotaRuntimeData
     {
         public QuotaData quotaData;
+        public int quotaDay;
         public int quotaProgressNew;
         public int quotaProgressOld;
 
@@ -17,6 +18,7 @@ namespace Services.SaveComponents
             
             quotaData.SetDataFromQuota(quota.StaticQuota);
 
+            quotaDay = quota.QuotaDay;
             quotaProgressNew = quota.QuotaProgressNew;
             quotaProgressOld = quota.QuotaProgressOld;
         }

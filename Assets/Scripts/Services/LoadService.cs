@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using Runtime;
 using Services.SaveComponents;
 using Services.SaveSlotComponents;
 using UnityEngine;
@@ -62,10 +63,14 @@ namespace Services
             SaveSlotService.Instance.SelectSlot(slotName);
             LoadGame();
         }
-        
-        public void LoadGameFromPath(string path)
+
+        private void LoadGameFromPath(string path)
         {
             DataSetter dataSetter = new DataSetter();
+            
+            OfficeWorkerPlacement.Instance.ClearAllRooms();
+            OfficeRuntime.Instance.ClearOffice();
+            
             GameData data = LoadData(path);
 
             if (data == null)

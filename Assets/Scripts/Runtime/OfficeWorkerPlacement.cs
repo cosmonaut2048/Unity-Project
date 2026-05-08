@@ -7,6 +7,19 @@ namespace Runtime
     {
         public static OfficeWorkerPlacement Instance { get; private set; }
         
+        private void Awake()
+        {
+            if (!Instance)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+        
         [SerializeField] private int hallCapacity = 3;
         [SerializeField] private int mainRoomCapacity = 3;
         [SerializeField] private int secondRoomCapacity = 5;
@@ -30,7 +43,7 @@ namespace Runtime
         public List<WorkerRuntime> WorkersInKitchen => workersInKitchen;
         public List<WorkerRuntime> WorkersInComputer => workersInComputer;
 
-        public void AddWorkerToHall(WorkerRuntime worker)
+        private void AddWorkerToHall(WorkerRuntime worker)
         {
             if (workersInHall.Count >= hallCapacity)
                 AddWorkerToComputer(worker);
@@ -38,7 +51,7 @@ namespace Runtime
                 workersInHall.Add(worker);
         }
 
-        public void AddWorkerToMainRoom(WorkerRuntime worker)
+        private void AddWorkerToMainRoom(WorkerRuntime worker)
         {
             if (workersInMainRoom.Count >= mainRoomCapacity)
                 AddWorkerToComputer(worker);
@@ -46,7 +59,7 @@ namespace Runtime
                 workersInMainRoom.Add(worker);
         }
 
-        public void AddWorkerToSecondRoom(WorkerRuntime worker)
+        private void AddWorkerToSecondRoom(WorkerRuntime worker)
         {
             if (workersInSecondRoom.Count >= secondRoomCapacity)
                 AddWorkerToComputer(worker);
@@ -54,7 +67,7 @@ namespace Runtime
                 workersInSecondRoom.Add(worker);
         }
 
-        public void AddWorkerToKitchen(WorkerRuntime worker)
+        private void AddWorkerToKitchen(WorkerRuntime worker)
         {
             if (workersInKitchen.Count >= kitchenCapacity)
                 AddWorkerToComputer(worker);
@@ -62,7 +75,7 @@ namespace Runtime
                 workersInKitchen.Add(worker);
         }
 
-        public void AddWorkerToComputer(WorkerRuntime worker)
+        private void AddWorkerToComputer(WorkerRuntime worker)
         {
             workersInComputer.Add(worker);
         }
@@ -97,19 +110,6 @@ namespace Runtime
                         OfficeWorkerPlacement.Instance.AddWorkerToKitchen(worker);
                         break;
                 }
-            }
-        }
-        
-        private void Awake()
-        {
-            if (!Instance)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
             }
         }
     }

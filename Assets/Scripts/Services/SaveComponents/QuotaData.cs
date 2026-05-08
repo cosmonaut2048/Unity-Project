@@ -9,6 +9,7 @@ namespace Services.SaveComponents
         public string quotaName;
         public string quotaDescription;
         public int quotaSize;
+        public int quotaDuration;
         
         public void SetDataFromQuota([CanBeNull] Quota quota)
         {
@@ -17,6 +18,7 @@ namespace Services.SaveComponents
             quotaName = quota.QuotaName;
             quotaDescription = quota.QuotaDescription;
             quotaSize = quota.QuotaSize;
+            quotaDuration = quota.QuotaDuration;
         }
     }
 }

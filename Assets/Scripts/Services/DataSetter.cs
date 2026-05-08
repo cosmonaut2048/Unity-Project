@@ -32,6 +32,20 @@ namespace Services
             OfficeRuntime.Instance.SetBreakVouchersUsedToday(data.office.breakVouchersUsedToday);
             
             OfficeRuntime.Instance.SetDailyReport(CreateDailyReportFromData(data.office.dailyReport));
+            OfficeRuntime.Instance.SetQuotaResult(CreateQuotaResultFromData(data.office.quotaResult));
+        }
+
+        private QuotaResult CreateQuotaResultFromData(QuotaResultData data)
+        {
+            QuotaResult result = ScriptableObject.CreateInstance<QuotaResult>();
+            
+            result.InitializeQuotaResult(
+                data.isSuccess,
+                data.quota,
+                data.quotaContribution
+                );
+
+            return result;
         }
 
         private DailyReport CreateDailyReportFromData(DailyReportData data)
@@ -94,6 +108,7 @@ namespace Services
             
             quotaRuntime.SetQuotaRuntime(
                 CreateQuotaFromData(data.quotaData),
+                data.quotaDay,
                 data.quotaProgressNew,
                 data.quotaProgressOld
                 );
@@ -107,7 +122,8 @@ namespace Services
             quota.InitializeQuota(
                 data.quotaName,
                 data.quotaDescription,
-                data.quotaSize
+                data.quotaSize,
+                data.quotaDuration
                 );
             
             return quota;

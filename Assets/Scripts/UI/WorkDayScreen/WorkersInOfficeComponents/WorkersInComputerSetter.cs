@@ -24,6 +24,9 @@ namespace UI.WorkDayScreen.WorkersInOfficeComponents
 
         public void CreateAllCards(List<WorkerInComputer> workers, List<WorkerRuntime> workersRuntime, VisualElement workerCallCardContainer)
         {
+            if (workersRuntime.Count == 0)
+                return;
+            
             foreach (var workerRuntime in workersRuntime)
             {
                 workers.Add(new WorkerInComputer(workerRuntime));
