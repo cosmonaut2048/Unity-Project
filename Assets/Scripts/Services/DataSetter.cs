@@ -41,7 +41,7 @@ namespace Services
             
             result.InitializeQuotaResult(
                 data.isSuccess,
-                data.quota,
+                CreateQuotaFromData(data.quota),
                 data.quotaContribution
                 );
 

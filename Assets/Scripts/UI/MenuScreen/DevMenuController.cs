@@ -42,6 +42,7 @@ namespace UI.MenuScreen
             _resumeGameButton.RegisterCallback<ClickEvent>(_ => HideMenu());
             _saveButton.RegisterCallback<ClickEvent>(_ => SaveService.Instance.SaveGame());
             _saveQuitToMainMenuButton.RegisterCallback<ClickEvent>(OnSaveQuitToMainMenu);
+            _saveQuitToDesktopButton.RegisterCallback<ClickEvent>(OnSaveQuitToDesktop);
             _loadButton.RegisterCallback<ClickEvent>(_ => LoadService.Instance.LoadGame());
             
             // Скрываем элементы.
@@ -67,6 +68,13 @@ namespace UI.MenuScreen
             SaveService.Instance.SaveGame();
             SceneController.Instance.LoadScene(nameof(Scenes.MainMenuScene));
             HideMenu();
+        }
+        
+        private void OnSaveQuitToDesktop(ClickEvent evt)
+        {
+            SaveService.Instance.SaveGame();
+            HideMenu();
+            Application.Quit();
         }
 
         private void ShowMenu()

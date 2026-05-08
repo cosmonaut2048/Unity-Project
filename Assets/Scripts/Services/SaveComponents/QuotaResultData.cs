@@ -1,5 +1,6 @@
 ﻿using Core.QuotaLogic;
 using JetBrains.Annotations;
+using Runtime;
 
 namespace Services.SaveComponents
 {
@@ -7,16 +8,19 @@ namespace Services.SaveComponents
     public class QuotaResultData
     {
         public bool isSuccess;
-        public Quota quota;
+        public QuotaData quota;
         public int quotaContribution;
         public double quotaCompletion;
 
         public void SetDataFromQuotaResult([CanBeNull] QuotaResult result)
         {
             if (!result) return;
+
+            QuotaData quotaData = new QuotaData();
+            quotaData.SetDataFromQuota(OfficeRuntime.Instance.CurrentQuota.StaticQuota);
             
             isSuccess = result.IsSuccess;
-            quota = result.Quota;
+            quota = quotaData;
             quotaContribution = result.QuotaContribution;
             quotaCompletion = result.QuotaCompletion;
         }
