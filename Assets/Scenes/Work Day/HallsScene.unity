@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6e64536a634097b6243125a24457ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.WorkDayScreen.OfficeHallController
+  background: {fileID: 2800000, guid: d5472822be0b55c4e83dba2048501404, type: 3}
 --- !u!114 &1635909931
 MonoBehaviour:
   m_ObjectHideFlags: 0

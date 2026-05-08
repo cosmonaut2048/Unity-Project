@@ -22,6 +22,8 @@ namespace UI.MultiScene
             scene = DialogueContext.Instance.Scene;
         }
         
+        private VisualElement _dialogueScreenContainer;
+        
         private VisualElement _workerPortrait;
         
         private Label _nameText;
@@ -36,6 +38,8 @@ namespace UI.MultiScene
             var root = GetComponent<UIDocument>().rootVisualElement;
             
             // Queue:
+            // Контейнер.
+            _dialogueScreenContainer = root.Q<VisualElement>("Dialogue_Screen_Container");
             // Визуальная часть.
             _workerPortrait = root.Q<VisualElement>("worker_portrait");
             // Текст.
@@ -48,6 +52,9 @@ namespace UI.MultiScene
             // Скрываем элементы.
             _nextDialogueButton.style.display = DisplayStyle.None;
             _nextSceneButton.style.display = DisplayStyle.None;
+            
+            // Отображаем элементы.
+            _dialogueScreenContainer.style.backgroundImage = new StyleBackground(DialogueContext.Instance.Background);
             
             // Отображаем диалог.
             ShowDialogue();

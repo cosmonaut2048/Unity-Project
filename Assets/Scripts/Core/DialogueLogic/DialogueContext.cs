@@ -9,10 +9,14 @@ namespace Core.DialogueLogic
         [SerializeField] private WorkerRuntime speaker;
         [SerializeField] private DialogueConditions condition;
         [SerializeField] private Scenes scene; // Сцена, на которую возвращаемся.
+        [SerializeField] private Texture2D background;
         
         public WorkerRuntime Speaker => speaker;
         public DialogueConditions Condition => condition;
         public Scenes Scene => scene;
+        public Texture2D Background => background;
+        
+        public void SetDialogueBackground(Texture2D newBackground) { background =  newBackground; }
         
         public static DialogueContext Instance { get; private set; }
         

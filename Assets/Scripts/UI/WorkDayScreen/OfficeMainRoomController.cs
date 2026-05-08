@@ -20,6 +20,8 @@ namespace UI.WorkDayScreen
         private VisualElement _workersContainer;
         // Работники.
         private List<WorkerInOffice> _workers = new List<WorkerInOffice>();
+        
+        [SerializeField] private Texture2D background;
 
         void Start()
         {
@@ -54,7 +56,7 @@ namespace UI.WorkDayScreen
             foreach (var worker in _workers)
             {
                 worker.SubscribeToClickEvents();
-                worker.SubscribeToDialogueOnClickEvent(DialogueConditions.WorkDay, Scenes.MainRoomScene);
+                worker.SubscribeToDialogueOnClickEvent(DialogueConditions.WorkDay, Scenes.MainRoomScene, background);
             }
         }
     }

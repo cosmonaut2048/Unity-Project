@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7005b931fd854ff59ae32f7889efa474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.WorkDayScreen.OfficeSecondRoomController
+  background: {fileID: 2800000, guid: 658c74c469f1b0241b772ca981d69b41, type: 3}
 --- !u!114 &1993718867
 MonoBehaviour:
   m_ObjectHideFlags: 0
