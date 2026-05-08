@@ -228,12 +228,17 @@ namespace UI.WorkDayScreen
                 
                 // Добавляем иконку в контейнер иконки.
                 iconContainer.Add(icon);
+                
                 // Добавляем контейнер с иконкой в главный контейнер.
                 _workersContainer.Add(iconContainer);
                 
                 // Добавляем в список WorkerIcon.
                 WorkerIcon workerIcon = new WorkerIcon(icon, worker);
                 _workerIcons.Add(workerIcon);
+                
+                // Настраиваем информацию о работнике.
+                VisualElement info = workerIcon.CreateInfo();
+                iconContainer.Add(info);
             }
         }
 

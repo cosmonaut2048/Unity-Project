@@ -92,3 +92,89 @@
     background-image: url("project://database/Assets/Art/UI/voucher_inactive.png?fileID=2800000&guid=237ae69971188404cb7fbeac63b31c2f&type=3#voucher_inactive");
     -unity-background-scale-mode: scale-to-fit;
 }
+
+.worker--info--container {
+    flex-grow: 0;
+    background-color: rgba(255, 0, 222, 0);
+    height: 15%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 2%;
+    padding-left: 2%;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+    -unity-text-align: middle-left;
+    align-self: auto;
+    align-content: flex-start;
+    align-items: center;
+    margin-top: 2px;
+    margin-bottom: 0;
+}
+
+.worker--cell--container {
+    flex-grow: 0;
+    flex-direction: row;
+    width: 50%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    white-space: normal;
+    flex-wrap: nowrap;
+}
+
+.worker--skill--cell--full {
+    flex-grow: 0;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(79, 109, 188);
+    display: flex;
+    justify-content: flex-start;
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.worker--skill--cell--empty {
+    flex-grow: 0;
+    height: 20px;
+    width: 20px;
+    background-color: rgba(161, 161, 161, 0.65);
+    display: flex;
+    justify-content: flex-start;
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.worker--skills--container {
+    flex-grow: 0;
+    background-color: rgb(154, 154, 154);
+    position: relative;
+    width: 270px;
+    height: 150px;
+    bottom: 0;
+    left: auto;
+    translate: 0 0;
+    color: rgb(27, 27, 27);
+}
+
+.worker--info--text {
+    font-size: 15px;
+    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=1a886a0f1330bfc4abe790ae7feef01d&type=3#NotInter-Regular");
+    -unity-font-style: normal;
+}
+
+.worker--name {
+    font-size: 15px;
+    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=1a886a0f1330bfc4abe790ae7feef01d&type=3#NotInter-Regular");
+    -unity-font-style: bold;
+}

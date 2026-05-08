@@ -1,4 +1,5 @@
-﻿using Runtime;
+﻿using System.Numerics;
+using Runtime;
 using UnityEngine.UIElements;
 
 namespace UI.WorkDayScreen.AssignWorkersComponents
@@ -14,6 +15,69 @@ namespace UI.WorkDayScreen.AssignWorkersComponents
             _icon = icon;
             _worker = worker;
             _isEmpty = false;
+        }
+
+        public VisualElement CreateInfo()
+        {
+            int cellAmount = 5;
+            
+            VisualElement container = new VisualElement { style = { flexGrow = 0 } };
+            container.AddToClassList("worker--skills--container");
+
+            /* ------------------------------ Имя работника ------------------------------ */
+            Label workerName = new Label
+            {
+                text = _worker.Worker.Appearance.WorkerName,
+                style = { flexGrow = 0 }
+            };
+            workerName.AddToClassList("worker--name");
+            
+            VisualElement nameContainer = new VisualElement { style = { flexGrow = 0 } };
+            nameContainer.AddToClassList("worker--info--container");
+            nameContainer.Add(workerName);
+            container.Add(nameContainer);
+            
+            /* ------------------------------ Skills ------------------------------ */
+            container.Add(CreateCells(cellAmount, "PATIENCE", _worker.Worker.BasePatience));
+            container.Add(CreateCells(cellAmount, "SOCIAL", _worker.Worker.BaseSocial));
+            container.Add(CreateCells(cellAmount, "INTELLECTUAL", _worker.Worker.BaseIntellectual));
+            container.Add(CreateCells(cellAmount, "PHYSICAL", _worker.Worker.BasePhysical));
+            
+            return container;
+        }
+        
+        private Vector2 GetGlobalPosition(VisualElement parentContainer)
+        {
+            var worldBound = parentContainer.worldBound;
+            return new Vector2(worldBound.x, worldBound.y);
+        }
+
+        private VisualElement CreateCells(int cellAmount, string nameOfSkill, int skillLevel)
+        {
+            VisualElement infoContainer = new VisualElement { style = { flexGrow = 0 } };
+            infoContainer.AddToClassList("worker--info--container");
+            
+            Label skillName = new Label { text = nameOfSkill, style = { flexGrow = 0 } };
+            skillName.AddToClassList("worker--info--text");
+            infoContainer.Add(skillName);
+            
+            VisualElement cellsContainer = new VisualElement { style = { flexGrow = 0 } };
+            cellsContainer.AddToClassList("worker--cell--container");
+            
+            for (int i = 0; i < cellAmount; i++)
+            {
+                VisualElement cell = new VisualElement { style = { flexGrow = 0 } };
+
+                cell.AddToClassList(i + 1 <= skillLevel
+                    ? "worker--skill--cell--full"
+                    : "worker--skill--cell--empty");
+
+                cellsContainer.Add(cell);
+            }
+            
+            infoContainer.Add(cellsContainer);
+            
+            return infoContainer;
         }
         
         public VisualElement Icon => _icon;

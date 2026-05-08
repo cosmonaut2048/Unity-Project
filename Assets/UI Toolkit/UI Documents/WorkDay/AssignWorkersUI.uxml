@@ -78,6 +78,51 @@
                             <ui:VisualElement name="Workers_Container" style="flex-grow: 0; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; align-items: flex-start; align-content: auto; align-self: auto; padding-top: 0; padding-right: 31px; padding-bottom: 0; padding-left: 31px; flex-basis: auto; width: auto; height: auto;">
                                 <ui:VisualElement name="worker_icon_container" class="worker--icon--container" style="background-image: none;">
                                     <ui:VisualElement name="worker_icon" class="worker--icon" />
+                                    <ui:VisualElement name="Worker_Skills_Container" class="worker--skills--container">
+                                        <ui:VisualElement class="worker--info--container">
+                                            <ui:Label text="WORKER NAME" name="worker_name" class="worker--name" />
+                                        </ui:VisualElement>
+                                        <ui:VisualElement class="worker--info--container">
+                                            <ui:Label text="PATIENCE" name="Label" class="worker--info--text" />
+                                            <ui:VisualElement name="Worker_Skill_Patience_Cells_Container" class="worker--cell--container">
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                            </ui:VisualElement>
+                                        </ui:VisualElement>
+                                        <ui:VisualElement class="worker--info--container">
+                                            <ui:Label text="SOCIAL" name="Label" class="worker--info--text" />
+                                            <ui:VisualElement name="Worker_Skill_Social_Cells_Container" class="worker--cell--container">
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                            </ui:VisualElement>
+                                        </ui:VisualElement>
+                                        <ui:VisualElement class="worker--info--container">
+                                            <ui:Label text="INTELLECTUAL" name="Label" class="worker--info--text" />
+                                            <ui:VisualElement name="Worker_Skill_Intellectual_Cells_Container" class="worker--cell--container">
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                            </ui:VisualElement>
+                                        </ui:VisualElement>
+                                        <ui:VisualElement class="worker--info--container">
+                                            <ui:Label text="PHYSICAL" name="Label" class="worker--info--text" />
+                                            <ui:VisualElement name="Worker_Skill_Physical_Cells_Container" class="worker--cell--container">
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                                <ui:VisualElement class="worker--skill--cell--full" />
+                                            </ui:VisualElement>
+                                        </ui:VisualElement>
+                                    </ui:VisualElement>
                                 </ui:VisualElement>
                                 <ui:VisualElement name="worker_icon_container" class="worker--icon--container" style="background-image: none;">
                                     <ui:VisualElement name="worker_icon" class="worker--icon" />
@@ -106,6 +151,7 @@
                     <ui:Button text="Try again" name="try_again_button" style="width: 30%; height: 15%; font-size: 36px; -unity-font-style: bold; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; top: 200px;" />
                 </ui:VisualElement>
             </ui:VisualElement>
+            <ui:VisualElement name="Hover_Container" picking-mode="Ignore" style="flex-grow: 1;" />
             <ui:Button text="Button" name="back_button" class="go--back--button" />
         </ui:VisualElement>
     </ui:VisualElement>
