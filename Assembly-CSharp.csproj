@@ -139,6 +139,7 @@
     <Compile Include="Assets\Scripts\Gameflow\App.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Generators\TaskGenerator.cs" />
+    <Compile Include="Assets\Scripts\Services\SaveComponents\WorkerPlacementData.cs" />
     <Compile Include="Assets\Scripts\UI\WorkDayScreen\AssignWorkersComponents\DragAndDropManipulator.cs" />
     <Compile Include="Assets\Scripts\Core\WorkerLogic\SkillClamp.cs" />
     <Compile Include="Assets\Scriptable Objects\Catalogs\TraitCatalog.cs" />

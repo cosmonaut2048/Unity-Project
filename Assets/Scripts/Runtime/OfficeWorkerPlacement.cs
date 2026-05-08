@@ -42,6 +42,11 @@ namespace Runtime
         public List<WorkerRuntime> WorkersInSecondRoom => workersInSecondRoom;
         public List<WorkerRuntime> WorkersInKitchen => workersInKitchen;
         public List<WorkerRuntime> WorkersInComputer => workersInComputer;
+        public void SetWorkersInHall(List<WorkerRuntime> newWorkersInHall) => workersInHall = newWorkersInHall;
+        public void SetWorkersInMainRoom(List<WorkerRuntime> newWorkersInMainRoom) => workersInMainRoom = newWorkersInMainRoom;
+        public void SetWorkersInSecondRoom(List<WorkerRuntime> newWorkersInSecondRoom) =>  workersInSecondRoom = newWorkersInSecondRoom;
+        public void SetWorkersInKitchen(List<WorkerRuntime> newWorkersInKitchen) => workersInKitchen = newWorkersInKitchen;
+        public void SetWorkersInComputer(List<WorkerRuntime> newWorkersInComputer) =>  workersInComputer = newWorkersInComputer;
 
         private void AddWorkerToHall(WorkerRuntime worker)
         {

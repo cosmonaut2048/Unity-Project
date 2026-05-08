@@ -80,6 +80,7 @@ namespace Services
             }
             
             dataSetter.SetOfficeFromGameData(data);
+            dataSetter.SetWorkerPlacementFromData(data);
         }
         
         public string[] GetActiveSlotSaves()

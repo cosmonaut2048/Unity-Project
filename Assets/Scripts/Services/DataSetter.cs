@@ -10,6 +10,14 @@ namespace Services
 {
     public class DataSetter
     {
+        public void SetWorkerPlacementFromData(GameData data)
+        {
+            OfficeWorkerPlacement.Instance.SetWorkersInHall(CreateWorkerRuntimeListFormData(data.workerPlacement.workersInHall));
+            OfficeWorkerPlacement.Instance.SetWorkersInMainRoom(CreateWorkerRuntimeListFormData(data.workerPlacement.workersInMainRoom));
+            OfficeWorkerPlacement.Instance.SetWorkersInSecondRoom(CreateWorkerRuntimeListFormData(data.workerPlacement.workersInSecondRoom));
+            OfficeWorkerPlacement.Instance.SetWorkersInKitchen(CreateWorkerRuntimeListFormData(data.workerPlacement.workersInKitchen));
+            OfficeWorkerPlacement.Instance.SetWorkersInComputer(CreateWorkerRuntimeListFormData(data.workerPlacement.workersInComputer));
+        }
         public void SetOfficeFromGameData(GameData data)
         {
             OfficeRuntime.Instance.SetInventory(data.office.inventory);
