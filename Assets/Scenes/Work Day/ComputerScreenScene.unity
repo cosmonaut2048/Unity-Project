@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02dc7ddfaf544e2685a75a7386762dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.WorkDayScreen.ComputerScreenController
+  background: {fileID: 2800000, guid: 528e72f086f3ce74997fbb4d04e581a4, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

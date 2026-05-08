@@ -1,6 +1,7 @@
 ﻿using Core.DialogueLogic;
 using Gameflow;
 using Runtime;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace UI.WorkDayScreen.WorkersInOfficeComponents
@@ -66,12 +67,17 @@ namespace UI.WorkDayScreen.WorkersInOfficeComponents
             _workerCallCard.Add(_workerIcon);
             _workerCallCard.Add(_workerCallInfo);
             
+            if (OfficeRuntime.Instance.Coffee <= 0 || _worker.DrankCoffeeToday)
+                SetGivenCoffee();
+            if (OfficeRuntime.Instance.BreakVouchers <= 0 || _worker.TookBreakToday)
+                SetGivenVoucher();
+            
             workerCallCardContainer.Add(_workerCallCard);
         }
         
-        public void SubscribeToDialogueOnClickEvent(DialogueConditions condition, Scenes scene)
+        public void SubscribeToDialogueOnClickEvent(DialogueConditions condition, Scenes scene, Texture2D background)
         {
-            _callButton.RegisterCallback<ClickEvent>(_ => StartDialogue(condition, scene));
+            _callButton.RegisterCallback<ClickEvent>(_ => StartDialogue(condition, scene, background));
         }
         
         public void SubscribeToClickEvents()
@@ -80,9 +86,10 @@ namespace UI.WorkDayScreen.WorkersInOfficeComponents
             _giveBreakButton.RegisterCallback<ClickEvent>(OnGiveVoucher);
         }
         
-        private void StartDialogue(DialogueConditions condition, Scenes scene)
+        private void StartDialogue(DialogueConditions condition, Scenes scene, Texture2D background)
         {
             DialogueContext.Instance.SetDialogueContext(_worker, condition, scene);
+            DialogueContext.Instance.SetDialogueBackground(background);
             SceneController.Instance.LoadScene(nameof(Scenes.DialogueScene));
         }
         
