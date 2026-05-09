@@ -1,4 +1,6 @@
-﻿using Core.DayLogic.TickCalculation;
+﻿using System.Collections.Generic;
+using Content;
+using Core.DayLogic.TickCalculation;
 using Core.TaskLogic;
 using Generators;
 using Runtime;
@@ -53,7 +55,33 @@ namespace Core.DayLogic.DayStart
             
             OfficeRuntime.Instance.CurrentTask.FinishTask();
             OfficeRuntime.Instance.SetTaskResult(totalTaskResult);
+            OnTaskResult(
+                totalTaskResult.IsSuccess, 
+                totalTaskResult.IsCriticalSuccess, 
+                totalTaskResult.IsCriticalFailure,
+                totalTaskResult.Task,
+                totalTaskResult.Workers);
             OfficeRuntime.Instance.FreeActiveTask();
+        }
+
+        private void OnTaskResult(bool isSuccess, bool isCriticalSuccess, bool isCriticalFailure, TaskDef task, List<WorkerRuntime> workers)
+        {
+            if (isSuccess)
+            {
+                OfficeRuntime.Instance.SetCoffee(OfficeRuntime.Instance.Coffee + task.CoffeeReward);
+                OfficeRuntime.Instance.SetCoffeeObtainedToday(OfficeRuntime.Instance.CoffeeObtainedToday + task.CoffeeReward);
+                
+                OfficeRuntime.Instance.SetBreakVouchers(OfficeRuntime.Instance.BreakVouchers + task.VouchersReward);
+            }
+
+            foreach (var worker in workers)
+            {
+                if (isCriticalSuccess)
+                    worker.SetProductivity(worker.Productivity * 2);
+                
+                if (isCriticalFailure)
+                    worker.SetProductivity(worker.Productivity / 2);
+            }
         }
 
         public void OnDayStartQuota()

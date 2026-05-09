@@ -21,10 +21,14 @@ namespace Content
         [SerializeField] private int socialRequired;
         [SerializeField] private int intellectualRequired;
         [SerializeField] private int physicalRequired;
-        
+
         [Header("Reward(s)")] // Награда (предметы).
+        [SerializeField] private int coffeeReward;
+        [SerializeField] private int vouchersReward;
         [SerializeField] private List<ItemDef> reward;
         
+        public int CoffeeReward => coffeeReward;
+        public int VouchersReward => vouchersReward;
         public int MaxWorkerAmount => maxWorkerAmount;
         public string TaskName => taskName;
         public string TaskDescription => taskDescription;
