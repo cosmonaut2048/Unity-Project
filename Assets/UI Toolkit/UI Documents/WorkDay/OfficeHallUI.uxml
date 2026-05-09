@@ -45,8 +45,8 @@
         <ui:VisualElement name="End_Day_Prompt_Container" style="flex-grow: 0; width: 100%; height: 100%; position: absolute; background-color: rgba(0, 0, 0, 0.56); align-items: center; justify-content: center; display: none;">
             <ui:Label text="Clock out now?" style="font-size: 48px; -unity-font-style: bold; color: rgb(255, 255, 255); translate: 0 -20px;" />
             <ui:VisualElement name="End_Day_Buttons_Container" style="flex-grow: 0; flex-direction: row; width: 30%; height: 10%;">
-                <ui:Button text="Yes" name="end_day_button" style="width: 50%; height: 100%; font-size: 30px; -unity-font-style: bold;" />
-                <ui:Button text="Not yet" name="dont_end_day_button" style="width: 50%; height: 100%; font-size: 30px; -unity-font-style: bold;" />
+                <ui:Button text="Yes" name="end_day_button" class="default--button" />
+                <ui:Button text="Not yet" name="dont_end_day_button" class="default--button" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

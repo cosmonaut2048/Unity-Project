@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: CoffeeAddictTrait
   m_EditorClassIdentifier: Assembly-CSharp::Scriptable_Objects.Trait_Definitions.CoffeeAddictTraitDef
   traitName: "\u041B\u044E\u0431\u0438\u0442\u0435\u043B\u044C \u043A\u043E\u0444\u0435"
-  traitDescription: 
+  traitDescription: Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora
+    torquent per conubia nostra inceptos himenaeos.
+  modDescription: 

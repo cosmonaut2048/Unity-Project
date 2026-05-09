@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: AdventurousTrait
   m_EditorClassIdentifier: Assembly-CSharp::Scriptable_Objects.Trait_Definitions.AdventurousTraitDef
   traitName: "\u041B\u044E\u0431\u0438\u0442\u0435\u043B\u044C \u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0439"
-  traitDescription: 
+  traitDescription: Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora
+    torquent per conubia nostra inceptos himenaeos.
+  modDescription: 

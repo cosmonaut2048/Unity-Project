@@ -31,6 +31,11 @@
     border-right-color: rgb(0, 0, 0);
     border-top-color: rgb(0, 0, 0);
     border-bottom-color: rgb(0, 0, 0);
+    background-image: url("project://database/Assets/Art/UI/cell_gradients.png?fileID=-4537218619714755556&guid=d068f6ccef0c3ed4893d4efd9f57cbd5&type=3#cell_gradients_1");
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 
 .task--skill--cell--full {
@@ -48,6 +53,11 @@
     border-right-color: rgb(0, 0, 0);
     border-top-color: rgb(0, 0, 0);
     border-bottom-color: rgb(0, 0, 0);
+    background-image: url("project://database/Assets/Art/UI/cell_gradients.png?fileID=8867719008670019034&guid=d068f6ccef0c3ed4893d4efd9f57cbd5&type=3#cell_gradients_0");
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 
 .task--cell--container {
@@ -168,6 +178,7 @@
     background-position-y: center;
     width: 20%;
     height: 32%;
+    flex-shrink: 1;
 }
 
 .sticker--quota {

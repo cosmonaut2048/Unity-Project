@@ -7,7 +7,6 @@
                 <ui:Label text="MAIN MENU" name="game_title" class="title--text" />
             </ui:VisualElement>
             <ui:Button text="Start Game" name="start_game_button" class="menu--button" />
-            <ui:Button text="Options" name="options_button" class="menu--button" />
             <ui:Button text="Quit Game" name="quit_game_button" class="menu--button" />
         </ui:VisualElement>
     </ui:VisualElement>

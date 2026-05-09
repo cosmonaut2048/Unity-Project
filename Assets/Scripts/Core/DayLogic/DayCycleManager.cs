@@ -1,5 +1,6 @@
 ﻿using Core.DayLogic.DayEnd;
 using Core.DayLogic.DayStart;
+using Services;
 using UnityEngine;
 
 namespace Core.DayLogic
@@ -27,11 +28,13 @@ namespace Core.DayLogic
         public void OnDayStart()
         {
             dayStartSetup.SetupDayStart();
+            SaveService.Instance.SaveGame();
         }
 
         public void OnDayEnd()
         {
             dayEndSetup.SetupDayEnd();
+            SaveService.Instance.SaveGame();
         }
     }
 }

@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: ExtrovertTrait
   m_EditorClassIdentifier: Assembly-CSharp::Scriptable_Objects.Trait_Definitions.ExtrovertTraitDef
   traitName: "\u042D\u043A\u0441\u0442\u0440\u0430\u0432\u0435\u0440\u0442"
-  traitDescription: 
+  traitDescription: Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora
+    torquent per conubia nostra inceptos himenaeos.
+  modDescription: 

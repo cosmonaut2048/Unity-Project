@@ -12,7 +12,7 @@ namespace Services.SaveComponents
         public bool isSuccess;
         public bool isCriticalFailure;
         public bool isCriticalSuccess;
-        public List<WorkerRuntimeData> workers;
+        public List<WorkerRuntimeData> workers = new List<WorkerRuntimeData>();
         public TaskDef task;
 
         public bool isEmpty;

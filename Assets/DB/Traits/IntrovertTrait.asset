@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: IntrovertTrait
   m_EditorClassIdentifier: Assembly-CSharp::Scriptable_Objects.Trait_Definitions.IntrovertTraitDef
   traitName: "\u0418\u043D\u0442\u0440\u043E\u0432\u0435\u0440\u0442"
-  traitDescription: 
+  traitDescription: Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora
+    torquent per conubia nostra inceptos himenaeos.
+  modDescription: 

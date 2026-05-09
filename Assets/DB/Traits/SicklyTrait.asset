@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: SicklyTrait
   m_EditorClassIdentifier: Assembly-CSharp::Scriptable_Objects.Trait_Definitions.SicklyTraitDef
   traitName: "\u0427\u0430\u0441\u0442\u043E \u0431\u043E\u043B\u0435\u0435\u0442"
-  traitDescription: 
+  traitDescription: Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora
+    torquent per conubia nostra inceptos himenaeos.
+  modDescription: 

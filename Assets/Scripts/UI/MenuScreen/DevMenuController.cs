@@ -17,7 +17,6 @@ namespace UI.MenuScreen
         private VisualElement _devMenuContainer;
         // Кнопки.
         private Button _resumeGameButton;
-        private Button _optionsButton;
         private Button _saveButton;
         private Button _loadButton;
         private Button _saveQuitToMainMenuButton;
@@ -32,7 +31,6 @@ namespace UI.MenuScreen
             _devMenuContainer = root.Q<VisualElement>("Dev_Menu_Container");
             // Кнопки.
             _resumeGameButton = root.Q<Button>("resume_game_button");
-            _optionsButton = root.Q<Button>("options_button");
             _saveButton = root.Q<Button>("save_button");
             _loadButton = root.Q<Button>("load_button");
             _saveQuitToMainMenuButton = root.Q<Button>("save_quit_to_main_menu_button");

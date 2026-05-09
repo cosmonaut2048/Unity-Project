@@ -20,6 +20,22 @@
     bottom: 25px;
     width: 10%;
     height: 10%;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.51);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 
 .worker--full {
@@ -136,6 +152,11 @@
     border-right-color: rgb(0, 0, 0);
     border-top-color: rgb(0, 0, 0);
     border-bottom-color: rgb(0, 0, 0);
+    background-image: url("project://database/Assets/Art/UI/cell_gradients.png?fileID=8867719008670019034&guid=d068f6ccef0c3ed4893d4efd9f57cbd5&type=3#cell_gradients_0");
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
 }
 
 .worker--skill--cell--empty {
@@ -153,6 +174,11 @@
     border-right-color: rgb(0, 0, 0);
     border-top-color: rgb(0, 0, 0);
     border-bottom-color: rgb(0, 0, 0);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    background-image: url("project://database/Assets/Art/UI/cell_gradients.png?fileID=-4537218619714755556&guid=d068f6ccef0c3ed4893d4efd9f57cbd5&type=3#cell_gradients_1");
 }
 
 .worker--skills--container {
@@ -160,11 +186,17 @@
     background-color: rgb(154, 154, 154);
     position: relative;
     width: 270px;
-    height: 150px;
+    height: auto;
     bottom: 0;
     left: auto;
     translate: 0 0;
     color: rgb(27, 27, 27);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
 }
 
 .worker--info--text {
@@ -177,4 +209,115 @@
     font-size: 15px;
     -unity-font-definition: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=1a886a0f1330bfc4abe790ae7feef01d&type=3#NotInter-Regular");
     -unity-font-style: bold;
+}
+
+.default--button {
+    width: 50%;
+    height: 100%;
+    font-size: 30px;
+    -unity-font-style: bold;
+    background-color: rgba(0, 0, 0, 0.51);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: rgb(255, 255, 255);
+}
+
+.default--button:hover {
+    width: 50%;
+    height: 100%;
+    font-size: 30px;
+    -unity-font-style: bold;
+    background-color: rgba(53, 53, 53, 0.51);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: rgb(255, 255, 255);
+}
+
+.default--button:active {
+    width: 50%;
+    height: 100%;
+    font-size: 30px;
+    -unity-font-style: bold;
+    background-color: rgba(0, 0, 0, 0.51);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: rgb(255, 255, 255);
+}
+
+.go--back--button:hover {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    width: 10%;
+    height: 10%;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    font-size: 24px;
+    background-color: rgba(53, 53, 53, 0.51);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.go--back--button:active {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    width: 10%;
+    height: 10%;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.51);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 }

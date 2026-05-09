@@ -1,10 +1,84 @@
-﻿using UnityEngine.InputSystem;
+﻿using Gameflow;
+using Services;
+using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace UI.MenuScreen
 {
     public class EscMenuController : MonoBehaviour
     {
-        public InputActionReference esc;
+        [SerializeField] private int devMenuSortingOrder = 100; 
+        [SerializeField] private InputActionReference esc;
+        [SerializeField] private UIDocument uiDocument;
+        private int _originalSortingOrder;
+        
+        // Контейнеры.
+        private VisualElement _escMenuContainer;
+        // Кнопки.
+        private Button _resumeGameButton;
+        private Button _saveQuitToMainMenuButton;
+        private Button _saveQuitToDesktopButton;
+
+        void Start()
+        {
+            var root = GetComponent<UIDocument>().rootVisualElement;
+            
+            // Queue:
+            // Контейнеры.
+            _escMenuContainer = root.Q<VisualElement>("Esc_Menu_Container");
+            // Кнопки.
+            _resumeGameButton = root.Q<Button>("resume_game_button");
+            _saveQuitToMainMenuButton = root.Q<Button>("save_quit_to_main_menu_button");
+            _saveQuitToDesktopButton = root.Q<Button>("save_quit_to_desktop_button");
+            
+            // Подписываемся на события:
+            _resumeGameButton.RegisterCallback<ClickEvent>(_ => HideMenu());
+            _saveQuitToMainMenuButton.RegisterCallback<ClickEvent>(OnSaveQuitToMainMenu);
+            _saveQuitToDesktopButton.RegisterCallback<ClickEvent>(OnSaveQuitToDesktop);
+            
+            // Скрываем элементы.
+            _escMenuContainer.style.display = DisplayStyle.None;
+        }
+
+        void Update()
+        {
+            if (esc.action.triggered)
+            {
+                if (_escMenuContainer.style.display == DisplayStyle.None)
+                {
+                    ShowMenu();
+                    return;
+                }
+                
+                HideMenu();
+            }
+        }
+
+        private void OnSaveQuitToMainMenu(ClickEvent evt)
+        {
+            SaveService.Instance.SaveGame();
+            SceneController.Instance.LoadScene(nameof(Scenes.MainMenuScene));
+            HideMenu();
+        }
+        
+        private void OnSaveQuitToDesktop(ClickEvent evt)
+        {
+            SaveService.Instance.SaveGame();
+            HideMenu();
+            Application.Quit();
+        }
+
+        private void ShowMenu()
+        {
+            _escMenuContainer.style.display = DisplayStyle.Flex;
+            uiDocument.sortingOrder = devMenuSortingOrder;
+        }
+
+        private void HideMenu()
+        {
+            _escMenuContainer.style.display = DisplayStyle.None;
+            uiDocument.sortingOrder = _originalSortingOrder;
+        }
     }
 }
