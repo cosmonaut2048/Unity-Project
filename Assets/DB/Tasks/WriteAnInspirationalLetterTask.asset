@@ -19,11 +19,12 @@ MonoBehaviour:
     \u043D\u0430\u0447\u0430\u043B\u044C\u043D\u0438\u043A\u0430, \u0447\u0442\u043E\u0431\u044B
     \u043E\u043D \u043B\u0443\u0447\u0448\u0435 \u0440\u043E\u0441"
   taskDescription: 
-  duration: 0
-  workerAmountRequired: 0
+  duration: 1
+  workerAmountRequired: 1
   patienceRequired: 0
   socialRequired: 5
   intellectualRequired: 3
   physicalRequired: 0
+  coffeeReward: 2
+  vouchersReward: 0
   reward: []
-  gear: []

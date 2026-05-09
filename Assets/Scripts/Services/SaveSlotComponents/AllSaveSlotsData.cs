@@ -66,9 +66,15 @@ namespace Services.SaveSlotComponents
             if (saveSlots.Count >= maxSlots)
                 return null;
             
-            int newIndex = saveSlots.Count + 1;
+            int newIndex = 1;
+            while (saveSlots.Any(s => s.SaveSlotName == $"Game{newIndex}"))
+            {
+                newIndex++;
+            }
+    
+            string slotName = $"Game{newIndex}";
             var newSlot = new SaveSlotData();
-            newSlot.Initialize(name, newIndex);
+            newSlot.Initialize(slotName, newIndex);
     
             AddSlot(newSlot);
             return newSlot;
@@ -91,6 +97,30 @@ namespace Services.SaveSlotComponents
             
             string json = File.ReadAllText(DataPath);
             return JsonUtility.FromJson<AllSaveSlotsData>(json) ?? new AllSaveSlotsData();
+        }
+        
+        public bool RemoveSlot(string slotName)
+        {
+            var slotToRemove = saveSlots.FirstOrDefault(s => s.SaveSlotName == slotName);
+            if (slotToRemove == null)
+            {
+                Debug.LogWarning($"Slot {slotName} not found!");
+                return false;
+            }
+            
+            if (Directory.Exists(slotToRemove.SlotFolderPath))
+            {
+                Directory.Delete(slotToRemove.SlotFolderPath, true);
+                Debug.Log($"Deleted slot folder: {slotToRemove.SlotFolderPath}.");
+            }
+            
+            saveSlots.Remove(slotToRemove);
+            
+            if (activeSlotName == slotName)
+                activeSlotName = saveSlots.FirstOrDefault()?.SaveSlotName;
+    
+            SaveToFile();
+            return true;
         }
     }
 }

@@ -61,5 +61,10 @@ namespace Services
         {
             return slotsData.CreateNewSlot(slotName);
         }
+        
+        public bool DeleteSlot(string slotName)
+        {
+            return slotsData.RemoveSlot(slotName);
+        }
     }
 }

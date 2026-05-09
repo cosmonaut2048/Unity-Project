@@ -21,5 +21,6 @@ MonoBehaviour:
   socialRequired: 0
   intellectualRequired: 3
   physicalRequired: 1
+  coffeeReward: 2
+  vouchersReward: 0
   reward: []
-  gear: []
