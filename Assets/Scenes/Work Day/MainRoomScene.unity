@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b19d714e074fa2b5b737b985b04b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.WorkDayScreen.OfficeMainRoomController
-  background: {fileID: 2800000, guid: 779331a9d63c3b64f951014cb0fdf4eb, type: 3}
+  background: {fileID: 2800000, guid: f2a1fdc90ff0b514a87d2a9028aad3d5, type: 3}
 --- !u!1 &2116189651
 GameObject:
   m_ObjectHideFlags: 0
