@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Game.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/BootScene.unity
+    guid: 356dc6beb6e63e649b6db7c7ff4e9af3
+  - enabled: 1
+    path: Assets/Scenes/Hiring Scene/HiringScene.unity
+    guid: deb6994db42959940b7abb5487023854
+  - enabled: 1
+    path: Assets/Scenes/Menus/MainMenuScene.unity
+    guid: 5f74d7e40fbe4bb40afad245cc03b172
+  - enabled: 1
+    path: Assets/Scenes/Menus/SettingsScene.unity
+    guid: 09b65ef3f51331740a1bd0f71bc106b8
+  - enabled: 1
+    path: Assets/Scenes/Menus/SaveSelectScene.unity
+    guid: b31e8fbd458624b45a4ad013d34cab56
+  - enabled: 1
+    path: Assets/Scenes/Stats Scene/StatsScene.unity
+    guid: 628b96f8db1b47840a3342c3abef4fe0
+  - enabled: 1
+    path: Assets/Scenes/Work Day/HallsScene.unity
+    guid: 005d916c871e4d0479149bfac1b62070
+  - enabled: 0
+    path: Assets/Scenes/Work Day/WorkDayScene.unity
+    guid: 4dcdb761a168b404b89c5cf5c2c4d8dc
+  - enabled: 1
+    path: Assets/Scenes/CoreScene.unity
+    guid: f4ed6d9022472d240ad5e04430c67bb4
+  - enabled: 1
+    path: Assets/Scenes/Work Day/BulletinBoardScene.unity
+    guid: 44355119379bdcf45a4d4bda22180646
+  - enabled: 1
+    path: Assets/Scenes/Work Day/KitchenScene.unity
+    guid: 9ea9023da317da9478ef0b38a45c3ae1
+  - enabled: 1
+    path: Assets/Scenes/Work Day/MainRoomScene.unity
+    guid: 18bab3b560f190242b9ab22ff4b5f6a1
+  - enabled: 1
+    path: Assets/Scenes/Work Day/SecondRoomScene.unity
+    guid: 9b7ef0635f48fcd4b87c0b19e780994d
+  - enabled: 1
+    path: Assets/Scenes/Work Day/ComputerScreenScene.unity
+    guid: e2ba11c2c5179c94c9c51e14641f1c2d
+  - enabled: 1
+    path: Assets/Scenes/Work Day/AssignWorkersScene.unity
+    guid: e4a578f635e490545a1b53c61d7c5f9e
+  - enabled: 1
+    path: Assets/Scenes/Task Result Scene/TaskResultScene.unity
+    guid: dda3b86591eed3e4297d20a2bd050db2
+  - enabled: 1
+    path: Assets/Scenes/Dialogue Scene/DialogueScene.unity
+    guid: f827a20cbaa44d242a303c439e2f7bad
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_UseUCBPForAssetBundles: 0
