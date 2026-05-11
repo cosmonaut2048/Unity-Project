@@ -13,7 +13,7 @@ namespace Services.SaveComponents
         public bool isCriticalFailure;
         public bool isCriticalSuccess;
         public List<WorkerRuntimeData> workers = new List<WorkerRuntimeData>();
-        public TaskDef task;
+        public TaskDefData task;
 
         public bool isEmpty;
 
@@ -37,8 +37,8 @@ namespace Services.SaveComponents
                 workerData.SetDataFromWorkerRuntime(worker);
                 workers.Add(workerData);
             }
-
-            task = taskResult.Task;
+            
+            task.taskName = taskResult.Task ? taskResult.Task.name : "";
         }
     }
 }

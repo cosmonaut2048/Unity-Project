@@ -71,7 +71,7 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:ScrollView>
-            <ui:Button text="Button" name="next_day_button" class="go--back--button" />
+            <ui:Button text="Next" name="next_day_button" class="go--back--button" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

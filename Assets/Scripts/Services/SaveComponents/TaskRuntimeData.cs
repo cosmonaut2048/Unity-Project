@@ -8,7 +8,7 @@ namespace Services.SaveComponents
     [System.Serializable]
     public class TaskRuntimeData
     {
-        public TaskDef task;
+        public TaskDefData task;
         public List<ItemDef> gear;
         public List<WorkerRuntimeData> workers;
         public int currentTaskDay;
@@ -25,7 +25,9 @@ namespace Services.SaveComponents
             
             isEmpty = false;
             
-            task = taskRuntime.Task;
+            task = new TaskDefData();
+            task.SetDataFromTaskDef(taskRuntime.Task);
+            
             gear = taskRuntime.Gear;
 
             workers = new List<WorkerRuntimeData>();

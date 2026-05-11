@@ -28,7 +28,7 @@ namespace Services
             
             OfficeRuntime.Instance.SetCurrentQuota(CreateQuotaRuntimeFromData(data.office.currentQuota));
             
-            OfficeRuntime.Instance.SetAvailableTask(data.office.availableTask);
+            OfficeRuntime.Instance.SetAvailableTask(CreateTaskDefFromData(data.office.availableTask));
             OfficeRuntime.Instance.SetCurrentTask(CreateTaskRuntimeFromData(data.office.currentTask));
             OfficeRuntime.Instance.SetTaskResult(CreateTaskResultFromData(data.office.lastTaskResult));
             
@@ -76,38 +76,47 @@ namespace Services
 
         private TotalTaskResult CreateTaskResultFromData(TotalTaskResultData data)
         {
-            if (data.isEmpty)
-                return null;
-            
+            if (data.isEmpty) return null;
+    
             TotalTaskResult result = ScriptableObject.CreateInstance<TotalTaskResult>();
-            
+    
             result.SetTotalTaskResult(
                 data.isSuccess,
                 data.isCriticalFailure,
                 data.isCriticalSuccess,
                 CreateWorkerRuntimeListFormData(data.workers),
-                data.task
-                );
-            
+                CreateTaskDefFromData(data.task)
+            );
+    
             return result;
         }
-
+        
         private TaskRuntime CreateTaskRuntimeFromData(TaskRuntimeData data)
         {
-            if (data.isEmpty)
-                return null;
-            
+            if (data.isEmpty) return null;
+    
             TaskRuntime taskRuntime = ScriptableObject.CreateInstance<TaskRuntime>();
-            
+    
             taskRuntime.SetTaskRuntime(
-                data.task,
+                CreateTaskDefFromData(data.task),
                 data.gear,
                 CreateWorkerRuntimeListFormData(data.workers),
                 data.currentTaskDay,
                 data.isFinished
-                );
-            
+            );
+    
             return taskRuntime;
+        }
+        
+        private TaskDef CreateTaskDefFromData(TaskDefData data)
+        {
+            if (data == null || string.IsNullOrEmpty(data.taskName))
+                return null;
+    
+            var task = Resources.Load<TaskDef>($"Tasks/{data.taskName}");
+            if (!task)
+                Debug.LogError($"Task not found: {data.taskName}");
+            return task;
         }
 
         private QuotaRuntime CreateQuotaRuntimeFromData(QuotaRuntimeData data)
@@ -173,14 +182,33 @@ namespace Services
         {
             WorkerDef workerDef = ScriptableObject.CreateInstance<WorkerDef>();
             
+            WorkerAppearance appearance = null;
+            
+            if (!string.IsNullOrEmpty(data.appearanceName))
+            {
+                appearance = Resources.Load<WorkerAppearance>($"Appearances/{data.appearanceName}");
+                if (!appearance)
+                    Debug.LogError($"Appearance not found: {data.appearanceName}");
+            }
+            
+            List<TraitDef> traits = new List<TraitDef>();
+            if (data.personalityTraits != null)
+            {
+                foreach (var traitData in data.personalityTraits)
+                {
+                    var trait = Resources.Load<TraitDef>($"Traits/{traitData.traitName}");
+                    if (trait) traits.Add(trait);
+                }
+            }
+            
             workerDef.InitializeWorkerDef
             (
-                data.appearance,
+                appearance,
                 data.basePatience,
                 data.baseSocial,
                 data.baseIntellectual,
                 data.basePhysical,
-                data.personalityTraits
+                traits
             );
             
             return workerDef;

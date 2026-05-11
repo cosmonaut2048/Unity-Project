@@ -56,6 +56,7 @@
     <Compile Include="Assets\Scripts\Core\DayLogic\DayCycleManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\UI\WorkDayScreen\OfficeHallController.cs" />
+    <Compile Include="Assets\Scripts\Services\SaveComponents\TraitDefData.cs" />
     <Compile Include="Assets\Scripts\UI\WorkDayScreen\ComputerScreenController.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\WorkaholicTraitDef.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\CoffeeAddictTraitDef.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Assets\Scripts\UI\MenuScreen\EscMenuController.cs" />
     <Compile Include="Assets\Scripts\UI\MenuScreen\SaveSelectController.cs" />
     <Compile Include="Assets\Scripts\Gameflow\DontDestroyOnLoadObject.cs" />
+    <Compile Include="Assets\Scripts\Services\SaveComponents\TaskDefData.cs" />
     <Compile Include="Assets\Scripts\Core\DayLogic\TickCalculation\LoyaltyTickCalculator.cs" />
     <Compile Include="Assets\Scripts\UI\WorkDayScreen\OfficeSecondRoomController.cs" />
     <Compile Include="Assets\Scriptable Objects\Trait Definitions\AdventurousTraitDef.cs" />

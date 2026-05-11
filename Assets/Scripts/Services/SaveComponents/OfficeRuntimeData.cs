@@ -16,7 +16,7 @@ namespace Services.SaveComponents
         // Квота.
         public QuotaRuntimeData currentQuota;
         // Задание.
-        public TaskDef availableTask;
+        public TaskDefData availableTask;
         public TaskRuntimeData currentTask;
         public TotalTaskResultData lastTaskResult;
         
@@ -42,7 +42,8 @@ namespace Services.SaveComponents
             currentQuota = new QuotaRuntimeData();
             currentQuota.SetDataFromQuotaRuntime(OfficeRuntime.Instance.CurrentQuota);
             
-            availableTask = OfficeRuntime.Instance.AvailableTask;
+            availableTask = new TaskDefData();
+            availableTask.SetDataFromTaskDef(OfficeRuntime.Instance.AvailableTask);
 
             currentTask = new TaskRuntimeData();
             currentTask.SetDataFromTaskRuntime(OfficeRuntime.Instance.CurrentTask);

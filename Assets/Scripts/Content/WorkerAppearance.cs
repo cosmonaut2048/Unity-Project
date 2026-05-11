@@ -16,6 +16,7 @@ namespace Content
         [Header("Dialogue data")]
         [SerializeField] private DialogueProfile dialogueProfile;
 
+        public string AppearanceName => name;
         public string WorkerName => workerName;
         public Sprite PortraitSprite => portraitSprite;
         public Sprite FullBodySprite => fullBodySprite;

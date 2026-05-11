@@ -33,6 +33,10 @@ namespace Core.DayLogic.DayStart
                 }
             }
             
+            // Очищаем состояние офиса.
+            OfficeRuntime.Instance.SetCoffeeConsumedToday(0);
+            OfficeRuntime.Instance.SetCoffeeObtainedToday(0);
+            OfficeRuntime.Instance.SetBreakVouchersUsedToday(0);
             
             // Обновляем состояние квоты.
             dayStartCalculator.OnDayStartQuota();

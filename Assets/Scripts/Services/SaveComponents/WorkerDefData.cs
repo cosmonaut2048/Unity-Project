@@ -7,25 +7,35 @@ namespace Services.SaveComponents
     [System.Serializable]
     public class WorkerDefData
     {
-        public WorkerAppearance appearance;
+        public string appearanceName;
         
         public int basePatience;
         public int baseSocial;
         public int baseIntellectual;
         public int basePhysical;
         
-        public List<TraitDef> personalityTraits;
+        public List<TraitDefData> personalityTraits;
 
         public void SetDataFromWorkerDef([CanBeNull] WorkerDef worker)
         {
             if (!worker) return;
             
-            appearance = worker.Appearance;
+            appearanceName = worker.Appearance ? worker.Appearance.name : "";
             basePatience = worker.BasePatience;
             baseSocial = worker.BaseSocial;
             baseIntellectual = worker.BaseIntellectual;
             basePhysical = worker.BasePhysical;
-            personalityTraits = worker.PersonalityTraits;
+            
+            personalityTraits = new List<TraitDefData>();
+            if (worker.PersonalityTraits != null)
+            {
+                foreach (var trait in worker.PersonalityTraits)
+                {
+                    var traitData = new TraitDefData();
+                    traitData.SetDataFromTraitDef(trait);
+                    personalityTraits.Add(traitData);
+                }
+            }
         }
     }
 }
